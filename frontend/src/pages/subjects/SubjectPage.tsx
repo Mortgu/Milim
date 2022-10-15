@@ -1,7 +1,13 @@
 import ButtonGroup from "../../components/elements/ButtonGroup/ButtonGroup";
 import {Outlet} from "react-router-dom";
+import {useEffect} from "react";
 
-const SubjectPage = () => {
+const SubjectPage = ({setShowNavigation}: any) => {
+
+    useEffect(() => {
+        setShowNavigation(true);
+    }, []);
+
     return (
         <div>
             <section className="section">

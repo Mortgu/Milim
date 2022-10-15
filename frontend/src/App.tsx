@@ -25,8 +25,8 @@ function App() {
             <div className="app">
                 <Routes>
                     <Route path="/" element={user ? <IndexPage setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}></Route>
-                    <Route path="/subjects" element={user ? <SubjectPage/> : <LoginPage setShowNavigation={setShowNavigation} />}></Route>
-                    <Route path="/subjects/:subject" element={user ? <SubjectSubpage /> : <LoginPage setShowNavigation={setShowNavigation} />}></Route>
+                    <Route path="/subjects" element={user ? <SubjectPage setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}></Route>
+                    <Route path="/subjects/:subject" element={user ? <SubjectSubpage setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}></Route>
                     <Route path="*" element={!user ? <LoginPage setShowNavigation={setShowNavigation} /> : <Navigate to="/" />}></Route>
                 </Routes>
             </div>
