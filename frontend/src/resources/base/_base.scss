@@ -21,3 +21,20 @@ body {
 .app {
   margin: 40px 40px 40px calc(72px + 40px);
 }
+
+.section {
+  .section-separator {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+
+    p {
+      color: rgba(255, 255, 255, .6);
+      font-size: 16px;
+      font-weight: normal;
+    }
+  }
+
+  .section-content {
+    margin: 40px 0;
+  }
+}

@@ -17,7 +17,7 @@ const Navigation = () => {
                 <NavLink end to="/" className={({isActive}) => (isActive ? 'navigation-item active' : 'navigation-item')}>
                     <DiscoverIcon />
                 </NavLink>
-                <NavLink to="/test" className={({isActive}) => (isActive ? 'navigation-item active' : 'navigation-item')}>
+                <NavLink to="/subjects" className={({isActive}) => (isActive ? 'navigation-item active' : 'navigation-item')}>
                     <DescriptionIcon />
                 </NavLink>
             </div>

@@ -1,0 +1,54 @@
+@import '../../abstract/variables';
+
+.button {
+    border: none;
+    outline: none;
+    color: white;
+    border-radius: 5px;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    line-height: normal;
+    cursor: pointer;
+    background: rgba(255, 255, 255, .1);
+
+    padding: .8rem 1rem;
+
+    width: 100%;
+
+    font-weight: 500;
+
+    transition: all 200ms;
+
+    &-link {
+        padding: 0;
+        width: auto !important;
+        font-size: 16px;
+
+        height: fit-content;
+        background: transparent;
+
+        text-decoration: underline;
+    }
+
+    &-white {
+        background: white;
+        color: black;
+
+        &:hover {
+            background: #f4f4f4;
+            transition: all 200ms;
+        }
+    }
+}
+
+.form-submit {
+    padding: 0;
+    height: 45px;
+
+    background: map-get($colors, 'primary');
+
+    &:hover {
+        background: darken(map-get($colors, 'primary'), 10);
+        transition: all 200ms;
+    }
+}
