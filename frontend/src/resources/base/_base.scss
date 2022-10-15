@@ -1,0 +1,17 @@
+@import "../abstract/mixins";
+@import "../abstract/variables";
+
+html, body {
+  margin: 0;
+  padding: 0;
+
+  scroll-behavior: smooth;
+}
+
+body {
+  background: map-get($colors, "background");
+}
+
+* {
+  box-sizing: border-box;
+}

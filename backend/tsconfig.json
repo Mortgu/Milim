@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "CommonJS",
+        "outDir": "dist/js",
+        "rootDir": "src",
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "lib": ["ES2021.String"]
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "src/types/*.ts",
+        "node_modules",
+        ".vscode"
+    ]
+}
