@@ -1,0 +1,91 @@
+@import "../../../resources/abstract/mixins";
+@import "../../../resources/abstract/variables";
+
+.navigation {
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  width: 72px;
+  height: 100%;
+
+  border-right: 1px solid rgba(255, 255, 255, .05);
+
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+  align-items: center;
+
+  grid-gap: 12px;
+
+  padding: 12px 0;
+
+  .navigation-section-separator {
+    width: 50%;
+    height: 2px;
+
+    background: rgba(255, 255, 255, .05);
+    border: none;
+  }
+
+  .navigation-item {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0);
+    transition: all 200ms;
+
+    svg {
+      color: rgba(255, 255, 255, .7);
+
+      transition: all 200ms;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background: rgba(255, 255, 255, .05);
+
+      transition: all 200ms;
+    }
+
+    &.active {
+      cursor: pointer;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .05);
+
+      transition: all 200ms;
+
+      svg {
+        color: white;
+
+        transition: all 200ms;
+      }
+    }
+  }
+
+  .navigation-head {
+    .head-logo-text {
+      font-size: 22px;
+      font-weight: 600;
+    }
+  }
+
+  .navigation-body {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    grid-gap: 10px;
+  }
+
+  .navigation-footer {}
+}

@@ -1,15 +1,25 @@
 import React from 'react';
 
-import Navigation from "./components/widgets/Navigation/Navigation";
-
 import "./resources/App.scss";
 
+import {Route, Routes} from "react-router-dom";
+
+import IndexPage from "./pages/index/IndexPage";
+
+import Navigation from "./components/widgets/Navigation/Navigation";
+
 function App() {
-  return (
-      <>
-        <Navigation />
-      </>
-  );
+    return (
+        <React.Fragment>
+            <Navigation/>
+
+            <div className="app">
+                <Routes>
+                    <Route path="/" element={<IndexPage/>}></Route>
+                </Routes>
+            </div>
+        </React.Fragment>
+    );
 }
 
 export default App;

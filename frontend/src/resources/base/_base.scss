@@ -1,6 +1,8 @@
 @import "../abstract/mixins";
 @import "../abstract/variables";
 
+@import "typographie";
+
 html, body {
   margin: 0;
   padding: 0;
@@ -14,4 +16,8 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+.app {
+  margin: 40px 40px 40px calc(72px + 40px);
 }
