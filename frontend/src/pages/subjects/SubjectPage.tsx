@@ -9,7 +9,7 @@ const SubjectPage = ({setShowNavigation}: any) => {
     }, []);
 
     return (
-        <div>
+        <div className="page">
             <section className="section">
                 <div className="section-content">
                     <ButtonGroup />

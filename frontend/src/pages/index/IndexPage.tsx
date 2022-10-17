@@ -6,7 +6,9 @@ const IndexPage = ({setShowNavigation}: any) => {
     }, []);
 
     return (
-        <p>index</p>
+        <div className="page">
+            <p>index</p>
+        </div>
     )
 }
 

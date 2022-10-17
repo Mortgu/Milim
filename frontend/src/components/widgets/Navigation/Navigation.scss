@@ -39,9 +39,11 @@
     align-items: center;
     justify-content: center;
 
-    border-radius: 12px;
+    border-radius: 50px;
     border: 1px solid rgba(255, 255, 255, 0);
     transition: all 200ms;
+
+    background: rgba(255, 255, 255, 0.05);
 
     svg {
       color: rgba(255, 255, 255, .7);
@@ -61,6 +63,7 @@
       background: rgba(255, 255, 255, .05);
       border: 1px solid rgba(255, 255, 255, .05);
 
+      border-radius: 12px;
       transition: all 200ms;
 
       svg {

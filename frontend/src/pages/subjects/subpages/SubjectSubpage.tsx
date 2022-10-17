@@ -1,5 +1,6 @@
 import {useParams} from "react-router-dom";
 import {useEffect} from "react";
+import Sidebar from "../../../components/widgets/Sidebar/Sidebar";
 
 const SubjectSubpage = ({setShowNavigation}: any) => {
     const { subject } = useParams();
@@ -9,7 +10,7 @@ const SubjectSubpage = ({setShowNavigation}: any) => {
     }, []);
 
     return (
-        <>{subject}</>
+        <Sidebar title={subject} />
     );
 }
 
