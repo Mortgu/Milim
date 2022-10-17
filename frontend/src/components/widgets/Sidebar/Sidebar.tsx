@@ -2,8 +2,9 @@ import "./Sidebar.scss";
 
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import SearchIcon from "@material-ui/icons/Search";
+import {Link, NavLink} from "react-router-dom";
 
-const Sidebar = ({ title, text }: any) => {
+const Sidebar = ({title, text}: any) => {
     return (
         <div className="sidebar">
             <div className="sidebar-head">
@@ -16,9 +17,9 @@ const Sidebar = ({ title, text }: any) => {
             <div className="sidebar-ctas">
                 <div className="input search-input">
                     <div className="icon">
-                        <SearchIcon />
+                        <SearchIcon/>
                     </div>
-                    <input type="text" placeholder="Search..." />
+                    <input type="text" placeholder="Search..."/>
                 </div>
                 <button className="button button-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24"
@@ -31,6 +32,19 @@ const Sidebar = ({ title, text }: any) => {
                         </g>
                     </svg>
                 </button>
+            </div>
+            <div className="sidebar-content">
+                <NavLink end to="/subjects/german/" className={({isActive}) => (isActive ? 'entry-sidebar-card active' : 'entry-sidebar-card')}>
+                    <h3 className="entry-title"> Hier steht der Title des Eintrags.</h3>
+                    <p className="entry-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At</p>
+                </NavLink>
+
+                <NavLink to="/subjects/german/2" className="entry-sidebar-card">
+                    <h3 className="entry-title"> Hier steht der Title des Eintrags.</h3>
+                    <p className="entry-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At</p>
+                </NavLink>
             </div>
         </div>
     )

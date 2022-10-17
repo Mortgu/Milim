@@ -32,21 +32,20 @@
   }
 
   .navigation-item {
-    width: 48px;
-    height: 48px;
+    width: 42px;
+    height: 42px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border-radius: 50px;
+    border-radius: 5px;
     border: 1px solid rgba(255, 255, 255, 0);
     transition: all 200ms;
 
-    background: rgba(255, 255, 255, 0.05);
-
     svg {
       color: rgba(255, 255, 255, .7);
+      width: 20px;
 
       transition: all 200ms;
     }
@@ -61,9 +60,7 @@
     &.active {
       cursor: pointer;
       background: rgba(255, 255, 255, .05);
-      border: 1px solid rgba(255, 255, 255, .05);
 
-      border-radius: 12px;
       transition: all 200ms;
 
       svg {
