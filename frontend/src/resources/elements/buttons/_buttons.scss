@@ -6,18 +6,31 @@
     color: white;
     border-radius: 5px;
     font-family: "Roboto", sans-serif;
-    font-size: 15px;
+    font-size: 14px;
+    font-weight: 500;
     line-height: normal;
     cursor: pointer;
     background: rgba(255, 255, 255, .1);
 
-    padding: .8rem 1rem;
+    padding: .7rem 1rem;
 
-    width: 100%;
+    width: fit-content;
 
-    font-weight: 500;
 
     transition: all 200ms;
+
+    &-primary {
+        background: map-get($colors, 'primary');
+        transition: all 200ms;
+
+        color: rgba(255, 255, 255, .8);
+
+        &:hover {
+            color: white;
+            background: darken(map-get($colors, 'primary'), 10);
+            transition: all 200ms;
+        }
+    }
 
     &-link {
         padding: 0;
@@ -37,6 +50,36 @@
         &:hover {
             background: #f4f4f4;
             transition: all 200ms;
+        }
+    }
+
+    &-icon {
+        width: fit-content;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: .5rem;
+
+        transition: all 200ms;
+
+        svg {
+            width: 20px;
+            height: 20px;
+
+            fill: rgba(255, 255, 255, .7);
+            transition: all 200ms;
+        }
+
+        &:hover {
+            background: rgba(255, 255, 255, .15);
+            transition: all 200ms;
+
+            svg {
+                fill: rgba(255, 255, 255, 1);
+                transition: all 200ms;
+            }
         }
     }
 }

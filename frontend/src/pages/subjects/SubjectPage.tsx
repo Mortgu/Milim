@@ -21,7 +21,6 @@ const SubjectPage = ({setShowNavigation}: any) => {
                 </div>
                 <div className="section-content"></div>
             </section>
-            <Outlet />
         </div>
     )
 }

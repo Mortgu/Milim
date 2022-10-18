@@ -22,7 +22,7 @@ const Sidebar = ({title, text}: any) => {
                     <input type="text" placeholder="Search..."/>
                 </div>
                 <button className="button button-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24"
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24"
                          viewBox="0 0 24 24" width="24">
                         <g>
                             <path d="M0,0h24 M24,24H0" fill="none"/>
@@ -34,7 +34,7 @@ const Sidebar = ({title, text}: any) => {
                 </button>
             </div>
             <div className="sidebar-content">
-                <NavLink end to="/subjects/german/" className={({isActive}) => (isActive ? 'entry-sidebar-card active' : 'entry-sidebar-card')}>
+                <NavLink end to="/subjects/german/1" className={({isActive}) => (isActive ? 'entry-sidebar-card active' : 'entry-sidebar-card')}>
                     <h3 className="entry-title"> Hier steht der Title des Eintrags.</h3>
                     <p className="entry-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
                         ut labore et dolore magna aliquyam erat, sed diam voluptua. At</p>
