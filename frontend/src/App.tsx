@@ -15,6 +15,7 @@ import EntrySubpage from "./pages/subjects/subpages/EntrySubpage";
 import Sidebar from "./components/widgets/Sidebar/Sidebar";
 import Organisation from "./pages/organisation/Organisation";
 import OrganisationMembers from "./pages/organisation/subpages/Members";
+import OrganisationDrafts from "./pages/organisation/subpages/Drafts";
 
 function App() {
     const [showNavigation, setShowNavigation] = useState(true);
@@ -38,6 +39,7 @@ function App() {
                     </Route>
                     <Route path="/organisation" element={user ? <Organisation setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}>
                         <Route path="members" element={user ? <OrganisationMembers setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}></Route>
+                        <Route path="drafts" element={user ? <OrganisationDrafts setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}></Route>
                     </Route>
 
                     <Route path="*" element={!user ? <LoginPage setShowNavigation={setShowNavigation} /> : <Navigate to="/" />}></Route>

@@ -32,6 +32,11 @@ const Sidebar = () => {
                     text="Members"
                     link="/organisation/members"
                 />
+                <SidebarCTA
+                    icon={<NoteIcon className="icon" />}
+                    text="Drafts"
+                    link="/organisation/drafts"
+                />
             </section>
             <div className="sidebar-separator"></div>
             <div className="sidebar-message-box">

@@ -11,7 +11,7 @@ const IndexPage = ({setShowNavigation}: any) => {
             <div className="page-navigation">
                 <div className="page-navigation-items">
                     <NavLink end to="/" className="page-navigation-item">Recently added</NavLink>
-                    <NavLink end to="/deleted" className="page-navigation-item">Recently deleted</NavLink>
+                    <NavLink to="/deleted" className="page-navigation-item">Recently deleted</NavLink>
                 </div>
             </div>
             <div className="page">
