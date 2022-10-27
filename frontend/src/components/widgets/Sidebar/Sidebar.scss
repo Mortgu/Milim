@@ -2,174 +2,87 @@
 @import "../../../resources/abstract/variables";
 
 .sidebar {
-  width: 100%;
-  max-width: 400px;
-  min-width: 400px;
+  width: 240px;
+  height: 100%;
+  border-right: 1px solid map-get($colors, "border-color");
 
-  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 48px;
 
-  border-right: 1px solid rgba(255, 255, 255, .05);
+  .sidebar-separator {
+    height: 1px;
 
-  .sidebar-head {
-    border-bottom: 1px solid rgba(255, 255, 255, .05);
+    background: map-get($colors, 'border-color');
 
-    padding: 0 1rem;
+    margin: 15px 12px;
+  }
 
+  .sidebar-cta {
     width: 100%;
-    height: 70px;
+    height: 32px;
 
     display: flex;
-    align-items: center;
     justify-content: flex-start;
+    align-items: center;
+    grid-gap: 10px;
 
-    grid-gap: 15px;
+    padding: 7px 10px;
 
-    svg {
-      color: rgba(255, 255, 255 , .6);
+    text-decoration: none;
+    color: map-get($colors, "text-color-secondary");
+    transition: all 200ms;
 
-      cursor: pointer;
+    p {
+      font-size: 12px;
+      text-decoration: none;
+      margin: 3px 0;
+      color: map-get($colors, "text-color-secondary");
+
+      user-select: none;
+      transition: all 200ms;
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      user-select: none;
+    }
+
+    &.active {
+      background: map-get($colors, "primary");
+      color: map-get($colors, "text-color-primary");
+
+      p {
+        color: map-get($colors, "text-color-primary");
+        transition: all 200ms;
+      }
+
       transition: all 200ms;
 
       &:hover {
-        color: white;
-        transition: all 200ms;
+        background: darken(map-get($colors, "primary"), 5);
       }
     }
 
-    .head-content {
-      display: grid;
-      grid-gap: 5px;
-
-      .head-title {
-        font-size: 18px;
-        color: rgba(255, 255, 255, .9);
-
-        text-transform: capitalize;
-      }
-
-      .head-text {
-        font-size: 14px;
-        color: rgba(255, 255, 255, .7);
-      }
-    }
-  }
-
-  .sidebar-ctas {
-    border-bottom: 1px solid rgba(255, 255, 255, .05);
-
-    padding: .5rem;
-
-    display: flex;
-    grid-gap: 10px;
-
-    .search-input {
-      background: rgba(255, 255, 255, .05);
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      border-radius: 5px;
-
-      .icon {
-        padding: 0 .5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        border-right: 2px solid rgba(255, 255, 255, .05);
-
-        svg {
-          color: rgba(255, 255, 255, .5);
-          width: 22px;
-          height: 22px;
-        }
-      }
-
-      input {
-        background: transparent;
-        padding: 0 .8rem;
-        border: none;
-        outline: none;
-        width: 100%;
-        color: white;
-
-        height: 40px;
-
-        font-size: 15px;
-        font-weight: 400;
-      }
-    }
-
-    .button-icon {
-      background: rgba(255, 255, 255, .05);
-
-      min-width: 40px;
-      max-width: 40px;
-      width: 100%;
-
-      height: 40px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 0;
-
-      svg {
-        width: 20px;
-        fill: rgba(255, 255, 255, .7);
-        transition: all 200ms;
-      }
-
-      &:hover {
-        background: rgba(255, 255, 255, .1);
-
-        svg {
-          fill: rgba(255, 255, 255, 1);
-          transition: all 200ms;
-        }
-      }
-    }
-  }
-
-  .sidebar-content {
-    padding: 1rem;
-    display: grid;
-    grid-gap: 10px;
-
-    .entry-sidebar-card {
-      display: grid;
-      grid-gap: 5px;
-
-      padding: 1rem;
-
-      border-radius: 5px;
-      text-decoration: none;
+    &:hover {
       cursor: pointer;
+      background: map-get($colors, "border-color");
+      color: map-get($colors, "text-hover");
 
-      &:hover, &.active {
-        background: rgba(255, 255, 255, .05);
+      p {
+        color: map-get($colors, "text-hover");
         transition: all 200ms;
       }
 
-      .entry-title {
-        font-weight: 400;
-        line-height: 22px;
-        font-size: 18px;
-      }
+      transition: all 200ms;
+    }
+  }
 
-      .entry-text {
-        font-weight: 300;
-        line-height: 22px;
-        font-size: 14px;
+  .sidebar-section {
 
-        color: rgba(255, 255, 255, .7);
-
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
+    &:first-child {
+      margin: 10px 0;
     }
   }
 }

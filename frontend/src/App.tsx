@@ -12,6 +12,7 @@ import SubjectSubpage from "./pages/subjects/subpages/SubjectSubpage";
 import {useAuthContext} from "./context/AuthContext";
 import LoginPage from "./pages/login/LoginPage";
 import EntrySubpage from "./pages/subjects/subpages/EntrySubpage";
+import Sidebar from "./components/widgets/Sidebar/Sidebar";
 
 function App() {
     const [showNavigation, setShowNavigation] = useState(true);
@@ -21,7 +22,10 @@ function App() {
     return (
         <React.Fragment>
             {showNavigation && (
-                <Navigation />
+                <>
+                    <Navigation />
+                    <Sidebar />
+                </>
             )}
             <div className="app">
                 <Routes>
