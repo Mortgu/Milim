@@ -1,5 +1,3 @@
-import ButtonGroup from "../../components/elements/ButtonGroup/ButtonGroup";
-import {Outlet} from "react-router-dom";
 import {useEffect} from "react";
 
 const SubjectPage = ({setShowNavigation}: any) => {
@@ -17,11 +15,6 @@ const SubjectPage = ({setShowNavigation}: any) => {
                 <div className="section-content"></div>
             </div>
             <div className="page">
-                <section className="section">
-                    <div className="section-content">
-                        <ButtonGroup />
-                    </div>
-                </section>
             </div>
         </div>
     )
