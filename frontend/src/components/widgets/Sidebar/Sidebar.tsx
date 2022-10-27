@@ -2,10 +2,10 @@ import "./Sidebar.scss";
 import {NavLink} from "react-router-dom";
 
 import ClockIcon from "@material-ui/icons/Schedule";
-import NoteIcon from "@material-ui/icons/NoteOutlined";
-import AddIcon from "@material-ui/icons/Add";
 import PersonIcon from "@material-ui/icons/PersonOutlined";
 import OrganisationIcon from "@material-ui/icons/HouseOutlined";
+import SidebarCTA from "./elements/SidebarCTA";
+import NoteIcon from "@material-ui/icons/NoteOutlined";
 
 const Sidebar = () => {
     return (
@@ -15,14 +15,11 @@ const Sidebar = () => {
                     <ClockIcon className="icon" />
                     <p>Recents</p>
                 </NavLink>
-                <NavLink to="/subjects" data-active="false" className="sidebar-cta">
-                    <NoteIcon className="icon" />
-                    <p>Drafts</p>
-                    <div className="on-hover-cta">
-                        <AddIcon className="icon" />
-                    </div>
-                    <div className="dropdown" data-open="false"></div>
-                </NavLink>
+                <SidebarCTA
+                    icon={<NoteIcon className="icon" />}
+                    text="Drafts"
+                    link="/subjects"
+                />
             </section>
             <div className="sidebar-separator"></div>
             <section className="sidebar-section">
@@ -30,13 +27,11 @@ const Sidebar = () => {
                     <OrganisationIcon className="icon" />
                     <p>Organisation</p>
                 </NavLink>
-                <NavLink to="/members" className="sidebar-cta">
-                    <PersonIcon className="icon" />
-                    <p>Members</p>
-                    <div className="on-hover-cta">
-                        <AddIcon className="icon" />
-                    </div>
-                </NavLink>
+                <SidebarCTA
+                    icon={<PersonIcon className="icon" />}
+                    text="Members"
+                    link="/members"
+                />
             </section>
         </div>
     )
