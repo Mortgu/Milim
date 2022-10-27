@@ -19,7 +19,7 @@
   }
 
   .sidebar-message-box {
-    background: lighten(map-get($colors, 'background'), 5);
+    background: rgba(map-get($colors, 'primary'), .5);
 
     height: auto;
 

@@ -27,7 +27,7 @@
 
         &:hover {
             color: map-get($colors, "text-color-primary");
-            background: darken(map-get($colors, 'primary'), 10);
+            background: lighten(map-get($colors, 'primary'), 3);
             transition: all 200ms;
         }
     }

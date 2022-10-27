@@ -1,4 +1,5 @@
 import React, {useEffect} from "react";
+import {NavLink} from "react-router-dom";
 
 const IndexPage = ({setShowNavigation}: any) => {
     useEffect(() => {
@@ -7,11 +8,11 @@ const IndexPage = ({setShowNavigation}: any) => {
 
     return (
         <React.Fragment>
-            <div className="section">
-                <div className="section-separator">
-                    <p>Recently added</p>
+            <div className="page-navigation">
+                <div className="page-navigation-items">
+                    <NavLink end to="/" className="page-navigation-item">Recently added</NavLink>
+                    <NavLink end to="/deleted" className="page-navigation-item">Recently deleted</NavLink>
                 </div>
-                <div className="section-content"></div>
             </div>
             <div className="page">
             </div>

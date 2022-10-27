@@ -23,20 +23,20 @@ const Sidebar = () => {
             </section>
             <div className="sidebar-separator"></div>
             <section className="sidebar-section">
-                <NavLink to="/organisation" className="sidebar-cta">
+                <NavLink end to="/organisation" className="sidebar-cta">
                     <OrganisationIcon className="icon" />
                     <p>Organisation</p>
                 </NavLink>
                 <SidebarCTA
                     icon={<PersonIcon className="icon" />}
                     text="Members"
-                    link="/members"
+                    link="/organisation/members"
                 />
             </section>
             <div className="sidebar-separator"></div>
             <div className="sidebar-message-box">
                 <p className="message-box-text">
-                    Join or create a Organization to connect with your Team and manage your Drafts
+                    Join or create a Organization to connect with your Team and manage your Drafts together.
                 </p>
                 <div className="message-box-ctas">
                     <button className="button button-primary">Join</button>

@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 
 const SubjectPage = ({setShowNavigation}: any) => {
 
@@ -8,11 +8,10 @@ const SubjectPage = ({setShowNavigation}: any) => {
 
     return (
         <div className="">
-            <div className="section">
-                <div className="section-separator">
-                    <p>Drafts</p>
+            <div className="page-navigation">
+                <div className="page-navigation-items">
+                    <p className="page-navigation-item active">Drafts</p>
                 </div>
-                <div className="section-content"></div>
             </div>
             <div className="page">
             </div>

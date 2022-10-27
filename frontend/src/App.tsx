@@ -13,6 +13,8 @@ import {useAuthContext} from "./context/AuthContext";
 import LoginPage from "./pages/login/LoginPage";
 import EntrySubpage from "./pages/subjects/subpages/EntrySubpage";
 import Sidebar from "./components/widgets/Sidebar/Sidebar";
+import Organisation from "./pages/organisation/Organisation";
+import OrganisationMembers from "./pages/organisation/subpages/Members";
 
 function App() {
     const [showNavigation, setShowNavigation] = useState(true);
@@ -33,6 +35,9 @@ function App() {
                     <Route path="/subjects" element={user ? <SubjectPage setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}></Route>
                     <Route path="/subjects/:subject" element={user ? <SubjectSubpage setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}>
                         <Route path=":entry" element={user ? <EntrySubpage setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}></Route>
+                    </Route>
+                    <Route path="/organisation" element={user ? <Organisation setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}>
+                        <Route path="members" element={user ? <OrganisationMembers setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}></Route>
                     </Route>
 
                     <Route path="*" element={!user ? <LoginPage setShowNavigation={setShowNavigation} /> : <Navigate to="/" />}></Route>

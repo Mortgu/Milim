@@ -21,8 +21,6 @@ const SidebarCTA = ({icon, text, link}: any) => {
 
     const ref = useOutsideClick(hideDropdown);
 
-    console.log(ref)
-
     return (
         <NavLink ref={ref} to={link} data-active={dropdownIsOpen} className="sidebar-cta">
             {icon}
