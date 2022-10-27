@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 
 const IndexPage = ({setShowNavigation}: any) => {
     useEffect(() => {
@@ -6,9 +6,16 @@ const IndexPage = ({setShowNavigation}: any) => {
     }, []);
 
     return (
-        <div className="page">
-            <p>index</p>
-        </div>
+        <React.Fragment>
+            <div className="section">
+                <div className="section-separator">
+                    <p>Recently added</p>
+                </div>
+                <div className="section-content"></div>
+            </div>
+            <div className="page">
+            </div>
+        </React.Fragment>
     )
 }
 

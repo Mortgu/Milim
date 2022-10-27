@@ -20,17 +20,21 @@ body {
 }
 
 .app {
-  margin: calc(48px + 30px) 0 0 calc(240px + 30px);
+  margin: 48px 0 0 240px;
+}
+
+.page {
+  margin: 30px 30px;
 }
 
 .section {
   .section-separator {
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid map-get($colors, "border-color");
 
     p {
-      color: rgba(255, 255, 255, .6);
-      font-size: 16px;
+      color: map-get($colors, "text-color-primary");
+      font-size: 14px;
       font-weight: normal;
     }
   }

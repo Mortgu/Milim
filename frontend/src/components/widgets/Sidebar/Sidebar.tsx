@@ -3,6 +3,7 @@ import {NavLink} from "react-router-dom";
 
 import ClockIcon from "@material-ui/icons/Schedule";
 import NoteIcon from "@material-ui/icons/NoteOutlined";
+import AddIcon from "@material-ui/icons/Add";
 
 const Sidebar = () => {
     return (
@@ -15,6 +16,9 @@ const Sidebar = () => {
                 <NavLink to="/subjects" className="sidebar-cta">
                     <NoteIcon className="icon" />
                     <p>Drafts</p>
+                    <div className="on-hover-cta">
+                        <AddIcon className="icon" />
+                    </div>
                 </NavLink>
             </section>
             <div className="sidebar-separator"></div>

@@ -41,6 +41,31 @@
 
       user-select: none;
       transition: all 200ms;
+
+      width: 100%;
+    }
+
+    .on-hover-cta {
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      .icon {
+        width: 20px;
+        height: 20px;
+        color: map-get($colors, "text-color-secondary");
+      }
+
+      &:hover {
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 200ms;
+
+        .icon {
+          color: map-get($colors, "text-color-primary");
+          transition: all 200ms;
+        }
+      }
     }
 
     .icon {
@@ -73,6 +98,10 @@
       p {
         color: map-get($colors, "text-hover");
         transition: all 200ms;
+      }
+
+      .on-hover-cta {
+        display: flex;
       }
 
       transition: all 200ms;

@@ -9,18 +9,20 @@ const SubjectPage = ({setShowNavigation}: any) => {
     }, []);
 
     return (
-        <div className="page">
-            <section className="section">
-                <div className="section-content">
-                    <ButtonGroup />
-                </div>
-            </section>
-            <section className="section">
+        <div className="">
+            <div className="section">
                 <div className="section-separator">
-                    <p>Kürzlich hinzugefügt</p>
+                    <p>Drafts</p>
                 </div>
                 <div className="section-content"></div>
-            </section>
+            </div>
+            <div className="page">
+                <section className="section">
+                    <div className="section-content">
+                        <ButtonGroup />
+                    </div>
+                </section>
+            </div>
         </div>
     )
 }
