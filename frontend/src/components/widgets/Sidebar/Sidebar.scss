@@ -35,6 +35,28 @@
     color: map-get($colors, "text-color-secondary");
     transition: all 200ms;
 
+    &[data-active="true"] {
+      cursor: pointer;
+      background: map-get($colors, "border-color");
+      transition: all 200ms;
+
+      .icon {
+        color: map-get($colors, "text-color-primary");
+        transition: all 200ms;
+      }
+
+      .on-hover-cta {
+        opacity: 1;
+        transition: all 300ms;
+        background: map-get($colors, "border-color");
+
+        .icon {
+          color: map-get($colors, "text-color-primary");
+          transition: all 200ms;
+        }
+      }
+    }
+
     p {
       font-size: 12px;
       text-decoration: none;

@@ -15,12 +15,13 @@ const Sidebar = () => {
                     <ClockIcon className="icon" />
                     <p>Recents</p>
                 </NavLink>
-                <NavLink to="/subjects" className="sidebar-cta">
+                <NavLink to="/subjects" data-active="false" className="sidebar-cta">
                     <NoteIcon className="icon" />
                     <p>Drafts</p>
                     <div className="on-hover-cta">
                         <AddIcon className="icon" />
                     </div>
+                    <div className="dropdown" data-open="false"></div>
                 </NavLink>
             </section>
             <div className="sidebar-separator"></div>
