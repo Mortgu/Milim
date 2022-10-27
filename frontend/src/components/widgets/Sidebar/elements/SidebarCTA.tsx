@@ -13,7 +13,6 @@ const SidebarCTA = ({icon, text, link}: any) => {
 
     const handleAddButton = (event: any) => {
         setDropdownIsOpen(true);
-
     }
 
     const hideDropdown = () => {

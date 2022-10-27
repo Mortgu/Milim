@@ -33,6 +33,16 @@ const Sidebar = () => {
                     link="/members"
                 />
             </section>
+            <div className="sidebar-separator"></div>
+            <div className="sidebar-message-box">
+                <p className="message-box-text">
+                    Join or create a Organization to connect with your Team and manage your Drafts
+                </p>
+                <div className="message-box-ctas">
+                    <button className="button button-primary">Join</button>
+                    <button className="button button-secondary">Create</button>
+                </div>
+            </div>
         </div>
     )
 }

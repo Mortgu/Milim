@@ -23,11 +23,23 @@
         background: map-get($colors, 'primary');
         transition: all 200ms;
 
-        color: rgba(255, 255, 255, .8);
+        color: map-get($colors, "text-color-primary");
 
         &:hover {
-            color: white;
+            color: map-get($colors, "text-color-primary");
             background: darken(map-get($colors, 'primary'), 10);
+            transition: all 200ms;
+        }
+    }
+
+    &-secondary {
+        transition: all 200ms;
+
+        color: map-get($colors, "text-color-secondary");
+
+        &:hover {
+            color: map-get($colors, "text-color-primary");
+            background: rgba(255, 255, 255, .2);
             transition: all 200ms;
         }
     }
