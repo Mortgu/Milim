@@ -6,7 +6,7 @@ import SendIcon from "@material-ui/icons/Send";
 
 import {useClickHook} from "../../../../hooks/useClickHook";
 
-const SidebarCTA = ({icon, text, link}: any) => {
+const SidebarCTA = ({icon, text, link, children}: any) => {
     const { useOutsideClick } = useClickHook();
 
     const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
@@ -29,12 +29,7 @@ const SidebarCTA = ({icon, text, link}: any) => {
                 <AddIcon className="icon" />
             </div>
             <div className="dropdown" data-open={dropdownIsOpen}>
-                <div className="input-buttonIcon">
-                    <input  ref={input => input && input.focus()}  className="input" type="text" placeholder="Enter Name..." />
-                    <button>
-                        <SendIcon />
-                    </button>
-                </div>
+                {children}
             </div>
         </NavLink>
     )

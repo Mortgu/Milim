@@ -7,6 +7,8 @@ import OrganisationIcon from "@material-ui/icons/HouseOutlined";
 import SidebarCTA from "./elements/SidebarCTA";
 import NoteIcon from "@material-ui/icons/NoteOutlined";
 import { MODAL_TYPES, useGlobalModalContext } from "../Models/GlobalModal";
+import AddMemberDropdown from "./elements/dropdowns/AddMemberDropdown";
+import AddDraftDropdown from "./elements/dropdowns/AddDraftDropdown";
 
 const Sidebar = () => {
     const {showModal} = useGlobalModalContext();
@@ -27,7 +29,7 @@ const Sidebar = () => {
                     icon={<NoteIcon className="icon" />}
                     text="Drafts"
                     link="/subjects"
-                />
+                >{AddDraftDropdown()}</SidebarCTA>
             </section>
             <div className="sidebar-separator"></div>
             <section className="sidebar-section">
@@ -36,15 +38,15 @@ const Sidebar = () => {
                     <p>Organisation</p>
                 </NavLink>
                 <SidebarCTA
-                    icon={<PersonIcon className="icon" />}
-                    text="Members"
-                    link="/organisation/members"
-                />
-                <SidebarCTA
                     icon={<NoteIcon className="icon" />}
                     text="Drafts"
                     link="/organisation/drafts"
-                />
+                >{AddDraftDropdown()}</SidebarCTA>
+                <SidebarCTA
+                    icon={<PersonIcon className="icon" />}
+                    text="Members"
+                    link="/organisation/members"
+                >{AddMemberDropdown()}</SidebarCTA>
             </section>
             <div className="sidebar-separator"></div>
             <div className="sidebar-message-box">
