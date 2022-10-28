@@ -1,0 +1,152 @@
+@import "../../../resources/abstract/variables";
+@import "../../../resources/abstract/mixins";
+
+.modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    pointer-events: auto;
+    transition: all 200ms;
+    z-index: 1001;
+
+    .modal-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100vw;
+        height: 100vh;
+
+        backdrop-filter: blur(2px) brightness(.6);
+    }
+
+    &.fadeOut {
+        .modal {
+            animation: zoom-out 150ms ease-out forwards;
+
+            @keyframes zoom-out {
+                from {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+
+                to {
+                    transform: scale(0.95);
+                    opacity: 0;
+                }
+            }
+        }
+
+        .modal-background {
+            animation: fade-out 150ms ease-out forwards;
+
+            @keyframes fade-out {
+                from {
+                    backdrop-filter: blur(2px) brightness(.6);
+                }
+
+                to {
+                    backdrop-filter: blur(0) brightness(1);
+                }
+            }
+        }
+    }
+
+    .modal {
+        width: 700px;
+        height: auto;
+
+        background: map-get($colors, 'background');
+        box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+
+        border-radius: 5px;
+
+        margin: auto;
+
+        overflow: hidden;
+
+        animation: zoom-in .15s ease-in-out forwards;
+        transition: all 200ms;
+
+        @include media-down('xs') {
+            height: 100%;
+            border-radius: 0;
+        }
+
+        @keyframes zoom-in {
+            from {
+                transform: scale(0.95);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        &-head {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            width: 100%;
+
+            padding: .3rem;
+
+            .modal-close {
+                border: none;
+
+                border-radius: 5px;
+
+                background: transparent;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                cursor: pointer;
+
+                box-sizing: border-box;
+                padding: .4rem;
+                margin: 0;
+
+                background-color: lighten(map-get($colors, 'background'), 5);
+
+                @include media-down('xs') {
+                    position: relative;
+                }
+
+                .close-icon {
+                    width: 22px;
+                    height: 22px;
+
+                    user-select: none;
+                    color: map-get($colors, "text-color-secondary");
+                    transition: all 200ms;
+
+                    @include media-down('xs') {
+                        color: rgba(0, 0, 0, .8);
+                    }
+                }
+
+                &:hover {
+                    transition: all 200ms;
+
+                    .close-icon {
+                        color: map-get($colors, "text-color-primary");
+                        transition: all 200ms;
+                    }
+                }
+            }
+        }
+
+        &-content {
+            //padding: 1.5rem;
+
+        }
+    }
+}

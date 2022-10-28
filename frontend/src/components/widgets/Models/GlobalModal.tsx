@@ -1,18 +1,17 @@
-import {createContext, useContext, useState} from "react";
+import { createContext, useContext, useState } from "react";
+
+import CloseIcon from "@material-ui/icons/Close";
 
 import "./GlobalModal.scss";
-
+import JoinOrganisationModal from "./components/JoinOrganisationModal";
 
 export const MODAL_TYPES = {
-    LOGIN_MODAL: "LOGIN_MODAL",
-    SIGNUP_MODAL: "SIGNUP_MODAL",
-
-    ADD_ANIME_MODAL: "ADD_ANIME_MODAL",
-
-    SEARCH_MODAL: "SEARCH_MODAL",
+    JOIN_ORGANISATION_MODAL: "JOIN_ORGANISATION_MODAL",
 }
 
-const MODAL_COMPONENTS: any = { }
+const MODAL_COMPONENTS: any = {
+    [MODAL_TYPES.JOIN_ORGANISATION_MODAL]: JoinOrganisationModal,
+}
 
 type T_GlobalModalContext = {
     showModal: (modalType: string, modalProps?: any) => void,
@@ -21,8 +20,8 @@ type T_GlobalModalContext = {
 }
 
 const initialState: T_GlobalModalContext = {
-    showModal: () => {},
-    hideModal: () => {},
+    showModal: () => { },
+    hideModal: () => { },
     store: {},
 }
 
@@ -36,17 +35,17 @@ export const GlobalModal = ({ children }: any) => {
     const [isClosing, setIsClosing] = useState(false);
 
     const showModal = (modalType: string, modalProps: any = {}) => {
-        setStore({...store, modalType, modalProps});
-    } 
+        setStore({ ...store, modalType, modalProps });
+    }
 
     const hideModal = () => {
         setIsClosing(true)
         setTimeout(() => {
-            setStore({...store, modalType: null, modalProps: {}});
+            setStore({ ...store, modalType: null, modalProps: {} });
 
             setIsClosing(false)
         }, 300);
-    } 
+    }
 
     const renderComponent = () => {
         const ModalComponent = MODAL_COMPONENTS[modalType];
@@ -59,10 +58,9 @@ export const GlobalModal = ({ children }: any) => {
                 <div onClick={hideModal} className="modal-background"></div>
                 <div className="modal">
                     <div className="modal-head">
-                        {/*  <h3 className="modal-title">{modalProps.title}</h3>*/}
-                        {/* <button type="button" className="modal-close" onClick={hideModal}>
+                        <button type="button" className="modal-close" onClick={hideModal}>
                             <CloseIcon className="close-icon"></CloseIcon>
-                        </button>*/}
+                        </button>
                     </div>
                     <div className="modal-content">
                         <ModalComponent id="global-modal" {...modalProps} />

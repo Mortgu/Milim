@@ -16,6 +16,7 @@ import Sidebar from "./components/widgets/Sidebar/Sidebar";
 import Organisation from "./pages/organisation/Organisation";
 import OrganisationMembers from "./pages/organisation/subpages/Members";
 import OrganisationDrafts from "./pages/organisation/subpages/Drafts";
+import { GlobalModal } from './components/widgets/Models/GlobalModal';
 
 function App() {
     const [showNavigation, setShowNavigation] = useState(true);
@@ -23,7 +24,7 @@ function App() {
     const { user } = useAuthContext();
 
     return (
-        <React.Fragment>
+        <GlobalModal>
             {showNavigation && (
                 <>
                     <Navigation />
@@ -45,7 +46,7 @@ function App() {
                     <Route path="*" element={!user ? <LoginPage setShowNavigation={setShowNavigation} /> : <Navigate to="/" />}></Route>
                 </Routes>
             </div>
-        </React.Fragment>
+        </GlobalModal>
     );
 }
 

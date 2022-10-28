@@ -6,8 +6,16 @@ import PersonIcon from "@material-ui/icons/PersonOutlined";
 import OrganisationIcon from "@material-ui/icons/HouseOutlined";
 import SidebarCTA from "./elements/SidebarCTA";
 import NoteIcon from "@material-ui/icons/NoteOutlined";
+import { MODAL_TYPES, useGlobalModalContext } from "../Models/GlobalModal";
 
 const Sidebar = () => {
+    const {showModal} = useGlobalModalContext();
+
+    const showJoinOrganisationModal = () => {
+        showModal(MODAL_TYPES.JOIN_ORGANISATION_MODAL, {});
+    }
+
+
     return (
         <div className="sidebar">
             <section className="sidebar-section">
@@ -44,7 +52,7 @@ const Sidebar = () => {
                     Join or create a Organization to connect with your Team and manage your Drafts together.
                 </p>
                 <div className="message-box-ctas">
-                    <button className="button button-primary">Join</button>
+                    <button className="button button-primary" onClick={showJoinOrganisationModal}>Join</button>
                     <button className="button button-secondary">Create</button>
                 </div>
             </div>
