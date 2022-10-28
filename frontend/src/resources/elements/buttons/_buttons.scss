@@ -107,3 +107,29 @@
         transition: all 200ms;
     }
 }
+
+.button-list {
+    display: grid;
+    width: 240px;
+
+    .list-divider {
+        margin: 12px 0;
+
+        height: 1px;
+        background: map-get($colors, 'border-color');
+    }
+
+    .list-button {
+        width: 100%;
+
+        padding: .5rem 1rem;
+
+        background: transparent;
+
+        text-align: left;
+
+        &:hover {
+            background: rgba(255, 255, 255, .05);
+        }
+    }
+}

@@ -33,10 +33,10 @@ const Navigation = () => {
                 <ArrowDownIcon className="arrow-down" />
                 <div className="dropdown" data-open={dropdownIsOpen}>
                     <div className="button-list">
-                        <button className="button button-secondary">Test</button>
-                        <button className="button button-secondary">Test</button>
-                        <button className="button button-secondary">Test</button>
-                        <button className="button button-secondary">Test</button>
+                        <button className="button list-button">Profile</button>
+                        <div className="list-divider"></div>
+                        <button className="button list-button">Settings</button>
+                        <button className="button list-button">Log out</button>
                     </div>
                 </div>
             </div>
