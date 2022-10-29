@@ -4,8 +4,8 @@ import ArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import LogoIcon from '@material-ui/icons/AccountCircle';
 import BellIcon from '@material-ui/icons/NotificationsOutlined';
 import SendIcon from "@material-ui/icons/Send";
-import {useState} from "react";
-import {useClickHook} from "../../../hooks/useClickHook";
+import { useState } from "react";
+import { useClickHook } from "../../../hooks/useClickHook";
 
 const Navigation = () => {
     const { useOutsideClick } = useClickHook();
@@ -24,13 +24,15 @@ const Navigation = () => {
 
     return (
         <div className="navigation">
-            <div ref={ref} className="navigation-left" onClick={handleAddButton}>
-                <LogoIcon className="logo-icon" />
-                <div className="content">
-                    <p className="content-username">Mortis</p>
-                    <p className="content-email">Mortgu.dev@gmail.com</p>
+            <div ref={ref} className="dropdown-wrapper">
+                <div className="navigation-left" onClick={handleAddButton}>
+                    <LogoIcon className="logo-icon" />
+                    <div className="content">
+                        <p className="content-username">Mortis</p>
+                        <p className="content-email">Mortgu.dev@gmail.com</p>
+                    </div>
+                    <ArrowDownIcon className="arrow-down" />
                 </div>
-                <ArrowDownIcon className="arrow-down" />
                 <div className="dropdown" data-open={dropdownIsOpen}>
                     <div className="button-list">
                         <button className="button list-button">Profile</button>
@@ -40,6 +42,7 @@ const Navigation = () => {
                     </div>
                 </div>
             </div>
+
             <div className="navigation-center"></div>
             <div className="navigation-right">
                 <div className="notifications">

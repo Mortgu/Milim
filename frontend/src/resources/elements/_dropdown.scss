@@ -1,6 +1,10 @@
 @import '../abstract/mixins';
 @import '../abstract/variables';
 
+.dropdown-wrapper {
+    position: relative;
+}
+
 .dropdown {
     z-index: 1001;
 
