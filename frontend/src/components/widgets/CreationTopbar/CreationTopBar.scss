@@ -28,6 +28,8 @@
 
     transition: all 200ms;
 
+    user-select: none;
+
     .content-wrapper {
       display: flex;
       align-items: center;
