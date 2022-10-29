@@ -12,7 +12,10 @@ html, body {
 
 body {
   background: map-get($colors, "background");
-  overflow: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 * {

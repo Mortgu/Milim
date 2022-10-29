@@ -8,6 +8,16 @@ const DraftSchema: Schema = new Schema<I_Draft>({
         type: String,
         unique: true,
         default: `unnamed`,
+    },
+    meta: {
+        createdAt: {
+            type: Date,
+            default: Date.now(),
+        },
+        lastUpdatedAt: {
+            type: Date,
+            default: Date.now(),
+        }
     }
 });
 

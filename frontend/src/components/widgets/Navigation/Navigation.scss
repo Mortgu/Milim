@@ -5,6 +5,7 @@
   width: 100%;
   height: 48px;
   border-bottom: 1px solid map-get($colors, "border-color");
+  background: map-get($colors, 'background');
 
   position: fixed;
   left: 0;

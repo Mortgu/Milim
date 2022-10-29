@@ -34,21 +34,6 @@
       align-items: center;
       justify-content: flex-start;
       grid-gap: 20px;
-
-      .titleText {
-        display: grid;
-        grid-gap: 5px;
-
-        .titleText-title {
-          font-size: 15px;
-          color: map-get($colors, 'text-color-primary');
-        }
-
-        .titleText-text {
-          font-size: 13px;
-          color: map-get($colors, 'text-color-secondary');
-        }
-      }
     }
 
     .add-icon {
@@ -61,5 +46,20 @@
       background: map-get($colors, 'hover-color');
       transition: all 200ms;
     }
+  }
+}
+
+.titleText {
+  display: grid;
+  grid-gap: 5px;
+
+  .titleText-title {
+    font-size: 15px;
+    color: map-get($colors, 'text-color-primary');
+  }
+
+  .titleText-text {
+    font-size: 13px;
+    color: map-get($colors, 'text-color-secondary');
   }
 }
