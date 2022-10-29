@@ -20,6 +20,11 @@
   border-radius: 6px;
 
   overflow: hidden;
+  cursor: pointer;
+
+  &:hover {
+
+  }
 
   .file-card-preview {
     height: 200px;

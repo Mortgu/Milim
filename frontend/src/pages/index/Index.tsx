@@ -33,7 +33,11 @@ const Index = ({setShowNavigation}: any) => {
 
     }, []);
 
-    if (loading) return <>Loading...</>;
+    if (loading) return (
+        <div className="loader-wrapper">
+            <div className="loader"></div>
+        </div>
+    );
     if (error) return <>Error!</>;
 
     return (

@@ -2,6 +2,13 @@
 @import "../../../resources/abstract/mixins";
 
 .page-navigation {
+  position: sticky;
+  top: 48px;
+
+  //background: map-get($colors, "background");
+
+  backdrop-filter: blur(2px);
+
   .page-navigation-items {
     display: flex;
     align-items: center;
