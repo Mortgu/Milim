@@ -1,9 +1,9 @@
 import React, {useEffect} from "react";
+import CreationTopBar from "../../components/widgets/CreationTopbar/CreationTopBar";
 import {NavLink} from "react-router-dom";
 import PageNavigation from "../../components/widgets/PageNavigation/PageNavigation";
 
-const Organisation = ({setShowNavigation}: any) => {
-
+const Index = ({setShowNavigation}: any) => {
     useEffect(() => {
         setShowNavigation(true);
     }, []);
@@ -11,12 +11,13 @@ const Organisation = ({setShowNavigation}: any) => {
     return (
         <React.Fragment>
             <PageNavigation>
-                <NavLink end to="/organisation" className="page-navigation-item">Organisation</NavLink>
+                <NavLink end to="/" className="page-navigation-item">Recently viewed</NavLink>
             </PageNavigation>
             <div className="page">
+                <CreationTopBar></CreationTopBar>
             </div>
         </React.Fragment>
     )
 }
 
-export default Organisation;
+export default Index;

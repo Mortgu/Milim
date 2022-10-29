@@ -1,22 +1,25 @@
 import React, {useEffect} from "react";
 import {NavLink} from "react-router-dom";
+
 import PageNavigation from "../../components/widgets/PageNavigation/PageNavigation";
 
-const Organisation = ({setShowNavigation}: any) => {
+const DeletedDrafts = ({setShowNavigation}: any) => {
 
     useEffect(() => {
         setShowNavigation(true);
     }, []);
 
     return (
-        <React.Fragment>
+        <div className="">
             <PageNavigation>
-                <NavLink end to="/organisation" className="page-navigation-item">Organisation</NavLink>
+                <NavLink end to="/drafts" className="page-navigation-item">Drafts</NavLink>
+                <NavLink end to="/drafts/deleted" className="page-navigation-item">Deleted</NavLink>
             </PageNavigation>
             <div className="page">
+                <p>teet</p>
             </div>
-        </React.Fragment>
+        </div>
     )
 }
 
-export default Organisation;
+export default DeletedDrafts;

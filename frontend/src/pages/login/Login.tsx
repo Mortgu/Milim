@@ -1,9 +1,9 @@
 import {useEffect, useState} from "react";
 
-import "./LoginPage.scss";
+import "./Login.scss";
 import {useLogin} from "../../hooks/useLogin";
 
-const LoginPage = ({setShowNavigation}: any) => {
+const Login = ({setShowNavigation}: any) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -50,4 +50,4 @@ const LoginPage = ({setShowNavigation}: any) => {
     )
 }
 
-export default LoginPage;
+export default Login;

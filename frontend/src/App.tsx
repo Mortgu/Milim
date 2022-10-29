@@ -4,19 +4,18 @@ import "./resources/App.scss";
 
 import {Navigate, Route, Routes} from "react-router-dom";
 
-import IndexPage from "./pages/index/IndexPage";
 
 import Navigation from "./components/widgets/Navigation/Navigation";
-import SubjectPage from "./pages/subjects/SubjectPage";
-import SubjectSubpage from "./pages/subjects/subpages/SubjectSubpage";
+import Drafts from "./pages/drafts/Drafts";
 import {useAuthContext} from "./context/AuthContext";
-import LoginPage from "./pages/login/LoginPage";
-import EntrySubpage from "./pages/subjects/subpages/EntrySubpage";
+import Login from "./pages/login/Login";
 import Sidebar from "./components/widgets/Sidebar/Sidebar";
 import Organisation from "./pages/organisation/Organisation";
 import OrganisationMembers from "./pages/organisation/subpages/Members";
 import OrganisationDrafts from "./pages/organisation/subpages/Drafts";
 import { GlobalModal } from './components/widgets/Models/GlobalModal';
+import Index from "./pages/index/Index";
+import DeletedDrafts from "./pages/drafts/DeletedDrafts";
 
 function App() {
     const [showNavigation, setShowNavigation] = useState(true);
@@ -33,17 +32,21 @@ function App() {
             )}
             <div className="app">
                 <Routes>
-                    <Route path="/" element={user ? <IndexPage setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}></Route>
-                    <Route path="/subjects" element={user ? <SubjectPage setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}></Route>
-                    <Route path="/subjects/:subject" element={user ? <SubjectSubpage setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}>
-                        <Route path=":entry" element={user ? <EntrySubpage setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}></Route>
-                    </Route>
-                    <Route path="/organisation" element={user ? <Organisation setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}>
-                        <Route path="members" element={user ? <OrganisationMembers setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}></Route>
-                        <Route path="drafts" element={user ? <OrganisationDrafts setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}></Route>
+                    <Route path="/" element={user ? <Index setShowNavigation={setShowNavigation} /> : <Login setShowNavigation={setShowNavigation} />}></Route>
+
+                    <Route path="/drafts" element={user ? <Drafts setShowNavigation={setShowNavigation} /> : <Login setShowNavigation={setShowNavigation} />}></Route>
+                    <Route path="/drafts/deleted" element={user ? <DeletedDrafts setShowNavigation={setShowNavigation} /> : <Login setShowNavigation={setShowNavigation} />}></Route>
+
+                    <Route path="/organisation" element={user ? <Organisation setShowNavigation={setShowNavigation} /> : <Login setShowNavigation={setShowNavigation} />}></Route>
+                    <Route path="/organisation/members" element={user ? <OrganisationMembers setShowNavigation={setShowNavigation} /> : <Login setShowNavigation={setShowNavigation} />}>
+                        <Route path="settings" element={user ? <OrganisationMembers setShowNavigation={setShowNavigation} /> : <Login setShowNavigation={setShowNavigation} />}></Route>
                     </Route>
 
-                    <Route path="*" element={!user ? <LoginPage setShowNavigation={setShowNavigation} /> : <Navigate to="/" />}></Route>
+                    <Route path="/organisation/drafts" element={user ? <OrganisationDrafts setShowNavigation={setShowNavigation} /> : <Login setShowNavigation={setShowNavigation} />}>
+                        <Route path="settings" element={user ? <OrganisationDrafts setShowNavigation={setShowNavigation} /> : <Login setShowNavigation={setShowNavigation} />}></Route>
+                    </Route>
+
+                    <Route path="*" element={!user ? <Login setShowNavigation={setShowNavigation} /> : <Navigate to="/" />}></Route>
                 </Routes>
             </div>
         </GlobalModal>

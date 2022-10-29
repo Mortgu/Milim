@@ -28,7 +28,7 @@ const Sidebar = () => {
                 <SidebarCTA
                     icon={<NoteIcon className="icon" />}
                     text="Drafts"
-                    link="/subjects"
+                    link="/drafts"
                 >{AddDraftDropdown()}</SidebarCTA>
             </section>
             <div className="sidebar-separator"></div>
