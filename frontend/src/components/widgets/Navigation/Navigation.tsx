@@ -3,11 +3,12 @@ import "./Navigation.scss";
 import ArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import LogoIcon from '@material-ui/icons/AccountCircle';
 import BellIcon from '@material-ui/icons/NotificationsOutlined';
-import SendIcon from "@material-ui/icons/Send";
-import { useState } from "react";
-import { useClickHook } from "../../../hooks/useClickHook";
+import {useState} from "react";
+import {useClickHook} from "../../../hooks/useClickHook";
+import {useAuthContext} from "../../../context/AuthContext";
 
 const Navigation = () => {
+    const { user } = useAuthContext();
     const { useOutsideClick } = useClickHook();
 
     const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
@@ -28,8 +29,8 @@ const Navigation = () => {
                 <div className="navigation-left" onClick={handleAddButton}>
                     <LogoIcon className="logo-icon" />
                     <div className="content">
-                        <p className="content-username">Mortis</p>
-                        <p className="content-email">Mortgu.dev@gmail.com</p>
+                        <p className="content-username">{user?.username || "Username"}</p>
+                        <p className="content-email">{user?.email || "E-Mail"}</p>
                     </div>
                     <ArrowDownIcon className="arrow-down" />
                 </div>

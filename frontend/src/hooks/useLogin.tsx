@@ -20,7 +20,6 @@ export const useLogin = () => {
             body: JSON.stringify({username, password})
         });
 
-        console.log(response)
         const json = await response.json();
 
         if (!response.ok) {

@@ -45,7 +45,10 @@ async function login(user: DocumentDefinition<I_User>): Promise<ReturnData> {
         return {
             status: 201,
             data: {
-                id: foundUser._id, username: foundUser.username, settings: foundUser.settings,
+                id: foundUser._id,
+                username: foundUser.username,
+                email: foundUser.email,
+                settings: foundUser.settings,
                 token
             },
             message: "User was successfully authenticated"
