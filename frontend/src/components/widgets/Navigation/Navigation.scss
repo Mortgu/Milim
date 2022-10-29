@@ -16,6 +16,43 @@
 
   z-index: 1000;
 
+  @include media-down('sm') {
+    display: grid;
+    grid-template-columns: auto auto 1fr auto;
+  }
+
+  .mobile-menu {
+    width: 48px;
+    height: 48px;
+
+    display: none;
+    border-right: 1px solid map-get($colors, "border-color");
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    transition: all 200ms;
+
+    @include media-down('sm') {
+      display: flex;
+    }
+
+    svg {
+      fill: map-get($colors, 'text-color-secondary');
+      transition: all 200ms;
+    }
+
+    &:hover {
+      background: map-get($colors, 'hover-color');
+      transition: all 200ms;
+
+      svg {
+        fill: map-get($colors, 'text-color-primary');
+        transition: all 200ms;
+      }
+    }
+  }
+
   &-left {
     width: 240px;
     height: 100%;
@@ -31,6 +68,10 @@
     transition: all 200ms;
 
     position: relative;
+
+    @include media-down('sm') {
+      display: none;
+    }
 
     .content {
       display: grid;

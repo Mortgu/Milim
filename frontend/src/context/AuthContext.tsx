@@ -2,8 +2,7 @@ import {createContext, useContext, useEffect, useReducer} from "react";
 
 const initialState = {
     state: null,
-    dispatch: () => {
-    }
+    dispatch: () => {}
 }
 
 const AuthContext = createContext<any>(initialState);
@@ -48,17 +47,14 @@ export const AuthContextProvider = ({children}: any) => {
                     headers: {'Authorization': `Bearer ${user.token}`}
                 });
 
-                console.log(response)
-
                 if (response.ok) {
                     return await response.json();
                 } else {
-                    throw new Error("Error");
+                    throw new Error("Authentication failed! Please try again.");
                 }
             }
 
-            authenticateUser().then(data => {
-                console.log('data', data);
+            authenticateUser().then(() => {
                 dispatch({type: 'LOGIN', payload: user});
             }).catch(error => {
                 console.error(error);

@@ -3,7 +3,8 @@ import "./Navigation.scss";
 import ArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import LogoIcon from '@material-ui/icons/AccountCircle';
 import BellIcon from '@material-ui/icons/NotificationsOutlined';
-import {useState} from "react";
+import MobileMenuIcon from '@material-ui/icons/Menu';
+import React, {useState} from "react";
 import {useClickHook} from "../../../hooks/useClickHook";
 import {useAuthContext} from "../../../context/AuthContext";
 
@@ -21,10 +22,17 @@ const Navigation = () => {
         setDropdownIsOpen(false);
     }
 
+    const openMobileMenu = () => {
+
+    }
+
     const ref = useOutsideClick(hideDropdown);
 
     return (
         <div className="navigation">
+            <div className="mobile-menu" onClick={openMobileMenu}>
+                <MobileMenuIcon />
+            </div>
             <div ref={ref} className="dropdown-wrapper">
                 <div className="navigation-left" onClick={handleAddButton}>
                     <LogoIcon className="logo-icon" />

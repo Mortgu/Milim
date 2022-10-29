@@ -8,16 +8,15 @@
 
   flex-wrap: wrap;
 
-  grid-gap: 40px;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
 
   .topBar-cta {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    max-width: 350px;
-
-    flex: 1 1 340px;
+    flex: 1 1 350px;
 
     grid-gap: 20px;
 
