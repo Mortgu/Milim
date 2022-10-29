@@ -22,6 +22,7 @@ function App() {
     const {user} = useAuthContext();
 
     useEffect(() => {
+        console.log(user)
     }, [user]);
 
     return (
