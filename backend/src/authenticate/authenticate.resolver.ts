@@ -1,7 +1,10 @@
 import { Router } from "express";
-import {login, signup} from "./authenticate.controller";
+import {login, signup, verify} from "./authenticate.controller";
 
 const router: Router = Router();
+
+// AUTHENTICATE USER "(POST) http://localhost/login/"
+router.post('/verify', verify);
 
 // AUTHENTICATE USER "(POST) http://localhost/login/"
 router.post('/login', login);

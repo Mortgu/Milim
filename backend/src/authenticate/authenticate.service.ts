@@ -4,7 +4,7 @@ import {I_User} from "../users/models/user.interface";
 import {UserModel} from "../users/models/user.schema";
 
 import bcrypt from "bcryptjs";
-import {verify} from "./authenticate.module";
+import {sign} from "./authenticate.module";
 
 async function signup(user: DocumentDefinition<I_User>): Promise<any> {
     try {
@@ -40,7 +40,7 @@ async function login(user: DocumentDefinition<I_User>): Promise<ReturnData> {
     }
 
     if (foundUser && bcrypt.compareSync(password, foundUser.password)) {
-        const token = verify(foundUser);
+        const token = sign(foundUser);
 
         return {
             status: 201,

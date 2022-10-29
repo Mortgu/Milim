@@ -1,6 +1,19 @@
-import { Request, Response } from "express";
+import {Request, Response} from "express";
 
 import * as service from "./authenticate.service";
+import { verify as ModuleVerify } from "./authenticate.module";
+
+export const verify = async (request: any, response: Response) => {
+    try {
+        const token = request.headers.authorization.split(' ')[1];
+        const user = await ModuleVerify(token);
+        console.log(user)
+        // @ts-ignore
+        return response.status(user?.status).send(user);
+    } catch (exception) {
+        return response.status(500).send(exception);
+    }
+}
 
 export const login = async (request: Request, response: Response) => {
     try {
