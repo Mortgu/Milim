@@ -4,7 +4,12 @@ import ArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import LogoIcon from '@material-ui/icons/AccountCircle';
 import BellIcon from '@material-ui/icons/NotificationsOutlined';
 import MobileMenuIcon from '@material-ui/icons/Menu';
+import PersonIcon from '@material-ui/icons/Person';
+import SettingsIcon from '@material-ui/icons/Settings';
+import LogoutIcon from '@material-ui/icons/ArrowRightAlt';
+
 import React, {useState} from "react";
+
 import {useClickHook} from "../../../hooks/useClickHook";
 import {useAuthContext} from "../../../context/AuthContext";
 
@@ -44,10 +49,10 @@ const Navigation = () => {
                 </div>
                 <div className="dropdown" data-open={dropdownIsOpen}>
                     <div className="button-list">
-                        <button className="button list-button">Profile</button>
+                        <button className="button list-button"><PersonIcon /> Profile</button>
                         <div className="list-divider"></div>
-                        <button className="button list-button">Settings</button>
-                        <button className="button list-button">Log out</button>
+                        <button className="button list-button"><SettingsIcon /> Settings</button>
+                        <button className="button list-button"><LogoutIcon /> Log out</button>
                     </div>
                 </div>
             </div>

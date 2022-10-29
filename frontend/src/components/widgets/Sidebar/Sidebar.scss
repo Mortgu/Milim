@@ -59,6 +59,16 @@
     }
   }
 
+  .sidebar-cta-wrapper {
+    .sidebar-cta {
+
+    }
+
+    .cta-action-form {
+      background: darken(map-get($colors, 'background'), 10);
+    }
+  }
+
   .sidebar-cta {
     width: 100%;
     height: 32px;
@@ -86,7 +96,7 @@
         transition: all 200ms;
       }
 
-      .on-hover-cta {
+      .onHover {
         opacity: 1;
         transition: all 300ms;
         background: map-get($colors, "border-color");
@@ -98,6 +108,13 @@
       }
     }
 
+    .cta-input {
+      background: transparent;
+      color: white;
+      font-weight: 500;
+      font-size: 13px;
+    }
+
     p {
       font-size: 12px;
       text-decoration: none;
@@ -107,7 +124,7 @@
       transition: all 200ms;
     }
 
-    .on-hover-cta {
+    .onHover {
       position: absolute;
       right: 0;
       top: 0;
@@ -174,7 +191,7 @@
         transition: all 200ms;
       }
 
-      .on-hover-cta {
+      .onHover {
         opacity: 1;
         transition: all 300ms;
       }

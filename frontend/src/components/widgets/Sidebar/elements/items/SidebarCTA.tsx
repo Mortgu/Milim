@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import AddIcon from "@material-ui/icons/Add";
 import SendIcon from "@material-ui/icons/Send";
 
-import { useClickHook } from "../../../../hooks/useClickHook";
+import { useClickHook } from "../../../../../hooks/useClickHook";
 
 const SidebarCTA = ({ icon, text, link, children }: any) => {
     const { useOutsideClick } = useClickHook();

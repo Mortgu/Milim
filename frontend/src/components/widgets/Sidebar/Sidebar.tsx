@@ -1,15 +1,15 @@
 import "./Sidebar.scss";
-import {NavLink} from "react-router-dom";
+import "./elements/items/SidebarItem.scss";
 
 import ClockIcon from "@material-ui/icons/Schedule";
 import PersonIcon from "@material-ui/icons/PersonOutlined";
 import OrganisationIcon from "@material-ui/icons/HouseOutlined";
-import SidebarCTA from "./elements/SidebarCTA";
 import NoteIcon from "@material-ui/icons/NoteOutlined";
+import MailIcon from "@material-ui/icons/MailOutlined";
 import PublicIcon from "@material-ui/icons/Public";
-import { MODAL_TYPES, useGlobalModalContext } from "../Models/GlobalModal";
-import AddMemberDropdown from "./elements/dropdowns/AddMemberDropdown";
-import AddDraftDropdown from "./elements/dropdowns/AddDraftDropdown";
+import {MODAL_TYPES, useGlobalModalContext} from "../Models/GlobalModal";
+import SidebarItemDropdown from "./elements/items/SidebarItemDropdown";
+import SidebarItem from "./elements/items/SidebarItem";
 
 const Sidebar = () => {
     const {showModal} = useGlobalModalContext();
@@ -18,40 +18,33 @@ const Sidebar = () => {
         showModal(MODAL_TYPES.JOIN_ORGANISATION_MODAL, {});
     }
 
-
     return (
         <div className="sidebar">
             <section className="sidebar-section">
-                <NavLink end to="/" className="sidebar-cta">
-                    <ClockIcon className="icon" />
-                    <p>Recents</p>
-                </NavLink>
-                <SidebarCTA
-                    icon={<NoteIcon className="icon" />}
-                    text="Drafts"
-                    link="/drafts"
-                >{AddDraftDropdown()}</SidebarCTA>
-                <NavLink end to="/published" className="sidebar-cta">
-                    <PublicIcon className="icon" />
-                    <p>Published</p>
-                </NavLink>
+                <SidebarItem icon={<ClockIcon className="item-icon" />} text="Resents" end link="/" />
+                <SidebarItemDropdown icon={<NoteIcon className="item-icon" />} text="Drafts" link="/drafts">
+                    <div className="dropdown-item">
+                        <NoteIcon className="item-icon" />
+                        <input className="input" type="text" placeholder="Datei Name..." />
+                    </div>
+                </SidebarItemDropdown>
+                <SidebarItem icon={<PublicIcon className="item-icon" />} text="Published" link="/published" />
             </section>
             <div className="sidebar-separator"></div>
             <section className="sidebar-section">
-                <NavLink end to="/organisation" className="sidebar-cta">
-                    <OrganisationIcon className="icon" />
-                    <p>Organisation</p>
-                </NavLink>
-                <SidebarCTA
-                    icon={<NoteIcon className="icon" />}
-                    text="Drafts"
-                    link="/organisation/drafts"
-                >{AddDraftDropdown()}</SidebarCTA>
-                <SidebarCTA
-                    icon={<PersonIcon className="icon" />}
-                    text="Members"
-                    link="/organisation/members"
-                >{AddMemberDropdown()}</SidebarCTA>
+                <SidebarItem icon={<OrganisationIcon className="item-icon" />} text="Organisation" end link="/organisation" />
+                <SidebarItemDropdown icon={<NoteIcon className="item-icon" />} text="Drafts" end link="/organisation/drafts">
+                    <div className="dropdown-item">
+                        <NoteIcon className="item-icon" />
+                        <input className="input" type="text" placeholder="Datei Name..." />
+                    </div>
+                </SidebarItemDropdown>
+                <SidebarItemDropdown icon={<PersonIcon className="item-icon" />} text="Members" end link="/organisation/members">
+                    <div className="dropdown-item">
+                        <MailIcon className="item-icon" />
+                        <input className="input" type="text" placeholder="E-Mail..." />
+                    </div>
+                </SidebarItemDropdown>
             </section>
             <div className="sidebar-separator"></div>
             <div className="sidebar-message-box">
