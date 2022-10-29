@@ -1,0 +1,41 @@
+@import '../abstract/mixins';
+@import '../abstract/variables';
+
+.dropdown-wrapper {
+    position: relative;
+}
+
+.dropdown {
+    z-index: 1001;
+
+    //max-width: 220px;
+
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+
+    user-select: none;
+
+    position: absolute;
+    left: 10px;
+    top: calc(100% + 10px);
+
+    background: map-get($colors, 'background');
+    border-radius: 6px;
+    border: 1px solid map-get($colors, 'border-color');
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+
+    width: auto;
+    height: auto;
+
+    padding: .3rem;
+}
+
+.dropdown[data-open="true"] {
+    opacity: 1;
+    transform: translateY(0);
+
+    pointer-events: auto;
+    transition: all 200ms;
+}

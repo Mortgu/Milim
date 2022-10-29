@@ -12,6 +12,11 @@ import SubjectSubpage from "./pages/subjects/subpages/SubjectSubpage";
 import {useAuthContext} from "./context/AuthContext";
 import LoginPage from "./pages/login/LoginPage";
 import EntrySubpage from "./pages/subjects/subpages/EntrySubpage";
+import Sidebar from "./components/widgets/Sidebar/Sidebar";
+import Organisation from "./pages/organisation/Organisation";
+import OrganisationMembers from "./pages/organisation/subpages/Members";
+import OrganisationDrafts from "./pages/organisation/subpages/Drafts";
+import { GlobalModal } from './components/widgets/Models/GlobalModal';
 
 function App() {
     const [showNavigation, setShowNavigation] = useState(true);
@@ -19,9 +24,12 @@ function App() {
     const { user } = useAuthContext();
 
     return (
-        <React.Fragment>
+        <GlobalModal>
             {showNavigation && (
-                <Navigation />
+                <>
+                    <Navigation />
+                    <Sidebar />
+                </>
             )}
             <div className="app">
                 <Routes>
@@ -30,11 +38,15 @@ function App() {
                     <Route path="/subjects/:subject" element={user ? <SubjectSubpage setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}>
                         <Route path=":entry" element={user ? <EntrySubpage setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}></Route>
                     </Route>
+                    <Route path="/organisation" element={user ? <Organisation setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}>
+                        <Route path="members" element={user ? <OrganisationMembers setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}></Route>
+                        <Route path="drafts" element={user ? <OrganisationDrafts setShowNavigation={setShowNavigation} /> : <LoginPage setShowNavigation={setShowNavigation} />}></Route>
+                    </Route>
 
                     <Route path="*" element={!user ? <LoginPage setShowNavigation={setShowNavigation} /> : <Navigate to="/" />}></Route>
                 </Routes>
             </div>
-        </React.Fragment>
+        </GlobalModal>
     );
 }
 

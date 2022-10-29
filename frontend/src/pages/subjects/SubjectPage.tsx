@@ -1,6 +1,4 @@
-import ButtonGroup from "../../components/elements/ButtonGroup/ButtonGroup";
-import {Outlet} from "react-router-dom";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 
 const SubjectPage = ({setShowNavigation}: any) => {
 
@@ -9,18 +7,14 @@ const SubjectPage = ({setShowNavigation}: any) => {
     }, []);
 
     return (
-        <div className="page">
-            <section className="section">
-                <div className="section-content">
-                    <ButtonGroup />
+        <div className="">
+            <div className="page-navigation">
+                <div className="page-navigation-items">
+                    <p className="page-navigation-item active">Drafts</p>
                 </div>
-            </section>
-            <section className="section">
-                <div className="section-separator">
-                    <p>Kürzlich hinzugefügt</p>
-                </div>
-                <div className="section-content"></div>
-            </section>
+            </div>
+            <div className="page">
+            </div>
         </div>
     )
 }

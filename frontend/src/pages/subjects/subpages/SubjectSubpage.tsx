@@ -11,7 +11,6 @@ const SubjectSubpage = ({setShowNavigation}: any) => {
 
     return (
         <div className="page-flex">
-            <Sidebar title={subject}/>
             <Outlet/>
         </div>
     );

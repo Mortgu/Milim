@@ -1,31 +1,57 @@
 import "./Navigation.scss";
 
-import DiscoverIcon from "@material-ui/icons/Explore";
-import DescriptionIcon from "@material-ui/icons/Description";
-import SettingsIcon from "@material-ui/icons/Settings";
-
-import {NavLink} from "react-router-dom";
+import ArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import LogoIcon from '@material-ui/icons/AccountCircle';
+import BellIcon from '@material-ui/icons/NotificationsOutlined';
+import SendIcon from "@material-ui/icons/Send";
+import { useState } from "react";
+import { useClickHook } from "../../../hooks/useClickHook";
 
 const Navigation = () => {
+    const { useOutsideClick } = useClickHook();
+
+    const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
+
+    const handleAddButton = (event: any) => {
+        setDropdownIsOpen(true);
+    }
+
+    const hideDropdown = () => {
+        setDropdownIsOpen(false);
+    }
+
+    const ref = useOutsideClick(hideDropdown);
+
     return (
         <div className="navigation">
-            {/**<div className="navigation-head">
+            <div ref={ref} className="dropdown-wrapper">
+                <div className="navigation-left" onClick={handleAddButton}>
+                    <LogoIcon className="logo-icon" />
+                    <div className="content">
+                        <p className="content-username">Mortis</p>
+                        <p className="content-email">Mortgu.dev@gmail.com</p>
+                    </div>
+                    <ArrowDownIcon className="arrow-down" />
+                </div>
+                <div className="dropdown" data-open={dropdownIsOpen}>
+                    <div className="button-list">
+                        <button className="button list-button">Profile</button>
+                        <div className="list-divider"></div>
+                        <button className="button list-button">Settings</button>
+                        <button className="button list-button">Log out</button>
+                    </div>
+                </div>
+            </div>
 
-            </div>
-            <hr className="navigation-section-separator" />**/}
-            <div className="navigation-body">
-                <NavLink end to="/" className={({isActive}) => (isActive ? 'navigation-item active' : 'navigation-item')}>
-                    <DiscoverIcon />
-                </NavLink>
-                <NavLink to="/subjects" className={({isActive}) => (isActive ? 'navigation-item active' : 'navigation-item')}>
-                    <DescriptionIcon />
-                </NavLink>
-            </div>
-            <hr className="navigation-section-separator" />
-            <div className="navigation-footer">
-                <NavLink to="/settings" className={({isActive}) => (isActive ? 'navigation-item active' : 'navigation-item')}>
-                    <SettingsIcon />
-                </NavLink>
+            <div className="navigation-center"></div>
+            <div className="navigation-right">
+                <div className="notifications">
+                    <BellIcon />
+                </div>
+                <div className="user-icon">
+                    <LogoIcon className="logo-icon" />
+                    <ArrowDownIcon className="arrow-down" />
+                </div>
             </div>
         </div>
     )

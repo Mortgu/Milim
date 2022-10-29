@@ -23,11 +23,23 @@
         background: map-get($colors, 'primary');
         transition: all 200ms;
 
-        color: rgba(255, 255, 255, .8);
+        color: map-get($colors, "text-color-primary");
 
         &:hover {
-            color: white;
-            background: darken(map-get($colors, 'primary'), 10);
+            color: map-get($colors, "text-color-primary");
+            background: lighten(map-get($colors, 'primary'), 3);
+            transition: all 200ms;
+        }
+    }
+
+    &-secondary {
+        transition: all 200ms;
+
+        color: map-get($colors, "text-color-secondary");
+
+        &:hover {
+            color: map-get($colors, "text-color-primary");
+            background: rgba(255, 255, 255, .2);
             transition: all 200ms;
         }
     }
@@ -93,5 +105,31 @@
     &:hover {
         background: darken(map-get($colors, 'primary'), 10);
         transition: all 200ms;
+    }
+}
+
+.button-list {
+    display: grid;
+    width: 240px;
+
+    .list-divider {
+        margin: 8px 0;
+
+        height: 1px;
+        background: map-get($colors, 'border-color');
+    }
+
+    .list-button {
+        width: 100%;
+
+        padding: .6rem 1rem;
+
+        background: transparent;
+
+        text-align: left;
+
+        &:hover {
+            background: rgba(255, 255, 255, .05);
+        }
     }
 }
