@@ -6,12 +6,18 @@
   justify-content: flex-start;
   align-items: center;
 
+  flex-wrap: wrap;
+
   grid-gap: 40px;
 
   .topBar-cta {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+
+    max-width: 350px;
+
+    flex: 1 1 340px;
 
     grid-gap: 20px;
 
@@ -22,18 +28,25 @@
 
     transition: all 200ms;
 
-    .titleText {
-      display: grid;
-      grid-gap: 5px;
+    .content-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      grid-gap: 20px;
 
-      .titleText-title {
-        font-size: 15px;
-        color: map-get($colors, 'text-color-primary');
-      }
+      .titleText {
+        display: grid;
+        grid-gap: 5px;
 
-      .titleText-text {
-        font-size: 13px;
-        color: map-get($colors, 'text-color-secondary');
+        .titleText-title {
+          font-size: 15px;
+          color: map-get($colors, 'text-color-primary');
+        }
+
+        .titleText-text {
+          font-size: 13px;
+          color: map-get($colors, 'text-color-secondary');
+        }
       }
     }
 
