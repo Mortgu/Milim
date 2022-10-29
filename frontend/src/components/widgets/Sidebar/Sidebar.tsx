@@ -36,7 +36,7 @@ const Sidebar = () => {
                 <SidebarItemDropdown icon={<NoteIcon className="item-icon" />} text="Drafts" end link="/organisation/drafts">
                     <div className="dropdown-item">
                         <NoteIcon className="item-icon" />
-                        <input className="input" type="text" placeholder="Datei Name..." />
+                        <input className="input"  type="text" placeholder="Datei Name..." />
                     </div>
                 </SidebarItemDropdown>
                 <SidebarItemDropdown icon={<PersonIcon className="item-icon" />} text="Members" end link="/organisation/members">

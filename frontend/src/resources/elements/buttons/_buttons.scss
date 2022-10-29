@@ -16,7 +16,6 @@
 
     width: fit-content;
 
-
     transition: all 200ms;
 
     &-primary {
@@ -34,8 +33,7 @@
 
     &-secondary {
         transition: all 200ms;
-
-        color: map-get($colors, "text-color-secondary");
+        color: map-get($colors, "text-color-primary");
 
         &:hover {
             color: map-get($colors, "text-color-primary");
