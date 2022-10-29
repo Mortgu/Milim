@@ -1,0 +1,11 @@
+@import "../abstract/mixins";
+@import "../abstract/variables";
+
+h1, h2, h3, h4, h5, h6, p, a {
+    color: map-get($colors, "text-color-primary");
+    margin: 0;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+}

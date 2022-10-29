@@ -1,0 +1,33 @@
+@import "../../resources/abstract/mixins";
+@import "../../resources/abstract/variables";
+
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100vw;
+  height: 100vh;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  .login {
+    width: 100%;
+    max-width: 500px;
+
+    display: grid;
+    grid-gap: 40px;
+
+    .login-form {
+      display: grid;
+      grid-gap: 20px;
+    }
+
+    .form-ctas {
+      display: grid;
+      grid-gap: 20px;
+    }
+  }
+}

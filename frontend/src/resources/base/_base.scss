@@ -1,6 +1,8 @@
 @import "../abstract/mixins";
 @import "../abstract/variables";
 
+@import "typographie";
+
 html, body {
   margin: 0;
   padding: 0;
@@ -10,8 +12,25 @@ html, body {
 
 body {
   background: map-get($colors, "background");
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 * {
   box-sizing: border-box;
 }
+
+.app {
+  margin: 48px 0 0 240px;
+
+  @include media-down('sm') {
+    margin: 48px 0 0 0;
+  }
+}
+
+.page {
+  margin: 30px 30px;
+}
+

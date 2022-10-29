@@ -8,6 +8,12 @@ $breakpoints: (
         xl: 192rem
 );
 
-$colors : (
-  "background": #151519
+$colors: (
+        "background": #2C2C2C,
+        "primary": #4A5878,
+        "hover-color": #383838,
+        "border-color": rgba(255, 255, 255, .1),
+        "text-color-primary": white,
+        "text-color-secondary": rgba(255, 255, 255, .6),
+        "text-hover": rgba(255, 255, 255, .8),
 )

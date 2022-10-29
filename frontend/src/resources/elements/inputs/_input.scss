@@ -1,0 +1,110 @@
+@import '../../abstract/variables';
+
+.input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  outline: none;
+
+  background: lighten(map-get($colors, "background"), 5);
+}
+
+.input-buttonIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 35px;
+
+  border-radius: 5px;
+
+  grid-gap: 5px;
+
+  input {
+    height: 100%;
+
+    padding: 0 .8rem;
+
+    border-radius: 3px;
+
+    background: lighten(map-get($colors, "background"), 5);
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    box-sizing: border-box;
+    transition: all 200ms;
+
+    &::placeholder {
+      font-size: 14px;
+      font-weight: 500;
+      color: white;
+    }
+
+    &:focus {
+      background: lighten(map-get($colors, "background"), 8);
+      transition: all 200ms;
+    }
+  }
+
+  button {
+    min-width: 35px;
+    height: 35px;
+    box-sizing: border-box;
+    border-radius: 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    background: lighten(map-get($colors, "background"), 5);
+    transition: all 200ms;
+
+    &:hover {
+      background: lighten(map-get($colors, "background"), 8);
+      transition: all 200ms;
+    }
+
+    svg {
+      width: 15px;
+      height: 15px;
+
+      fill: white;
+    }
+  }
+}
+
+button {
+  background: transparent;
+  border: none;
+}
+
+.login-input {
+  display: grid;
+  grid-gap: 7px;
+
+  label {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, .7);
+  }
+
+  .input {
+    padding: 12px 16px;
+    line-height: 24px;
+    background: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+    font-weight: 500;
+
+    color: white;
+
+    &::placeholder {
+      font-size: 15px;
+    }
+  }
+}
