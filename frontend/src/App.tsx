@@ -1,12 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import "./resources/App.scss";
 import {Route, Routes} from "react-router-dom";
 import Login from "./pages/login/Login";
-import Index from "./pages/index/Index";
 import Navigation from "./components/widgets/Navigation/Navigation";
 import Sidebar from "./components/widgets/Sidebar/Sidebar";
-import navigation from "./components/widgets/Navigation/Navigation";
 import Drafts from "./pages/drafts/Drafts";
 import DeletedDrafts from "./pages/drafts/DeletedDrafts";
 import Organisation from "./pages/organisation/Organisation";
