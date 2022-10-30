@@ -49,7 +49,7 @@ const Index = ({setShowNavigation}: any) => {
                 <CreationTopBar />
                 <div className="file-card-wrapper">
                     {data?.map((row: any, index: any) => {
-                        return <FileCard key={index} fileName={row.fileName} lastUpdatedAt={row.meta.lastUpdatedAt} />
+                        return <FileCard key={index} _id={row._id} fileName={row.fileName} lastUpdatedAt={row.meta.lastUpdatedAt} />
                     })}
                 </div>
             </div>

@@ -1,9 +1,9 @@
 import "./FileCard.scss";
 import {Link} from "react-router-dom";
 
-const FileCard = ({fileName, lastUpdatedAt}: any) => {
+const FileCard = ({_id, fileName, lastUpdatedAt}: any) => {
     return (
-        <Link to="/file/tadwadax" className="file-card">
+        <Link to={"/file/" + _id} className="file-card">
             <div className="file-card-preview"></div>
             <div className="file-card-footer titleText">
                 <p className="titleText-title">{fileName}</p>

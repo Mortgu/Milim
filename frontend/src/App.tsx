@@ -15,6 +15,8 @@ import OrganisationMembers from "./pages/organisation/subpages/Members";
 import {GlobalModal} from "./components/widgets/Models/GlobalModal";
 import File from "./pages/file/File";
 import {useAuthContext} from "./context/AuthContext";
+import EditorDetailSidebar from "./components/widgets/Editor/EditorDetailSidebar/EditorDetailSidebar";
+import EditorEditSidebar from "./components/widgets/Editor/EditorEditSidebar/EditorEditSidebar";
 
 function App() {
     const {user} = useAuthContext();
@@ -83,7 +85,7 @@ function App() {
         {
             path: "/file/:id",
             main: () => <File />,
-            sidebar: () => <></>,
+            sidebar: () => <><EditorDetailSidebar /><EditorEditSidebar /></>,
             navigation: () => <Navigation />
         },
         {
