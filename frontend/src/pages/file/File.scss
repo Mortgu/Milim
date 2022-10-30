@@ -1,0 +1,44 @@
+@import "../../resources/abstract/mixins";
+@import "../../resources/abstract/variables";
+
+#editorjs {
+  margin: 78px calc(380px + 50px) 0 calc(270px + 50px);
+}
+.ce-block__content,
+.ce-toolbar__content {
+  max-width: 1000px;  /* example value, adjust for your own use case */
+}
+
+.ce-block {
+  padding-right: 65px;
+ // background: darken(map-get($colors, 'background'), 3);
+
+  &--selected {
+    background: darken(map-get($colors, 'background'), 3);
+
+    .ce-block__content {
+      background: darken(map-get($colors, 'background'), 3);
+    }
+  }
+}
+
+.ce-toolbar {
+
+  .ce-toolbar__content {
+    .ce-toolbar__actions {
+      right: 0;
+      padding: 0;
+
+      .ce-toolbar__plus, .ce-toolbar__settings-btn {
+        color: white;
+
+
+        &:hover {
+          background: darken(map-get($colors, 'background'), 5);
+        }
+      }
+
+      .ce-toolbar__settings-btn {}
+    }
+  }
+}
