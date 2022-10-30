@@ -45,9 +45,7 @@ function App() {
                     <Route path="/organisation/members"
                            element={user ? <OrganisationMembers setShowNavigation={setShowNavigation}/> :
                                <Login setShowNavigation={setShowNavigation}/>}>
-                        <Route path="settings"
-                               element={user ? <OrganisationMembers setShowNavigation={setShowNavigation}/> :
-                                   <Login setShowNavigation={setShowNavigation}/>}></Route>
+                        <Route path="settings" element={user ? <OrganisationMembers setShowNavigation={setShowNavigation}/> : <Login setShowNavigation={setShowNavigation}/>}></Route>
                     </Route>
 
                     <Route path="/organisation/drafts"
@@ -57,6 +55,9 @@ function App() {
                                element={user ? <OrganisationDrafts setShowNavigation={setShowNavigation}/> :
                                    <Login setShowNavigation={setShowNavigation}/>}></Route>
                     </Route>
+
+                    <Route path="/file/:id" element={user ? <Drafts setShowNavigation={setShowNavigation}/> :
+                        <Login setShowNavigation={setShowNavigation}/>}></Route>
 
                     <Route path="*" element={!user ? <Login setShowNavigation={setShowNavigation}/> :
                         <Navigate to="/"/>}></Route>

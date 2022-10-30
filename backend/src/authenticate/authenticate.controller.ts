@@ -7,7 +7,6 @@ export const verify = async (request: any, response: Response) => {
     try {
         const token = request.headers.authorization.split(' ')[1];
         const user = await ModuleVerify(token);
-        console.log(user)
         // @ts-ignore
         return response.status(user?.status).send(user);
     } catch (exception) {
