@@ -2,17 +2,15 @@ import React, {useEffect, useState} from "react";
 import CreationTopBar from "../../components/widgets/CreationTopbar/CreationTopBar";
 import {NavLink} from "react-router-dom";
 import PageNavigation from "../../components/widgets/PageNavigation/PageNavigation";
-import {Simulate} from "react-dom/test-utils";
-import load = Simulate.load;
 import FileCard from "../../components/widgets/FileCard/FileCard";
+import {getDrafts} from "./HomePage.service";
 
-const Index = ({setShowNavigation}: any) => {
+const Index = () => {
     const [data, setData] = useState<any>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        //setShowNavigation(true);
 
         fetch("http://localhost:4000/drafts")
             .then(response => {
@@ -49,7 +47,7 @@ const Index = ({setShowNavigation}: any) => {
                 <CreationTopBar />
                 <div className="file-card-wrapper">
                     {data?.map((row: any, index: any) => {
-                        return <FileCard key={index} _id={row._id} fileName={row.fileName} lastUpdatedAt={row.meta.lastUpdatedAt} />
+                        return <FileCard key={index} cardId={row._id} fileName={row.fileName} lastUpdatedAt={row.meta.lastUpdatedAt} />
                     })}
                 </div>
             </div>

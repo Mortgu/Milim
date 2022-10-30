@@ -17,6 +17,7 @@ import File from "./pages/file/File";
 import {useAuthContext} from "./context/AuthContext";
 import EditorDetailSidebar from "./components/widgets/Editor/EditorDetailSidebar/EditorDetailSidebar";
 import EditorEditSidebar from "./components/widgets/Editor/EditorEditSidebar/EditorEditSidebar";
+import HomePage from "./pages/index/HomePage";
 
 function App() {
     const {user} = useAuthContext();
@@ -30,7 +31,7 @@ function App() {
         },
         {
             path: "/",
-            main: () => <div className="app"><Index /></div>,
+            main: () => <div className="app"><HomePage /></div>,
             sidebar: () => <Sidebar />,
             navigation: () => <Navigation />,
         },
