@@ -1,68 +1,116 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 
 import "./resources/App.scss";
-
-import {Navigate, Route, Routes} from "react-router-dom";
-
-import Navigation from "./components/widgets/Navigation/Navigation";
-import Drafts from "./pages/drafts/Drafts";
-import {useAuthContext} from "./context/AuthContext";
+import {Route, Routes} from "react-router-dom";
 import Login from "./pages/login/Login";
-import Sidebar from "./components/widgets/Sidebar/Sidebar";
-import Organisation from "./pages/organisation/Organisation";
-import OrganisationMembers from "./pages/organisation/subpages/Members";
-import OrganisationDrafts from "./pages/organisation/subpages/Drafts";
-import {GlobalModal} from './components/widgets/Models/GlobalModal';
 import Index from "./pages/index/Index";
+import Navigation from "./components/widgets/Navigation/Navigation";
+import Sidebar from "./components/widgets/Sidebar/Sidebar";
+import navigation from "./components/widgets/Navigation/Navigation";
+import Drafts from "./pages/drafts/Drafts";
 import DeletedDrafts from "./pages/drafts/DeletedDrafts";
+import Organisation from "./pages/organisation/Organisation";
+import OrganisationDrafts from "./pages/organisation/subpages/Drafts";
+import OrganisationMembers from "./pages/organisation/subpages/Members";
+import {GlobalModal} from "./components/widgets/Models/GlobalModal";
+import File from "./pages/file/File";
+import {useAuthContext} from "./context/AuthContext";
 
 function App() {
-    const [showNavigation, setShowNavigation] = useState(true);
-
     const {user} = useAuthContext();
+
+    const routes = [
+        {
+            path: "/login",
+            main: () => <Login/>,
+            sidebar: () => <></>,
+            navigation: () => <></>,
+        },
+        {
+            path: "/",
+            main: () => <div className="app"><Index /></div>,
+            sidebar: () => <Sidebar />,
+            navigation: () => <Navigation />,
+        },
+        {
+            path: "/drafts",
+            main: () => <div className="app"><Drafts /></div>,
+            sidebar: () => <Sidebar />,
+            navigation: () => <Navigation />
+        },
+        {
+            path: "/published",
+            main: () => <div className="app"><Drafts /></div>,
+            sidebar: () => <Sidebar />,
+            navigation: () => <Navigation />
+        },
+        {
+            path: "/drafts/deleted",
+            main: () => <div className="app"><DeletedDrafts /></div>,
+            sidebar: () => <Sidebar />,
+            navigation: () => <Navigation />
+        },
+        {
+            path: "/organisation",
+            main: () => <div className="app"><Organisation /></div>,
+            sidebar: () => <Sidebar />,
+            navigation: () => <Navigation />
+        },
+        {
+            path: "/organisation/drafts",
+            main: () => <div className="app"><OrganisationDrafts /></div>,
+            sidebar: () => <Sidebar />,
+            navigation: () => <Navigation />
+        },
+        {
+            path: "/organisation/drafts/settings",
+            main: () => <div className="app"><OrganisationDrafts /></div>,
+            sidebar: () => <Sidebar />,
+            navigation: () => <Navigation />
+        },
+        {
+            path: "/organisation/members",
+            main: () => <div className="app"><OrganisationMembers /></div>,
+            sidebar: () => <Sidebar />,
+            navigation: () => <Navigation />
+        },
+        {
+            path: "/organisation/members/settings",
+            main: () => <div className="app"><OrganisationMembers /></div>,
+            sidebar: () => <Sidebar />,
+            navigation: () => <Navigation />
+        },
+        {
+            path: "/file/:id",
+            main: () => <File />,
+            sidebar: () => <></>,
+            navigation: () => <Navigation />
+        },
+        {
+            path: "*",
+            main: () => <></>,
+            sidebar: () => <></>,
+            navigation: () => <></>
+        },
+    ];
 
     return (
         <GlobalModal>
-            {showNavigation && (
-                <>
-                    <Navigation/>
-                    <Sidebar/>
-                </>
-            )}
-            <div className="app">
-                <Routes>
-                    <Route path="/" element={user ? <Index setShowNavigation={setShowNavigation}/> :
-                        <Login setShowNavigation={setShowNavigation}/>}></Route>
-
-                    <Route path="/drafts" element={user ? <Drafts setShowNavigation={setShowNavigation}/> :
-                        <Login setShowNavigation={setShowNavigation}/>}></Route>
-                    <Route path="/drafts/deleted"
-                           element={user ? <DeletedDrafts setShowNavigation={setShowNavigation}/> :
-                               <Login setShowNavigation={setShowNavigation}/>}></Route>
-
-                    <Route path="/organisation" element={user ? <Organisation setShowNavigation={setShowNavigation}/> :
-                        <Login setShowNavigation={setShowNavigation}/>}></Route>
-                    <Route path="/organisation/members"
-                           element={user ? <OrganisationMembers setShowNavigation={setShowNavigation}/> :
-                               <Login setShowNavigation={setShowNavigation}/>}>
-                        <Route path="settings" element={user ? <OrganisationMembers setShowNavigation={setShowNavigation}/> : <Login setShowNavigation={setShowNavigation}/>}></Route>
-                    </Route>
-
-                    <Route path="/organisation/drafts"
-                           element={user ? <OrganisationDrafts setShowNavigation={setShowNavigation}/> :
-                               <Login setShowNavigation={setShowNavigation}/>}>
-                        <Route path="settings"
-                               element={user ? <OrganisationDrafts setShowNavigation={setShowNavigation}/> :
-                                   <Login setShowNavigation={setShowNavigation}/>}></Route>
-                    </Route>
-
-                    <Route path="/file/:id" element={user ? <Drafts setShowNavigation={setShowNavigation}/> :
-                        <Login setShowNavigation={setShowNavigation}/>}></Route>
-
-                    <Route path="*" element={!user ? <Login setShowNavigation={setShowNavigation}/> :
-                        <Navigate to="/"/>}></Route>
-                </Routes>
-            </div>
+            <Routes>
+                {routes.map(({ path, navigation }) => (
+                    <Route key={path} path={path} element={user && navigation()} />
+                ))}
+            </Routes>
+            <Routes>
+                {routes.map(({ path, sidebar }) => (
+                    <Route key={path} path={path} element={user && sidebar()} />
+                ))}
+            </Routes>
+            <Routes>
+                {routes.map(({ path, main }) => (
+                    <Route key={path} path={path} element={user ? main() : <Login />} />
+                ))}
+            </Routes>
         </GlobalModal>
     );
 }
