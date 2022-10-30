@@ -12,7 +12,7 @@ const Index = ({setShowNavigation}: any) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        setShowNavigation(true);
+        //setShowNavigation(true);
 
         fetch("http://localhost:4000/drafts")
             .then(response => {

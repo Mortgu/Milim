@@ -16,7 +16,7 @@ const Login = ({setShowNavigation}: any) => {
     }
 
     useEffect(() => {
-        setShowNavigation(false);
+      //  setShowNavigation(false);
     }, []);
 
     return (

@@ -6,7 +6,7 @@ import PageNavigation from "../../components/widgets/PageNavigation/PageNavigati
 const Drafts = ({setShowNavigation}: any) => {
 
     useEffect(() => {
-        setShowNavigation(true);
+       // setShowNavigation(true);
     }, []);
 
     return (
