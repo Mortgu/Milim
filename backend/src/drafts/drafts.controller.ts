@@ -40,3 +40,19 @@ export async function get_draft(request: Request, response: Response): Promise<v
         response.status(500).json({message: 'Something went wrong, please try again.'});
     }
 }
+
+export async function modify_draft(request: Request, response: Response): Promise<void> {
+    try {
+        const id = request.params.id;
+
+        DraftModel.findByIdAndUpdate(id, request.body, function (error: any, result: any) {
+            if (error) throw error;
+        });
+
+        response.status(201).json({ message: "Draft was successfully modified.", modification: request.body.modification });
+    } catch (error) {
+        response.status(400).json({
+            message: 'Something went wrong, while trying to modify anime.'
+        })
+    }
+}

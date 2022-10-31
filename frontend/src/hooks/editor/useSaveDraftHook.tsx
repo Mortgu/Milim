@@ -12,10 +12,8 @@ export const useSaveDraftHook = () => {
         setError(null);
         setLoading(true);
 
-        console.log(body)
-
-        const response = await fetch(`http://localhost:4000/drafts`, {
-            method: 'POST',
+        const response = await fetch(`http://localhost:4000/drafts/${id}`, {
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*'

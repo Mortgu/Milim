@@ -9,5 +9,5 @@ export interface I_Draft {
         editStatus: DraftEditStatus,
         publicStatus: DraftPublicStatus,
     },
-    content: []
+    content?: Object,
 }

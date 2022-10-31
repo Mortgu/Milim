@@ -1,4 +1,4 @@
-import {model, Schema} from "mongoose";
+import mongoose, {model, Schema} from "mongoose";
 import {I_Draft} from "./draft.interface";
 
 const DraftSchema: Schema = new Schema<I_Draft>({
@@ -25,9 +25,28 @@ const DraftSchema: Schema = new Schema<I_Draft>({
         },
     },
     content: {
-        type: [],
-        default: []
+        type: Schema.Types.Mixed,
+        default: {
+            "root": {
+                "children": [
+                    {
+                        "children": [],
+                        "direction": null,
+                        "format": "",
+                        "indent": 0,
+                        "type": "paragraph",
+                        "version": 1
+                    }
+                ],
+                "direction": null,
+                "format": "",
+                "indent": 0,
+                "type": "root",
+                "version": 1
+            }
+        }
     }
-});
+
+}, {minimize: false});
 
 export const DraftModel = model<I_Draft>("Draft", DraftSchema);

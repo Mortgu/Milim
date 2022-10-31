@@ -55,6 +55,8 @@ export const editorConfig = {
 export default function Editor({data}: any) {
     const [editor] = useLexicalComposerContext();
 
+    console.log(data)
+
     useEffect(() => {
         editor.update(() => {
             // In the browser you can use the native DOMParser API to parse the HTML string.
