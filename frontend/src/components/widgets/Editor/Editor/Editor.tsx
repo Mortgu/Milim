@@ -70,11 +70,7 @@ export default function Editor({data}: any) {
             // Insert them at a selection.
             $insertNodes(nodes);
 
-            console.log(JSON.stringify(data))
-
-            const editorState = editor.parseEditorState(JSON.stringify(data), () => {
-                console.log('updateFn')
-            })
+            const editorState = editor.parseEditorState(JSON.stringify(data), () => { });
             editor.setEditorState(editorState);
         });
     }, []);

@@ -1,14 +1,16 @@
 import "./EditorDetailSidebar.scss";
 import {useLexicalComposerContext} from "@lexical/react/LexicalComposerContext";
+import {useSaveDraftHook} from "../../../../hooks/editor/useSaveDraftHook";
 
 const EditorDetailSidebar = () => {
     const [editor] = useLexicalComposerContext();
+    const {saveDraft} = useSaveDraftHook();
 
     const handleEditorSave = () => {
         const editorState = editor.getEditorState();
         const json = editorState.toJSON();
 
-        console.log(json)
+        saveDraft(json);
     }
 
     return (
