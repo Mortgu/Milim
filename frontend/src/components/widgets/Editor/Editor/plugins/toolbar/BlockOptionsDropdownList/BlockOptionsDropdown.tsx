@@ -2,8 +2,9 @@ import NotesIcon from "@material-ui/icons/Notes";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import {useState} from "react";
 import {useClickHook} from "../../../../../../../hooks/useClickHook";
+import {blockTypeToBlockName} from "../ToolbarPlugin2";
 
-const BlockOptionsDropdown = ({children}: any) => {
+const BlockOptionsDropdown = ({children, blockType}: any) => {
     const { useOutsideClick } = useClickHook();
 
     const [showDropdown, setShowDropdown] = useState(false);
@@ -21,7 +22,7 @@ const BlockOptionsDropdown = ({children}: any) => {
             <button className="toolbar-item toolbar-dropdown-item block-controls" onClick={toggleDropdownVisibility}>
                 <div className="dropdown-selected-item">
                     <NotesIcon className="toolbar-item-icon dropdown-selected-icon" />
-                    <span className="dropdown-selected-text">Normal</span>
+                    <span className="dropdown-selected-text">{blockTypeToBlockName[blockType]}</span>
                 </div>
                 <KeyboardArrowDownIcon className="toolbar-item-icon" />
             </button>

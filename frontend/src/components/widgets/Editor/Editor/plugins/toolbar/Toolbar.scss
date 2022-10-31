@@ -11,6 +11,13 @@
   justify-content: flex-start;
   grid-gap: 10px;
 
+  position: sticky;
+  top: 48px;
+
+  background: map-get($colors, 'background');
+
+  z-index: 100;
+
   .toolbar-separator {
     width: 1px;
     height: 100%;

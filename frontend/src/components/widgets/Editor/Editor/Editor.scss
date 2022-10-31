@@ -1,3 +1,5 @@
+$editor_padding : 2rem;
+
 .editor-container {
   margin: 48px 340px 0 240px;
   max-width: calc(100% - 240px - 340px);
@@ -11,8 +13,15 @@
     position: relative;
 
     .editor-input {
-      padding: 1rem;
+      padding: $editor_padding;
       outline: none;
+
+      .editor-heading-h1 {
+        font-size: 30px;
+        font-weight: 500;
+        line-height: 46px;
+        color: white;
+      }
     }
 
     .editor-placeholder {
@@ -20,8 +29,8 @@
       overflow: hidden;
       position: absolute;
       text-overflow: ellipsis;
-      top: 15px;
-      left: 1rem;
+      top: $editor_padding;
+      left: $editor_padding;
       font-size: 15px;
       user-select: none;
       display: inline-block;

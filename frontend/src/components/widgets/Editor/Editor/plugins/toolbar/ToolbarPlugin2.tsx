@@ -29,8 +29,15 @@ const supportedBlockTypes = new Set([
     "ol"
 ]);
 
-const blockTypeToBlockName: any = {
-
+export const blockTypeToBlockName: any = {
+    code: "Code Block",
+    h1: "Large Heading",
+    h2: "Medium Heading",
+    h3: "Small Heading",
+    ol: "Numbered List",
+    paragraph: "Normal",
+    quote: "Quote",
+    ul: "Bulleted List"
 }
 
 const ToolbarPlugin2 = () => {
@@ -95,7 +102,7 @@ const ToolbarPlugin2 = () => {
             </div>
             <div className="toolbar-separator"></div>
             <div className="toolbar-section">
-                <BlockOptionsDropdown>
+                <BlockOptionsDropdown blockType={blockType}>
                     <BlockOptionsDropdownList
                         editor={editor}
                         blockType={blockType}
