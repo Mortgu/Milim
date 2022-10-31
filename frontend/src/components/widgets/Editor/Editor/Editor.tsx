@@ -62,7 +62,7 @@ export default function Editor() {
                         placeholder={<Placeholder />}
                     />
                     <HistoryPlugin />
-                    <TreeViewPlugin />
+                    {/*<TreeViewPlugin />**/}
                     <AutoFocusPlugin />
                     <CodeHighlightPlugin />
                     <ListPlugin />

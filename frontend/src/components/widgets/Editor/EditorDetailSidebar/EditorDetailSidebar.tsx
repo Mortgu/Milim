@@ -1,4 +1,5 @@
 import "./EditorDetailSidebar.scss";
+import TreeViewPlugin from "../Editor/plugins/TreeViewPlugin";
 
 const EditorDetailSidebar = () => {
     return (

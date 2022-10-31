@@ -8,9 +8,24 @@
   text-align: left;
 
   .editor-inner {
+    position: relative;
+
     .editor-input {
       padding: 1rem;
       outline: none;
+    }
+
+    .editor-placeholder {
+      color: #999;
+      overflow: hidden;
+      position: absolute;
+      text-overflow: ellipsis;
+      top: 15px;
+      left: 1rem;
+      font-size: 15px;
+      user-select: none;
+      display: inline-block;
+      pointer-events: none;
     }
   }
 }

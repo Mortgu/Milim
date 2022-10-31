@@ -1,34 +1,18 @@
 import NotesIcon from "@material-ui/icons/Notes";
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import {useState} from "react";
-import {useClickHook} from "../../../../../../../hooks/useClickHook";
 
-const BlockOptionsDropdownListItem = ({children}: any) => {
-    const { useOutsideClick } = useClickHook();
+const BlockOptionsDropdownListItem = ({ editor, blockType, formatAction }: any) => {
 
-    const [showDropdown, setShowDropdown] = useState(false);
+    const handleFormat = () => {
+        if (blockType !== formatAction) {
 
-    const toggleDropdownVisibility = () => {
-        setShowDropdown(!showDropdown);
+        }
     }
 
-    const ref = useOutsideClick(() => {
-        setShowDropdown(false);
-    });
-
     return (
-        <div ref={ref} className="dropdown-wrapper">
-            <button className="toolbar-item toolbar-dropdown-item block-controls" onClick={toggleDropdownVisibility}>
-                <div className="dropdown-selected-item">
-                    <NotesIcon className="toolbar-item-icon dropdown-selected-icon" />
-                    <span className="dropdown-selected-text">Normal</span>
-                </div>
-                <KeyboardArrowDownIcon className="toolbar-item-icon" />
-            </button>
-            <div className="dropdown" data-open={showDropdown}>
-                {children}
-            </div>
-        </div>
+        <button className="dropdown-item" onClick={handleFormat}>
+            <NotesIcon className="icon dropdown-item-icon"/>
+            <span className="text">Bullet List</span>
+        </button>
     )
 }
 

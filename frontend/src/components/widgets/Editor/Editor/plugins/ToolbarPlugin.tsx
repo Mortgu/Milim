@@ -11,7 +11,7 @@ import {
     SELECTION_CHANGE_COMMAND
 } from "lexical";
 import {$isLinkNode, TOGGLE_LINK_COMMAND} from "@lexical/link";
-import {$isAtNodeEnd, $isParentElementRTL} from "@lexical/selection";
+import {$isAtNodeEnd, $isParentElementRTL, $wrapNodes} from "@lexical/selection";
 import {$getNearestNodeOfType, mergeRegister} from "@lexical/utils";
 import {
     $isListNode,
@@ -21,7 +21,7 @@ import {
     REMOVE_LIST_COMMAND
 } from "@lexical/list";
 import {createPortal} from "react-dom";
-import {$isHeadingNode} from "@lexical/rich-text";
+import {$isHeadingNode, $createHeadingNode} from "@lexical/rich-text";
 import {$isCodeNode, getCodeLanguages, getDefaultCodeLanguage} from "@lexical/code";
 
 const LowPriority = 1;
@@ -285,7 +285,7 @@ function BlockOptionsDropdownList({editor, blockType, toolbarRef, setShowBlockOp
                 const selection = $getSelection();
 
                 if ($isRangeSelection(selection)) {
-                   // $wrapLeafNodesInElements(selection, () => $createHeadingNode("h1"));
+                    $wrapNodes (selection, () => $createHeadingNode("h1"));
                 }
             });
         }
