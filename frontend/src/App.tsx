@@ -84,7 +84,7 @@ function App() {
         {
             path: "/file/:id",
             main: () => <File />,
-            sidebar: () => <><EditorDetailSidebar /><EditorEditSidebar /></>,
+            sidebar: () => <></>,
             navigation: () => <Navigation />
         },
         {

@@ -1,7 +1,16 @@
 import "./EditorDetailSidebar.scss";
-import TreeViewPlugin from "../Editor/plugins/TreeViewPlugin";
+import {useLexicalComposerContext} from "@lexical/react/LexicalComposerContext";
 
 const EditorDetailSidebar = () => {
+    const [editor] = useLexicalComposerContext();
+
+    const handleEditorSave = () => {
+        const editorState = editor.getEditorState();
+        const json = editorState.toJSON();
+
+        console.log(json)
+    }
+
     return (
         <div className="editor-detail-sidebar">
             <div className="sidebar-head">
@@ -10,6 +19,7 @@ const EditorDetailSidebar = () => {
                     <path d="M22.1159 32.1854L20.7274 30.8292L26.1524 25.4042H9.16699V23.4667H26.1524L20.6951 18.0094L22.0837 16.6531L29.8659 24.4354L22.1159 32.1854Z" fill="black"/>
                 </svg>
             </div>
+            <button className="button button-primary" onClick={handleEditorSave}>save</button>
         </div>
     )
 }

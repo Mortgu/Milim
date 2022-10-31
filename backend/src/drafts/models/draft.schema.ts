@@ -23,6 +23,10 @@ const DraftSchema: Schema = new Schema<I_Draft>({
             type: String,
             default: "private"
         },
+    },
+    content: {
+        type: [],
+        default: []
     }
 });
 

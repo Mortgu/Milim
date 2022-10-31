@@ -2,6 +2,7 @@ import {$createParagraphNode, $getSelection, $isRangeSelection} from "lexical";
 import { $createHeadingNode } from "@lexical/rich-text";
 
 import {$wrapNodes} from "@lexical/selection";
+import {$generateHtmlFromNodes} from '@lexical/html';
 
 const BlockOptionsDropdownListItem = ({ editor, blockType, formatAction, children }: any) => {
 

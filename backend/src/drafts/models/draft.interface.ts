@@ -8,5 +8,6 @@ export interface I_Draft {
         lastUpdatedAt?: Date,
         editStatus: DraftEditStatus,
         publicStatus: DraftPublicStatus,
-    }
+    },
+    content: []
 }

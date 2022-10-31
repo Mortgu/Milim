@@ -25,3 +25,17 @@ export async function get_drafts(request: Request, response: Response): Promise<
         response.status(500).json({message: 'Something went wrong, please try again.'});
     }
 }
+
+export async function get_draft(request: Request, response: Response): Promise<void> {
+    try {
+        const query = await DraftModel.find({_id: request.params.id}, {}, (error: any, results: any) => {
+            if (error) throw error;
+
+            return results;
+        }).clone();
+
+        response.status(201).send(query);
+    } catch (exception) {
+        response.status(500).json({message: 'Something went wrong, please try again.'});
+    }
+}
