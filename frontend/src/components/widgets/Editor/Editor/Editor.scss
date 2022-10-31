@@ -1,0 +1,21 @@
+.editor-container {
+  margin: 48px 340px 0 240px;
+  max-width: calc(100% - 240px - 340px);
+  color: #000;
+  position: relative;
+  line-height: 20px;
+  font-weight: 400;
+  text-align: left;
+
+  .editor-inner {
+    .editor-input {
+      padding: 1rem;
+      outline: none;
+    }
+  }
+}
+
+i.bold {
+  background-image: url("https://5tncvy.csb.app/images/icons/type-bold.svg");
+  fill: white;
+}
