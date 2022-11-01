@@ -23,6 +23,7 @@ import ToolbarPlugin2 from "./plugins/toolbar/ToolbarPlugin2";
 import {useEffect} from "react";
 import {useLexicalComposerContext} from "@lexical/react/LexicalComposerContext";
 import {$getRoot, $insertNodes, RootNode} from "lexical";
+import TreeViewPlugin from "./plugins/TreeViewPlugin";
 
 function Placeholder() {
     return <div className="editor-placeholder">Enter some rich text...</div>;
@@ -85,7 +86,6 @@ export default function Editor({data}: any) {
                     placeholder={<Placeholder />}
                 />
                 <HistoryPlugin />
-                {/*<TreeViewPlugin />**/}
                 <AutoFocusPlugin />
                 <CodeHighlightPlugin />
                 <ListPlugin />

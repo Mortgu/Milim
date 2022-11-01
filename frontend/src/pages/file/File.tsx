@@ -1,17 +1,20 @@
-import "./File.scss";
-import Editor, {editorConfig} from "../../components/widgets/Editor/Editor/Editor";
-import {LexicalComposer} from "@lexical/react/LexicalComposer";
-import EditorDetailSidebar from "../../components/widgets/Editor/EditorDetailSidebar/EditorDetailSidebar";
-import EditorEditSidebar from "../../components/widgets/Editor/EditorEditSidebar/EditorEditSidebar";
-import React, {useEffect} from "react";
 import {useLoadDraftHook} from "../../hooks/editor/useLoadDraftHook";
+import React, {useEffect} from "react";
+import {$generateHtmlFromNodes} from '@lexical/html';
+import {editorConfig} from "../../components/widgets/Editor/Editor/Editor";
+import EditorDetailSidebar from "../../components/widgets/Editor/EditorDetailSidebar/EditorDetailSidebar";
+import {LexicalComposer} from "@lexical/react/LexicalComposer";
 
 const File = () => {
-    const { fetchDraft, data, loading } = useLoadDraftHook();
+    const {fetchDraft, data, loading} = useLoadDraftHook();
 
     useEffect(() => {
         fetchDraft();
     }, []);
+
+    useEffect(() => {
+        if (data) {}
+    }, [data]);
 
     if (loading) return (
         <div className="loader-wrapper">
@@ -22,8 +25,6 @@ const File = () => {
     return (
         <LexicalComposer initialConfig={editorConfig}>
             <EditorDetailSidebar />
-            <EditorEditSidebar />
-            <Editor data={data} />
         </LexicalComposer>
     )
 }

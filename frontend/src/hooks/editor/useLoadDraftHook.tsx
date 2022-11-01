@@ -17,8 +17,6 @@ export const useLoadDraftHook = () => {
 
         const json = await response.json();
 
-        console.log(json[0].content)
-
         if (response.ok) {
             setData(json[0].content);
             setLoading(false);

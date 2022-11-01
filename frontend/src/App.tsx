@@ -11,11 +11,12 @@ import Organisation from "./pages/organisation/Organisation";
 import OrganisationDrafts from "./pages/organisation/subpages/Drafts";
 import OrganisationMembers from "./pages/organisation/subpages/Members";
 import {GlobalModal} from "./components/widgets/Models/GlobalModal";
-import File from "./pages/file/File";
+import FileEdit from "./pages/file/FileEdit";
 import {useAuthContext} from "./context/AuthContext";
 import EditorDetailSidebar from "./components/widgets/Editor/EditorDetailSidebar/EditorDetailSidebar";
 import EditorEditSidebar from "./components/widgets/Editor/EditorEditSidebar/EditorEditSidebar";
 import HomePage from "./pages/index/HomePage";
+import File from "./pages/file/File";
 
 function App() {
     const {user} = useAuthContext();
@@ -84,6 +85,12 @@ function App() {
         {
             path: "/file/:id",
             main: () => <File />,
+            sidebar: () => <></>,
+            navigation: () => <Navigation />
+        },
+        {
+            path: "/file/:id/edit",
+            main: () => <FileEdit />,
             sidebar: () => <></>,
             navigation: () => <Navigation />
         },
