@@ -1,4 +1,6 @@
-import ExampleTheme from "./themes/ExampleTheme";
+import ExampleTheme from "./themes/EditorTheme";
+import "./Editor.scss";
+
 import {RichTextPlugin} from "@lexical/react/LexicalRichTextPlugin";
 import {ContentEditable} from "@lexical/react/LexicalContentEditable";
 import {HistoryPlugin} from "@lexical/react/LexicalHistoryPlugin";
@@ -14,16 +16,13 @@ import {MarkdownShortcutPlugin} from "@lexical/react/LexicalMarkdownShortcutPlug
 import {TRANSFORMERS} from "@lexical/markdown";
 import {$generateNodesFromDOM} from '@lexical/html';
 
-import "./Editor.scss";
-
 import ListMaxIndentLevelPlugin from "./plugins/ListMaxIndentLevelPlugin";
 import CodeHighlightPlugin from "./plugins/CodeHighlightPlugin";
 import AutoLinkPlugin from "./plugins/AutoLinkPlugin";
 import ToolbarPlugin2 from "./plugins/toolbar/ToolbarPlugin2";
 import {useEffect} from "react";
 import {useLexicalComposerContext} from "@lexical/react/LexicalComposerContext";
-import {$getRoot, $insertNodes, RootNode} from "lexical";
-import TreeViewPlugin from "./plugins/TreeViewPlugin";
+import {$getRoot, $insertNodes} from "lexical";
 
 function Placeholder() {
     return <div className="editor-placeholder">Enter some rich text...</div>;
@@ -56,8 +55,6 @@ export const editorConfig = {
 export default function Editor({data}: any) {
     const [editor] = useLexicalComposerContext();
 
-    console.log(data)
-
     useEffect(() => {
         editor.update(() => {
             // In the browser you can use the native DOMParser API to parse the HTML string.
@@ -73,26 +70,27 @@ export default function Editor({data}: any) {
             // Insert them at a selection.
             $insertNodes(nodes);
 
-            const editorState = editor.parseEditorState(JSON.stringify(data), () => { });
+            const editorState = editor.parseEditorState(JSON.stringify(data), () => {
+            });
             editor.setEditorState(editorState);
         });
     }, []);
     return (
         <div className="editor-container">
-            <ToolbarPlugin2 />
+            <ToolbarPlugin2/>
             <div className="editor-inner">
                 <RichTextPlugin
-                    contentEditable={<ContentEditable className="editor-input" />}
-                    placeholder={<Placeholder />}
+                    contentEditable={<ContentEditable className="editor-input"/>}
+                    placeholder={<Placeholder/>}
                 />
-                <HistoryPlugin />
-                <AutoFocusPlugin />
-                <CodeHighlightPlugin />
-                <ListPlugin />
-                <LinkPlugin />
-                <AutoLinkPlugin />
-                <ListMaxIndentLevelPlugin maxDepth={7} />
-                <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
+                <HistoryPlugin/>
+                <AutoFocusPlugin/>
+                <CodeHighlightPlugin/>
+                <ListPlugin/>
+                <LinkPlugin/>
+                <AutoLinkPlugin/>
+                <ListMaxIndentLevelPlugin maxDepth={7}/>
+                <MarkdownShortcutPlugin transformers={TRANSFORMERS}/>
             </div>
         </div>
     );

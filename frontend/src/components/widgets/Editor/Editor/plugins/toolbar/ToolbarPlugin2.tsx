@@ -1,13 +1,13 @@
 import "./Toolbar.scss";
 
-import {useCallback, useEffect, useRef, useState} from "react";
+import React, {useCallback, useEffect, useRef, useState} from "react";
 
 import {useLexicalComposerContext} from "@lexical/react/LexicalComposerContext";
 import {$getSelection, $isRangeSelection} from "lexical";
-import { mergeRegister, $getNearestNodeOfType } from "@lexical/utils";
-import { $isListNode, ListNode } from "@lexical/list";
-import { $isHeadingNode } from "@lexical/rich-text";
-import { $isCodeNode } from "@lexical/code";
+import {mergeRegister, $getNearestNodeOfType} from "@lexical/utils";
+import {$isListNode, ListNode} from "@lexical/list";
+import {$isHeadingNode} from "@lexical/rich-text";
+import {$isCodeNode} from "@lexical/code";
 
 import BoldFormatIcon from '@material-ui/icons/FormatBold';
 import ItalicFormatIcon from '@material-ui/icons/FormatItalic';
@@ -50,6 +50,8 @@ const ToolbarPlugin2 = () => {
     const [isItalic, setIsItalic] = useState(false);
     const [isUnderlined, setIsUnderlined] = useState(false);
 
+    const [isEditMode, setEditMode] = useState(true);
+
     const toolbarReference = useRef(null);
 
     const updateToolbar = useCallback(() => {
@@ -57,7 +59,7 @@ const ToolbarPlugin2 = () => {
 
         if ($isRangeSelection(selection)) {
             const anchorNode = selection.anchor.getNode();
-            const element = anchorNode.getKey() === "root" ? anchorNode  : anchorNode.getTopLevelElementOrThrow();
+            const element = anchorNode.getKey() === "root" ? anchorNode : anchorNode.getTopLevelElementOrThrow();
             const elementKey = element.getKey();
             const elementDOM = editor.getElementByKey(elementKey);
             if (elementDOM !== null) {
@@ -85,40 +87,47 @@ const ToolbarPlugin2 = () => {
     useEffect(() => {
         return mergeRegister(
             editor.registerUpdateListener(({editorState}) => {
-               editorState.read(() => {updateToolbar()});
+                editorState.read(() => {
+                    updateToolbar()
+                });
             }),
         );
     }, [editor, updateToolbar]);
 
     return (
         <div ref={toolbarReference} className="toolbar">
-            <div className="toolbar-section">
-                <button className="toolbar-item">
-                    <UndoIcon className="toolbar-item-icon" />
-                </button>
-                <button className="toolbar-item">
-                    <RedoIcon className="toolbar-item-icon" />
-                </button>
-            </div>
-            <div className="toolbar-separator"></div>
-            <div className="toolbar-section">
-                <BlockOptionsDropdown blockType={blockType}>
-                    <BlockOptionsDropdownList
-                        editor={editor}
-                        blockType={blockType}
-                    />
-                </BlockOptionsDropdown>
+            {isEditMode && (
+                <React.Fragment>
+                    <div className="toolbar-section">
+                        <button className="toolbar-item">
+                            <UndoIcon className="toolbar-item-icon"/>
+                        </button>
+                        <button className="toolbar-item">
+                            <RedoIcon className="toolbar-item-icon"/>
+                        </button>
+                    </div>
+                    <div className="toolbar-separator"></div>
+                    <div className="toolbar-section">
+                        <BlockOptionsDropdown blockType={blockType}>
+                            <BlockOptionsDropdownList
+                                editor={editor}
+                                blockType={blockType}
+                            />
+                        </BlockOptionsDropdown>
 
-                <ToolbarItem editor={editor} action="bold" isActive={isBold}>
-                    <BoldFormatIcon className="toolbar-item-icon" />
-                </ToolbarItem>
-                <ToolbarItem editor={editor} action="italic" isActive={isItalic}>
-                    <ItalicFormatIcon className="toolbar-item-icon" />
-                </ToolbarItem>
-                <ToolbarItem editor={editor} action="underline" isActive={isUnderlined}>
-                    <UnderlinedFormatIcon className="toolbar-item-icon" />
-                </ToolbarItem>
-            </div>
+                        <ToolbarItem editor={editor} action="bold" isActive={isBold}>
+                            <BoldFormatIcon className="toolbar-item-icon"/>
+                        </ToolbarItem>
+                        <ToolbarItem editor={editor} action="italic" isActive={isItalic}>
+                            <ItalicFormatIcon className="toolbar-item-icon"/>
+                        </ToolbarItem>
+                        <ToolbarItem editor={editor} action="underline" isActive={isUnderlined}>
+                            <UnderlinedFormatIcon className="toolbar-item-icon"/>
+                        </ToolbarItem>
+                    </div>
+                </React.Fragment>
+            )}
+
         </div>
     )
 }
