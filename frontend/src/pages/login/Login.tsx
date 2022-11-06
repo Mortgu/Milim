@@ -3,6 +3,8 @@ import {useEffect, useState} from "react";
 import "./Login.scss";
 import {useLogin} from "../../hooks/useLogin";
 
+import KeyIcon from "@material-ui/icons/Block";
+
 const Login = ({setShowNavigation}: any) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -22,7 +24,15 @@ const Login = ({setShowNavigation}: any) => {
     return (
         <div className="login-wrapper">
             <div className="login">
-                <div className="login-head"></div>
+                <div className="login-head">
+                    <div className="head-icon">
+                        <KeyIcon />
+                    </div>
+                    <div className="content">
+                        <h1>Log in to your Account</h1>
+                        <p>Please enter your details to continue.</p>
+                    </div>
+                </div>
                 <form className="login-form">
                     <div className="login-input">
                         <label>Username</label>
