@@ -6,7 +6,6 @@ import {I_User} from "../users/models/user.interface";
 export async function verify(token: any) {
     try {
         return jsonwebtoken.verify(token, SECRET_KEY, function (error: any, decoded: any) {
-            console.log(token)
             if (error) {
                 return {
                     status: 500,

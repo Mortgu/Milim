@@ -5,10 +5,6 @@ import PageNavigation from "../../components/widgets/PageNavigation/PageNavigati
 
 const DeletedDrafts = ({setShowNavigation}: any) => {
 
-    useEffect(() => {
-        setShowNavigation(true);
-    }, []);
-
     return (
         <div className="">
             <PageNavigation>

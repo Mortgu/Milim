@@ -1,0 +1,29 @@
+@import "../../../../resources/abstract/variables";
+@import "../../../../resources/abstract/mixins";
+
+.editor-detail-sidebar {
+  width: 340px;
+  height: 100%;
+  border-left: 1px solid map-get($colors, "border-color");
+
+  position: fixed;
+  right: 0;
+  top: 48px;
+
+  z-index: 100;
+
+  .sidebar-head {
+    border-bottom: 1px solid map-get($colors, "border-color");
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    height: 45px;
+    padding: 0 1rem;
+
+    .sidebar-head-icon {
+      width: 18px;
+      height: fit-content;
+    }
+  }
+}

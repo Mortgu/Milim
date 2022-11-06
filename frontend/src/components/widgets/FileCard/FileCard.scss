@@ -17,10 +17,13 @@
 .file-card {
   flex: 1 1 280px;
 
+  max-width: 280px;
   border-radius: 6px;
 
   overflow: hidden;
   cursor: pointer;
+
+  text-decoration: none;
 
   &:hover {
 

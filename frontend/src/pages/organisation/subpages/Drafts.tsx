@@ -3,10 +3,6 @@ import {NavLink} from "react-router-dom";
 import PageNavigation from "../../../components/widgets/PageNavigation/PageNavigation";
 
 const OrganisationDrafts = ({setShowNavigation}: any) => {
-    useEffect(() => {
-        setShowNavigation(true);
-    }, []);
-
     return (
         <React.Fragment>
             <PageNavigation>

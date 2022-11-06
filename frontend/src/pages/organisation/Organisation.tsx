@@ -4,10 +4,6 @@ import PageNavigation from "../../components/widgets/PageNavigation/PageNavigati
 
 const Organisation = ({setShowNavigation}: any) => {
 
-    useEffect(() => {
-        setShowNavigation(true);
-    }, []);
-
     return (
         <React.Fragment>
             <PageNavigation>

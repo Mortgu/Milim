@@ -1,0 +1,45 @@
+$editor_padding : 2rem;
+
+.editor-container {
+  margin: 48px 340px 0 240px;
+  max-width: calc(100% - 240px - 340px);
+  color: #000;
+  position: relative;
+  line-height: 20px;
+  font-weight: 400;
+  text-align: left;
+
+  .editor-inner {
+    position: relative;
+
+    .editor-input {
+      padding: $editor_padding;
+      outline: none;
+
+      .editor-heading-h1 {
+        font-size: 30px;
+        font-weight: 500;
+        line-height: 46px;
+        color: white;
+      }
+    }
+
+    .editor-placeholder {
+      color: #999;
+      overflow: hidden;
+      position: absolute;
+      text-overflow: ellipsis;
+      top: $editor_padding;
+      left: $editor_padding;
+      font-size: 15px;
+      user-select: none;
+      display: inline-block;
+      pointer-events: none;
+    }
+  }
+}
+
+i.bold {
+  background-image: url("https://5tncvy.csb.app/images/icons/type-bold.svg");
+  fill: white;
+}

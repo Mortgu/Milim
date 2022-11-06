@@ -21,7 +21,7 @@ const Sidebar = () => {
     return (
         <div className="sidebar">
             <section className="sidebar-section">
-                <SidebarItem icon={<ClockIcon className="item-icon" />} text="Resents" end link="/" />
+                <SidebarItem icon={<ClockIcon className="item-icon" />} text="Recents" end link="/" />
                 <SidebarItemDropdown icon={<NoteIcon className="item-icon" />} text="Drafts" link="/drafts">
                     <div className="dropdown-item">
                         <NoteIcon className="item-icon" />
