@@ -24,8 +24,11 @@
 
     box-shadow: 0 0 10px rgba(0, 0, 0, .3);
 
-    width: auto;
+    width: calc(100% - 20px);
     height: auto;
+
+    margin: 0 10px;
+
 }
 
 .dropdown[data-open="true"] {

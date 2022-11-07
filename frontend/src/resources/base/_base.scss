@@ -1,7 +1,7 @@
-@import "../abstract/mixins";
-@import "../abstract/variables";
+@use "../abstract/colors";
+@use "../abstract/mixins";
 
-@import "typographie";
+@use "./typographie";
 
 html, body {
   margin: 0;
@@ -11,7 +11,7 @@ html, body {
 }
 
 body {
-  background: map-get($colors, "background");
+  background: map-get(colors.$colors, "background");
 
   &::-webkit-scrollbar {
     display: none;
@@ -25,7 +25,7 @@ body {
 .app {
   margin: 48px 0 0 240px;
 
-  @include media-down('sm') {
+  @include mixins.media-down('sm') {
     margin: 48px 0 0 0;
   }
 }

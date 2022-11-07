@@ -1,0 +1,16 @@
+@use "../../abstract/colors";
+@use "../../abstract/mixins";
+
+.primary-button {
+  background: map-get(colors.$colors, 'primary');
+  color: map-get(colors.$colors, 'textColor-secondary');
+
+  transition: background 200ms, color 200ms;
+
+  &:hover {
+    background: lighten(map-get(colors.$colors, 'primary'), 5);
+    color: map-get(colors.$colors, 'textColor-primary');
+
+    transition: background 200ms, color 200ms;
+  }
+}

@@ -32,7 +32,7 @@ const BlockOptionsDropdownListItem = ({ editor, blockType, formatAction, childre
     }
 
     return (
-        <button className="dropdown-item" onClick={handleFormat}>
+        <button className="dropdown-button" onClick={handleFormat}>
             {children}
         </button>
     )

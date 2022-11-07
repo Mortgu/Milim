@@ -1,0 +1,15 @@
+@use "../../abstract/colors";
+@use "../../abstract/mixins";
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  grid-gap: 10px;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}

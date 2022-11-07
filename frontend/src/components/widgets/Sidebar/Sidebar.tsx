@@ -52,8 +52,8 @@ const Sidebar = () => {
                     Join or create a Organization to connect with your Team and manage your Drafts together.
                 </p>
                 <div className="message-box-ctas">
-                    <button className="button button-primary" onClick={showJoinOrganisationModal}>Join</button>
-                    <button className="button button-secondary">Create</button>
+                    <button className="button primary-button" onClick={showJoinOrganisationModal}>Join</button>
+                    <button className="button secondary-button">Create</button>
                 </div>
             </div>
         </div>

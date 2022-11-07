@@ -1,8 +1,8 @@
-@import "../abstract/mixins";
-@import "../abstract/variables";
+@use "../abstract/colors";
+@use "../abstract/mixins";
 
 h1, h2, h3, h4, h5, h6, p, a {
-    color: map-get($colors, "text-color-primary");
+    color: map-get(colors.$colors, "text-color-primary");
     margin: 0;
 }
 

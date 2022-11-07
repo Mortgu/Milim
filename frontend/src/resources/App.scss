@@ -1,3 +1,6 @@
-@import "./base/base";
-@import "./abstract/abstracts";
-@import "./elements/elements";
+@use "./base/base";
+@use "./abstract/abstracts";
+@use "./elements/elements";
+
+@use "./components/components";
+@use "./layouts/layouts";

@@ -15,6 +15,7 @@ import FileEdit from "./pages/file/FileEdit";
 import {useAuthContext} from "./context/AuthContext";
 import HomePage from "./pages/index/HomePage";
 import File from "./pages/file/File";
+import Published from "./pages/published/Published";
 
 function App() {
     const {user} = useAuthContext();
@@ -40,7 +41,7 @@ function App() {
         },
         {
             path: "/published",
-            main: () => <div className="app"><Drafts /></div>,
+            main: () => <div className="app"><Published /></div>,
             sidebar: () => <Sidebar />,
             navigation: () => <Navigation />
         },

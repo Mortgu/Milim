@@ -1,0 +1,12 @@
+@use "../../abstract/colors";
+@use "../../abstract/mixins";
+
+.secondary-button {
+  background: rgba(map-get(colors.$colors, 'component-hover'), .8);
+  color: map-get(colors.$colors, 'textColor-secondary');
+
+  &:hover {
+    background: rgba(map-get(colors.$colors, 'component-hover'), 1);
+    color: map-get(colors.$colors, 'textColor-primary');
+  }
+}

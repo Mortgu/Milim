@@ -38,21 +38,21 @@ const Navigation = () => {
             <div className="mobile-menu" onClick={openMobileMenu}>
                 <MobileMenuIcon />
             </div>
-            <div ref={ref} className="dropdown-wrapper">
-                <div className="navigation-left" onClick={handleAddButton}>
-                    <LogoIcon className="logo-icon" />
-                    <div className="content">
-                        <p className="content-username">{user?.username || "Username"}</p>
-                        <p className="content-email">{user?.email || "E-Mail"}</p>
+            <div className="navigation-left">
+                <div ref={ref}  className="dropdown-wrapper">
+                    <div className="navigation-user" onClick={handleAddButton}>
+                        <LogoIcon className="logo-icon" />
+                        <div className="content">
+                            <p className="content-username">{user?.username || "Username"}</p>
+                            <p className="content-email">{user?.email || "E-Mail"}</p>
+                        </div>
+                        <ArrowDownIcon className="arrow-down" />
                     </div>
-                    <ArrowDownIcon className="arrow-down" />
-                </div>
-                <div className="dropdown" data-open={dropdownIsOpen}>
-                    <div className="button-list">
-                        <button className="button list-button"><PersonIcon /> Profile</button>
+                    <div className="dropdown" data-open={dropdownIsOpen}>
+                        <button className="dropdown-button icon-button"><PersonIcon /> Profile</button>
                         <div className="list-divider"></div>
-                        <button className="button list-button"><SettingsIcon /> Settings</button>
-                        <button className="button list-button"><LogoutIcon /> Log out</button>
+                        <button className="dropdown-button icon-button"><SettingsIcon /> Settings</button>
+                        <button className="dropdown-button icon-button"><LogoutIcon /> Log out</button>
                     </div>
                 </div>
             </div>
