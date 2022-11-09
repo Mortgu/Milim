@@ -1,0 +1,15 @@
+@use "../../abstract/colors";
+@use "../../abstract/mixins";
+
+
+input[type="submit"] {
+  padding: .9rem 0;
+
+  background: darken(map-get(colors.$colors, 'background'), 10);
+
+  cursor: pointer;
+
+  &:hover {
+    background: darken(map-get(colors.$colors, 'background'), 8);
+  }
+}

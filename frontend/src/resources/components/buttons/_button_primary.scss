@@ -3,7 +3,7 @@
 
 .primary-button {
   background: map-get(colors.$colors, 'primary');
-  color: map-get(colors.$colors, 'textColor-secondary');
+  color: map-get(colors.$colors, 'textColor-primary');
 
   transition: background 200ms, color 200ms;
 
@@ -12,5 +12,15 @@
     color: map-get(colors.$colors, 'textColor-primary');
 
     transition: background 200ms, color 200ms;
+  }
+
+  &-125 {
+    background: rgba(map-get(colors.$colors, 'primary'), 0.5);
+
+
+    &:hover {
+      background: map-get(colors.$colors, 'primary');
+      color: map-get(colors.$colors, 'textColor-primary');
+    }
   }
 }

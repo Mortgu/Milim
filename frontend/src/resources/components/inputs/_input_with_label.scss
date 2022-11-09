@@ -1,0 +1,17 @@
+@use "../../abstract/colors";
+@use "../../abstract/mixins";
+
+.input-label {
+  display: grid;
+  grid-gap: 10px;
+
+  label {
+    font-size: 13px;
+    letter-spacing: .2px;
+    color: map-get(colors.$colors, 'textColor-secondary');
+  }
+
+  input {
+    padding: .8rem 1rem;
+  }
+}

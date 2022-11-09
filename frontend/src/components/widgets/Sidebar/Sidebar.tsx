@@ -53,7 +53,7 @@ const Sidebar = () => {
                 </p>
                 <div className="message-box-ctas">
                     <button className="button primary-button" onClick={showJoinOrganisationModal}>Join</button>
-                    <button className="button secondary-button">Create</button>
+                    <button className="button primary-button-125">Create</button>
                 </div>
             </div>
         </div>
