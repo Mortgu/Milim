@@ -1,14 +1,9 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {NavLink} from "react-router-dom";
 
 import PageNavigation from "../../components/widgets/PageNavigation/PageNavigation";
 
-const Drafts = ({setShowNavigation}: any) => {
-
-    useEffect(() => {
-       // setShowNavigation(true);
-    }, []);
-
+const Drafts = () => {
     return (
         <div className="">
             <PageNavigation>

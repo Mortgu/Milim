@@ -1,11 +1,4 @@
-export const C_Draft = [
-    { _id: "", fileName: "Loading...", meta: { lastUpdatedAt: "loading..."} },
-    { _id: "", fileName: "Loading...", meta: { lastUpdatedAt: "loading..."} },
-    { _id: "", fileName: "Loading...", meta: { lastUpdatedAt: "loading..."} },
-    { _id: "", fileName: "Loading...", meta: { lastUpdatedAt: "loading..."} },
-    { _id: "", fileName: "Loading...", meta: { lastUpdatedAt: "loading..."} },
-    { _id: "", fileName: "Loading...", meta: { lastUpdatedAt: "loading..."} }
-]
+export const C_Draft = []
 
 export const getDrafts = async (url: string, method: string) => {
     return await fetch(url, {method: method})

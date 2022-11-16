@@ -1,11 +1,11 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 import "./Login.scss";
 import {useLogin} from "../../hooks/useLogin";
 
 import KeyIcon from "@material-ui/icons/Block";
 
-const Login = ({setShowNavigation}: any) => {
+const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -16,10 +16,6 @@ const Login = ({setShowNavigation}: any) => {
 
         await login(username, password);
     }
-
-    useEffect(() => {
-        //  setShowNavigation(false);
-    }, []);
 
     return (
         <div className="login-wrapper">

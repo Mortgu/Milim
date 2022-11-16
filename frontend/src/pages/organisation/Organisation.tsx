@@ -1,9 +1,8 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {NavLink} from "react-router-dom";
 import PageNavigation from "../../components/widgets/PageNavigation/PageNavigation";
 
-const Organisation = ({setShowNavigation}: any) => {
-
+const Organisation = () => {
     return (
         <React.Fragment>
             <PageNavigation>
