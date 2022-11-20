@@ -1,18 +1,9 @@
 import "./Navigation.scss";
-
-import ArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import LogoIcon from '@material-ui/icons/AccountCircle';
-import BellIcon from '@material-ui/icons/NotificationsOutlined';
 import MobileMenuIcon from '@material-ui/icons/Menu';
-import PersonIcon from '@material-ui/icons/Person';
-import SettingsIcon from '@material-ui/icons/Settings';
-import LogoutIcon from '@material-ui/icons/ArrowRightAlt';
-import SearchIcon from '@material-ui/icons/Search';
+import GlobalIcon from '@material-ui/icons/ExploreOutlined';
 
-import React, {useState} from "react";
-
-import {useClickHook} from "../../hooks/useClickHook";
-import {useAuthContext} from "../../context/AuthContext";
+import React from "react";
 
 const NavigationUnauthorized = () => {
     return (
@@ -20,11 +11,12 @@ const NavigationUnauthorized = () => {
             <div className="mobile-menu">
                 <MobileMenuIcon />
             </div>
-            <div className="navigation-center"> </div>
+            <div className="navigation-center"></div>
+            <button className="button-transparent icon-button full-height"><GlobalIcon /> Create your own.</button>
             <div className="navigation-right">
-                <div className="user-icon">
+                <button className="button-transparent icon-button full-height cube-48">
                     <LogoIcon className="logo-icon" />
-                </div>
+                </button>
             </div>
         </div>
     )

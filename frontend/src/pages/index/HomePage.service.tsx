@@ -8,5 +8,6 @@ export const getDrafts = async (url: string, method: string) => {
         })
         .catch((error: Error) => {
             return error;
-        });
+        }
+    );
 }
