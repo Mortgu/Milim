@@ -1,7 +1,7 @@
-@use "../../../resources/abstract/colors" as *;
+@use "../../resources/abstract/colors" as *;
 
-@import "../../../resources/abstract/variables";
-@import "../../../resources/abstract/mixins";
+@import "../../resources/abstract/variables";
+@import "../../resources/abstract/mixins";
 
 .page-navigation {
   position: sticky;

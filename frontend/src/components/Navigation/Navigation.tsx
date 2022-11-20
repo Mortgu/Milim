@@ -7,11 +7,12 @@ import MobileMenuIcon from '@material-ui/icons/Menu';
 import PersonIcon from '@material-ui/icons/Person';
 import SettingsIcon from '@material-ui/icons/Settings';
 import LogoutIcon from '@material-ui/icons/ArrowRightAlt';
+import SearchIcon from '@material-ui/icons/Search';
 
 import React, {useState} from "react";
 
-import {useClickHook} from "../../../hooks/useClickHook";
-import {useAuthContext} from "../../../context/AuthContext";
+import {useClickHook} from "../../hooks/useClickHook";
+import {useAuthContext} from "../../context/AuthContext";
 
 const Navigation = () => {
     const { user } = useAuthContext();
@@ -56,8 +57,12 @@ const Navigation = () => {
                     </div>
                 </div>
             </div>
-
-            <div className="navigation-center"></div>
+            <div className="navigation-center">
+                <div className="search-input">
+                    <SearchIcon />
+                    <input type="text" placeholder="Search..." />
+                </div>
+            </div>
             <div className="navigation-right">
                 <div className="notifications">
                     <BellIcon />

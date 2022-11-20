@@ -1,7 +1,7 @@
 import {useState} from "react";
 import AddIcon from "@material-ui/icons/Add";
 
-import {useClickHook} from "../../../../../hooks/useClickHook";
+import {useClickHook} from "../../../../hooks/useClickHook";
 import SidebarItem from "./SidebarItem";
 
 const SidebarItemDropdown = ({ icon, text, link, children }: any) => {

@@ -1,9 +1,9 @@
 import {C_Draft, getDrafts} from "./HomePage.service";
 import React, {useEffect, useState} from "react";
-import PageNavigation from "../../components/widgets/PageNavigation/PageNavigation";
+import PageNavigation from "../../components/PageNavigation/PageNavigation";
 import {NavLink} from "react-router-dom";
-import CreationTopBar from "../../components/widgets/CreationTopbar/CreationTopBar";
-import FileCard from "../../components/widgets/FileCard/FileCard";
+import CreationTopBar from "../../components/CreationTopbar/CreationTopBar";
+import FileCard from "../../components/FileCard/FileCard";
 
 const HomePage = () => {
     const [drafts, setDrafts] = useState<{ _id: string, fileName: string, meta: { lastUpdatedAt: string } }[]>(C_Draft);
@@ -16,7 +16,7 @@ const HomePage = () => {
     return (
         <React.Fragment>
             <PageNavigation>
-                <NavLink end to="/" className="page-navigation-item">Recently viewed</NavLink>
+                <NavLink end to="/resents" className="page-navigation-item">Recently viewed</NavLink>
             </PageNavigation>
             <div className="page">
                 <CreationTopBar/>

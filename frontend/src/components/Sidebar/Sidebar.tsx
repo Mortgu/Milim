@@ -7,6 +7,7 @@ import OrganisationIcon from "@material-ui/icons/HouseOutlined";
 import NoteIcon from "@material-ui/icons/NoteOutlined";
 import MailIcon from "@material-ui/icons/MailOutlined";
 import PublicIcon from "@material-ui/icons/Public";
+import MarketplaceIcon from "@material-ui/icons/Storefront";
 import {MODAL_TYPES, useGlobalModalContext} from "../Models/GlobalModal";
 import SidebarItemDropdown from "./elements/items/SidebarItemDropdown";
 import SidebarItem from "./elements/items/SidebarItem";
@@ -21,7 +22,13 @@ const Sidebar = () => {
     return (
         <div className="sidebar">
             <section className="sidebar-section">
-                <SidebarItem icon={<ClockIcon className="item-icon" />} text="Recents" end link="/" />
+                <SidebarItem icon={<MarketplaceIcon className="item-icon" />} text="Marketplace" end link="/" />
+            </section>
+
+            <div className="sidebar-separator"></div>
+
+            <section className="sidebar-section">
+                <SidebarItem icon={<ClockIcon className="item-icon" />} text="Resents" end link="/resents" />
                 <SidebarItemDropdown icon={<NoteIcon className="item-icon" />} text="Drafts" link="/drafts">
                     <div className="dropdown-item">
                         <NoteIcon className="item-icon" />
@@ -30,7 +37,9 @@ const Sidebar = () => {
                 </SidebarItemDropdown>
                 <SidebarItem icon={<PublicIcon className="item-icon" />} text="Published" link="/published" />
             </section>
+
             <div className="sidebar-separator"></div>
+
             <section className="sidebar-section">
                 <SidebarItem icon={<OrganisationIcon className="item-icon" />} text="Organisation" end link="/organisation" />
                 <SidebarItemDropdown icon={<NoteIcon className="item-icon" />} text="Drafts" end link="/organisation/drafts">
@@ -46,7 +55,9 @@ const Sidebar = () => {
                     </div>
                 </SidebarItemDropdown>
             </section>
+
             <div className="sidebar-separator"></div>
+
             <div className="sidebar-message-box">
                 <p className="message-box-text">
                     Join or create a Organization to connect with your Team and manage your Drafts together.

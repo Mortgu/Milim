@@ -1,12 +1,14 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
 import PageNavigation from "../../components/PageNavigation/PageNavigation";
+import {NavLink} from "react-router-dom";
 
-const Organisation = () => {
+const Marketplace = () => {
+
     return (
         <React.Fragment>
             <PageNavigation>
-                <NavLink end to="/organisation" className="page-navigation-item">Organisation</NavLink>
+                <NavLink end to="/" className="page-navigation-item">Marketplace</NavLink>
+                <NavLink end to="/dwa" className="page-navigation-item">Most Popular</NavLink>
             </PageNavigation>
             <div className="page">
             </div>
@@ -14,4 +16,4 @@ const Organisation = () => {
     )
 }
 
-export default Organisation;
+export default Marketplace;

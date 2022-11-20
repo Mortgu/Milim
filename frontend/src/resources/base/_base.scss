@@ -28,6 +28,10 @@ body {
   @include mixins.media-down('sm') {
     margin: 48px 0 0 0;
   }
+
+  &.fullscreen {
+    margin: 48px 0 0 0;
+  }
 }
 
 .page {
