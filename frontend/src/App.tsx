@@ -26,96 +26,109 @@ function App() {
             main: () => <Login/>,
             sidebar: () => <></>,
             navigation: () => <></>,
+            authenticated: true
         },
         {
             path: "/",
             main: () => <div className="app"><HomePage /></div>,
             sidebar: () => <Sidebar />,
             navigation: () => <Navigation />,
+            authenticated: true
         },
         {
             path: "/drafts",
             main: () => <div className="app"><Drafts /></div>,
             sidebar: () => <Sidebar />,
-            navigation: () => <Navigation />
+            navigation: () => <Navigation />,
+            authenticated: true
         },
         {
             path: "/published",
             main: () => <div className="app"><Published /></div>,
             sidebar: () => <Sidebar />,
-            navigation: () => <Navigation />
+            navigation: () => <Navigation />,
+            authenticated: true
         },
         {
             path: "/drafts/deleted",
             main: () => <div className="app"><DeletedDrafts /></div>,
             sidebar: () => <Sidebar />,
-            navigation: () => <Navigation />
+            navigation: () => <Navigation />,
+            authenticated: true
         },
         {
             path: "/organisation",
             main: () => <div className="app"><Organisation /></div>,
             sidebar: () => <Sidebar />,
-            navigation: () => <Navigation />
+            navigation: () => <Navigation />,
+            authenticated: true
         },
         {
             path: "/organisation/drafts",
             main: () => <div className="app"><OrganisationDrafts /></div>,
             sidebar: () => <Sidebar />,
-            navigation: () => <Navigation />
+            navigation: () => <Navigation />,
+            authenticated: true
         },
         {
             path: "/organisation/drafts/settings",
             main: () => <div className="app"><OrganisationDrafts /></div>,
             sidebar: () => <Sidebar />,
-            navigation: () => <Navigation />
+            navigation: () => <Navigation />,
+            authenticated: true
         },
         {
             path: "/organisation/members",
             main: () => <div className="app"><OrganisationMembers /></div>,
             sidebar: () => <Sidebar />,
-            navigation: () => <Navigation />
+            navigation: () => <Navigation />,
+            authenticated: true
         },
         {
             path: "/organisation/members/settings",
             main: () => <div className="app"><OrganisationMembers /></div>,
             sidebar: () => <Sidebar />,
-            navigation: () => <Navigation />
+            navigation: () => <Navigation />,
+            authenticated: true
         },
         {
             path: "/file/:id",
             main: () => <File />,
             sidebar: () => <></>,
-            navigation: () => <Navigation />
+            navigation: () => <Navigation />,
+            authenticated: false
         },
         {
             path: "/file/:id/edit",
             main: () => <FileEdit />,
             sidebar: () => <></>,
-            navigation: () => <Navigation />
+            navigation: () => <Navigation />,
+            authenticated: true
         },
         {
             path: "*",
             main: () => <></>,
             sidebar: () => <></>,
-            navigation: () => <></>
+            navigation: () => <></>,
+            authenticated: true
         },
     ];
 
     return (
         <GlobalModal>
             <Routes>
-                {routes.map(({ path, navigation }) => (
-                    <Route key={path} path={path} element={user && navigation()} />
+                {routes.map(({ path, navigation, authenticated }) => (
+                    <Route key={path} path={path} element={authenticated ? user && navigation() : user ? navigation() : <div className="navigation"></div>} />
                 ))}
             </Routes>
             <Routes>
-                {routes.map(({ path, sidebar }) => (
-                    <Route key={path} path={path} element={user && sidebar()} />
+                {routes.map(({ path, sidebar , authenticated}) => (
+                    <Route key={path} path={path} element={authenticated ? user && sidebar() : sidebar()} />
                 ))}
             </Routes>
             <Routes>
-                {routes.map(({ path, main }) => (
-                    <Route key={path} path={path} element={user ? main() : <Login />} />
+                {routes.map(({ path, main, authenticated }) => (
+                    <Route key={path} path={path} element={authenticated ? user ? main() : <Login /> : main()} />
                 ))}
             </Routes>
         </GlobalModal>
