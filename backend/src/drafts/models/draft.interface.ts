@@ -1,3 +1,5 @@
+import mongoose from "mongoose";
+
 export type DraftEditStatus = "draft" | "finished";
 export type DraftPublicStatus = "private" | "public";
 
@@ -8,6 +10,7 @@ export interface I_Draft {
         lastUpdatedAt?: Date,
         editStatus: DraftEditStatus,
         public?: boolean,
+        creator: mongoose.Types.ObjectId
     },
     content?: Object,
 }

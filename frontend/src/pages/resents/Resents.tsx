@@ -27,7 +27,7 @@ const Resents = () => {
                 <CreationTopBar/>
                 <div className="file-card-wrapper">
                     {drafts?.map((row: any, index: any) => {
-                        return <FileCard key={index} cardId={row._id} fileName={row.fileName} isPublic={row.meta.public}
+                        return <FileCard key={index} cardId={row._id} fileName={row.fileName} isPublic={row.meta.public} canCTAS={true}
                                          lastUpdatedAt={moment(row.meta.lastUpdatedAt).format('DD.MM.YYYY HH:MM')}/>
                     })}
                 </div>

@@ -23,6 +23,7 @@ const DraftSchema: Schema = new Schema<I_Draft>({
             type: Boolean,
             default: false
         },
+        creator: mongoose.Types.ObjectId
     },
     content: {
         type: Schema.Types.Mixed,

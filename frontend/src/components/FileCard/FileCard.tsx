@@ -18,9 +18,10 @@ interface FileCardProps {
     fileName: String,
     lastUpdatedAt: String,
     isPublic?: Boolean,
+    canCTAS?: Boolean
 }
 
-const FileCard = ({cardId = "", fileName, lastUpdatedAt, isPublic}: FileCardProps) => {
+const FileCard = ({cardId = "", fileName, lastUpdatedAt, isPublic, canCTAS = false}: FileCardProps) => {
     const { useOutsideClick } = useClickHook();
 
     const [isEditMode, setIsEditMode] = useState<boolean>(false);
@@ -66,7 +67,7 @@ const FileCard = ({cardId = "", fileName, lastUpdatedAt, isPublic}: FileCardProp
                     <p contentEditable={isEditMode} suppressContentEditableWarning={true} onInput={handleInputChange} className="titleText-title">{fileName}</p>
                     <p className="titleText-text">Updated: {lastUpdatedAt}</p>
                 </div>
-                <div className="file-card-cta">
+                {canCTAS && <div className="file-card-cta">
                     <div ref={dropdownRef} className="dropdown-wrapper" onClick={handleDropdown}>
                         <button className="icon-button"><DotIcon /></button>
                         <div className="dropdown" data-open={dropdownIsOpen}>
@@ -75,7 +76,7 @@ const FileCard = ({cardId = "", fileName, lastUpdatedAt, isPublic}: FileCardProp
                             <button className="dropdown-button icon-button focus-red"><TrashIcon /> Delete</button>
                         </div>
                     </div>
-                </div>
+                </div>}
             </div>
         </div>
     )
