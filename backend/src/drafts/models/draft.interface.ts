@@ -7,7 +7,7 @@ export interface I_Draft {
         createdAt?: Date,
         lastUpdatedAt?: Date,
         editStatus: DraftEditStatus,
-        publicStatus: DraftPublicStatus,
+        public?: boolean,
     },
     content?: Object,
 }

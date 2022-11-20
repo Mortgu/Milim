@@ -13,7 +13,7 @@ import OrganisationMembers from "./pages/organisation/subpages/Members";
 import {GlobalModal} from "./components/Models/GlobalModal";
 import FileEdit from "./pages/file/FileEdit";
 import {useAuthContext} from "./context/AuthContext";
-import HomePage from "./pages/index/HomePage";
+import Resents from "./pages/resents/Resents";
 import File from "./pages/file/File";
 import Published from "./pages/published/Published";
 import Marketplace from "./pages/marketplace/Marketplace";
@@ -39,7 +39,7 @@ function App() {
         },
         {
             path: "/resents",
-            main: () => <HomePage />,
+            main: () => <Resents />,
             sidebar: () => <Sidebar />,
             navigation: () => <Navigation />,
             authenticated: true

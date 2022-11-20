@@ -49,17 +49,3 @@
   }
 }
 
-.titleText {
-  display: grid;
-  grid-gap: 5px;
-
-  .titleText-title {
-    font-size: 15px;
-    color: map-get($colors, 'text-color-primary');
-  }
-
-  .titleText-text {
-    font-size: 13px;
-    color: map-get($colors, 'text-color-secondary');
-  }
-}

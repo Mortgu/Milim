@@ -19,9 +19,9 @@ const DraftSchema: Schema = new Schema<I_Draft>({
             type: String,
             default: "draft"
         },
-        publicStatus: {
-            type: String,
-            default: "private"
+        public: {
+            type: Boolean,
+            default: false
         },
     },
     content: {

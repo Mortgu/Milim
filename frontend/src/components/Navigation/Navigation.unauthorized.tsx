@@ -12,7 +12,7 @@ const NavigationUnauthorized = () => {
                 <MobileMenuIcon />
             </div>
             <div className="navigation-center"></div>
-            <button className="button-transparent icon-button full-height"><GlobalIcon /> Create your own.</button>
+            <button className="button-transparent icon-button full-height"><GlobalIcon /> Get Started.</button>
             <div className="navigation-right">
                 <button className="button-transparent icon-button full-height cube-48">
                     <LogoIcon className="logo-icon" />
