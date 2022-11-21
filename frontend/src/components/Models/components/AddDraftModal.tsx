@@ -6,7 +6,7 @@ import SelectInput from "../../SelectInput/SelectInput";
 import {SelectOption} from "../../SelectInput/SelectInput";
 
 const options = [
-    { label: "First", value: 1 },
+    { label: "Custom Tag", value: 1 },
     { label: "Second", value: 2 },
     { label: "Third", value: 3 },
     { label: "Fourth", value: 4 },

@@ -25,6 +25,10 @@ const DraftSchema: Schema = new Schema<I_Draft>({
         },
         creator: mongoose.Types.ObjectId
     },
+    tags: {
+        type: Array,
+        default: [],
+    },
     content: {
         type: Schema.Types.Mixed,
         default: {

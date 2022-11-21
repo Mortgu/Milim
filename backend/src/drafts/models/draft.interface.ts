@@ -12,5 +12,6 @@ export interface I_Draft {
         public?: boolean,
         creator: mongoose.Types.ObjectId
     },
+    tags?: [],
     content?: Object,
 }
