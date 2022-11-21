@@ -7,9 +7,6 @@ import DotIcon from "@material-ui/icons/MoreVert";
 
 import "./FileCard.scss";
 import {useClickHook} from "../../hooks/useClickHook";
-import LogoIcon from "@material-ui/icons/AccountCircle";
-import ArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import PersonIcon from "@material-ui/icons/Person";
 import SettingsIcon from "@material-ui/icons/Settings";
 import TrashIcon from "@material-ui/icons/Delete";
 
