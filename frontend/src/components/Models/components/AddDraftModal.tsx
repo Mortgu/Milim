@@ -1,9 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 
 import "./AddDraftModal.scss";
 import SendIcon from "@material-ui/icons/Edit";
+import SelectInput from "../../SelectInput/SelectInput";
+import {SelectOption} from "../../SelectInput/SelectInput";
+
+const options = [
+    { label: "First", value: 1 },
+    { label: "Second", value: 2 },
+    { label: "Third", value: 3 },
+    { label: "Fourth", value: 4 },
+    { label: "Fifth", value: 5 },
+]
 
 const AddDraftModal = () => {
+    const [value1, setValue1] = useState<SelectOption[]>([options[0]])
+    const [value2, setValue2] = useState<SelectOption | undefined>(options[0])
+
+    // @ts-ignore
     return (
         <div className="add-draft-modal">
             <div className="head">
@@ -29,9 +43,10 @@ const AddDraftModal = () => {
                     <input className="input" type="text" placeholder="Enter Name..." />
                     <SendIcon />
                 </div>
+                <SelectInput multiple options={options} value={value1} onChange={(o: any) => setValue1(o)} />
             </div>
             <div className="modal-footer">
-
+                
             </div>
         </div>
     )

@@ -8,6 +8,9 @@
 .dropdown {
     z-index: 1001;
 
+    width: 100%;
+    height: auto;
+
     opacity: 0;
     transform: translateY(-20px);
     pointer-events: none;
@@ -16,7 +19,7 @@
 
     position: absolute;
     right: 0;
-    top: calc(100% + 10px);
+    top: calc(100% + 15px);
 
     background: lighten(map-get($colors, 'background'), 2);
     border-radius: 6px;
@@ -24,8 +27,6 @@
 
     box-shadow: 0 0 10px rgba(0, 0, 0, .3);
 
-    width: auto;
-    height: auto;
 
     margin: 0;
 
