@@ -1,11 +1,18 @@
 import "./CreationTopBar.scss";
 
 import AddIcon from "@material-ui/icons/Add";
+import {MODAL_TYPES, useGlobalModalContext} from "../Models/GlobalModal";
 
 const CreationTopBar = () => {
+    const {showModal} = useGlobalModalContext();
+
+    const handleAddDraft = () => {
+        showModal(MODAL_TYPES.ADD_DRAFT_MODAL, {});
+    }
+
     return (
         <div className="creation-top-bar">
-            <div className="topBar-cta">
+            <div onClick={handleAddDraft} className="topBar-cta">
                 <div className="content-wrapper">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                         <path fill="#4A5878" className="file_icons--designFilePrimary--2TWAR"
@@ -42,7 +49,7 @@ const CreationTopBar = () => {
                     </div>
                 </div>
                 <AddIcon className="add-icon" />
-            </div>
+            </div >
             <div className="topBar-cta">
                 <div className="content-wrapper">
                     <svg className="svg" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">

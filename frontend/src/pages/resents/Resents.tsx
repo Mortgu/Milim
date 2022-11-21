@@ -12,7 +12,6 @@ const Resents = () => {
 
     useEffect(() => {
         new DraftHandler("http://localhost:4000/drafts", "GET")
-            .filter("meta.public", false)
             .build((data: any) => {
                 setDrafts(data);
             });

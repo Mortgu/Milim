@@ -1,16 +1,20 @@
 import { createContext, useContext, useState } from "react";
 
+import "./GlobalModal.scss";
+
 import CloseIcon from "@material-ui/icons/Close";
 
-import "./GlobalModal.scss";
 import JoinOrganisationModal from "./components/JoinOrganisationModal";
+import AddDraftModal from "./components/AddDraftModal";
 
 export const MODAL_TYPES = {
     JOIN_ORGANISATION_MODAL: "JOIN_ORGANISATION_MODAL",
+    ADD_DRAFT_MODAL: "ADD_DRAFT_MODAL",
 }
 
 const MODAL_COMPONENTS: any = {
     [MODAL_TYPES.JOIN_ORGANISATION_MODAL]: JoinOrganisationModal,
+    [MODAL_TYPES.ADD_DRAFT_MODAL]: AddDraftModal,
 }
 
 type T_GlobalModalContext = {

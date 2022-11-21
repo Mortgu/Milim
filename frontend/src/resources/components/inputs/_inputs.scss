@@ -30,3 +30,48 @@ input {
     transition: all 200ms;
   }
 }
+
+.input-icon {
+  background: lighten(map-get(colors.$colors, 'background'), 5);
+  color: map-get(colors.$colors, 'textColor-primary');
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  border-radius: 5px;
+
+  position: relative;
+
+  input {
+    order: 2;
+    padding: .7rem 1rem .7rem 2rem;
+
+    &:focus {
+      background: transparent;
+    }
+  }
+
+  svg {
+    width: 15px;
+    height: 15px;
+
+    margin: .5rem;
+
+    pointer-events: none;
+    color: map-get(colors.$colors, 'textColor-secondary');
+
+    position: absolute;
+
+    top: 50%;
+    left: 0;
+
+    transform: translate(0, -100%);
+    transition: all 200ms;
+  }
+
+  &:focus-within {
+    box-shadow: 0 0 0 .2rem map-get(colors.$colors, 'primary');
+    transition: all 200ms;
+  }
+}
