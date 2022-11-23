@@ -26,12 +26,12 @@
       @keyframes slide-out {
         to {
           transform: translateX(500px);
-          opacity: 0;
+          //opacity: 0;
         }
 
         from {
           transform: translateX(0);
-          opacity: 1;
+          //opacity: 1;
         }
       }
     }
@@ -42,8 +42,10 @@
     right: 0;
     top: 0;
 
-    width: 400px;
+    width: 320px;
     height: 100%;
+
+    padding: 40px 40px 0;
 
     background: map-get($colors, 'background');
     border-left: 1px solid lighten(map-get($colors, 'background'), 10);
@@ -59,12 +61,12 @@
     @keyframes slide-in {
       from {
         transform: translateX(500px);
-        opacity: 0;
+        //opacity: 0;
       }
 
       to {
         transform: translateX(0);
-        opacity: 1;
+        //opacity: 1;
       }
     }
 
