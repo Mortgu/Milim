@@ -13,10 +13,13 @@ import React, {useState} from "react";
 
 import {useClickHook} from "../../hooks/useClickHook";
 import {useAuthContext} from "../../context/AuthContext";
+import {SIDEBAR_TYPES, useGlobalSidebarContext} from "../Sidebars/GlobalSidebar";
 
 const Navigation = () => {
     const { user } = useAuthContext();
     const { useOutsideClick } = useClickHook();
+
+    const { showSidebar, hideSidebar } = useGlobalSidebarContext();
 
     const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
 
@@ -28,8 +31,10 @@ const Navigation = () => {
         setDropdownIsOpen(false);
     }
 
-    const openMobileMenu = () => {
+    const openMobileMenu = () => {}
 
+    const openNotificationSidebar = () => {
+        showSidebar(SIDEBAR_TYPES.NOTIFICATION_SIDEBAR);
     }
 
     const ref = useOutsideClick(hideDropdown);
@@ -64,7 +69,7 @@ const Navigation = () => {
                 </div>
             </div>
             <div className="navigation-right">
-                <div className="notifications">
+                <div className="notifications" onClick={openNotificationSidebar}>
                     <BellIcon />
                 </div>
                 <div className="user-icon">

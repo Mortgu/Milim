@@ -2,9 +2,9 @@ import {useState} from "react";
 import AddIcon from "@material-ui/icons/Add";
 
 import {useClickHook} from "../../../../hooks/useClickHook";
-import SidebarItem from "./SidebarItem";
+import SideNavigationItem from "./SideNavigationItem";
 
-const SidebarItemDropdown = ({ icon, text, link, children }: any) => {
+const SideNavigationItemDropdown = ({ icon, text, link, children }: any) => {
     const { useOutsideClick } = useClickHook();
 
     const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
@@ -21,11 +21,11 @@ const SidebarItemDropdown = ({ icon, text, link, children }: any) => {
 
     return (
         <div ref={ref} className="sidebar-item-wrapper">
-            <SidebarItem icon={icon} text={text} link={link}>
+            <SideNavigationItem icon={icon} text={text} link={link}>
                 <div className="onHover" onClick={toggleAction}>
                     <AddIcon className="icon hover-icon" />
                 </div>
-            </SidebarItem>
+            </SideNavigationItem>
             <div className="cta-action" data-open={dropdownIsOpen}>
                 {children}
             </div>
@@ -33,4 +33,4 @@ const SidebarItemDropdown = ({ icon, text, link, children }: any) => {
     )
 }
 
-export default SidebarItemDropdown;
+export default SideNavigationItemDropdown;

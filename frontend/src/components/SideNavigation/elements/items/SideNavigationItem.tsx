@@ -1,6 +1,6 @@
 import {NavLink} from "react-router-dom";
 
-const SidebarItem = ({ icon, text, link, children, ...props }: any) => {
+const SideNavigationItem = ({ icon, text, link, children, ...props }: any) => {
     return (
         <NavLink {...props} to={link} className="sidebar-item">
             {icon}
@@ -10,4 +10,4 @@ const SidebarItem = ({ icon, text, link, children, ...props }: any) => {
     )
 }
 
-export default SidebarItem;
+export default SideNavigationItem;
