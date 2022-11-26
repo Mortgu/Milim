@@ -1,5 +1,5 @@
-@import '../abstract/mixins';
-@import '../abstract/variables';
+@use '../abstract/mixins';
+@use '../abstract/colors';
 
 .loader-wrapper {
   width: 100%;
@@ -10,9 +10,12 @@
 }
 
 .loader {
-  border: 3px solid lighten(map-get($colors, 'background'), 5);
+  border-top: 3px solid lighten(map-get(colors.$colors, 'primary'), 10);
+  border-bottom: 3px solid lighten(map-get(colors.$colors, 'background'), 5);
+  border-left: 3px solid lighten(map-get(colors.$colors, 'background'), 5);
+  border-right: 3px solid lighten(map-get(colors.$colors, 'background'), 5);
+
   border-radius: 50%;
-  border-top: 3px solid map-get($colors, 'primary');
   width: 30px;
   height: 30px;
   animation: spin 1s linear infinite;

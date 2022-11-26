@@ -31,6 +31,11 @@ const UserSchema: Schema = new Schema<I_User>({
             type: Date,
             default: Date.now()
         },
+    },
+
+    notifications: {
+        type: [mongoose.Types.ObjectId],
+        default: []
     }
 });
 

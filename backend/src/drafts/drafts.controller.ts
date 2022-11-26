@@ -4,7 +4,6 @@ import {DraftModel} from "./models/draft.schema";
 
 export async function add_draft(request: Request, response: Response): Promise<void> {
     try {
-        console.log(request.body);
         const draft: I_Draft = await new DraftModel(request.body).save();
 
         response.status(201).json({message: 'Draft added', draft: draft});

@@ -1,4 +1,5 @@
 import { Document } from "mongoose";
+import * as mongoose from "mongoose";
 
 export interface I_User extends Document {
     username: string,
@@ -9,4 +10,6 @@ export interface I_User extends Document {
 
     meta?: Object,
     settings?: Object,
+
+    notifications?: Array<mongoose.Types.ObjectId>
 }

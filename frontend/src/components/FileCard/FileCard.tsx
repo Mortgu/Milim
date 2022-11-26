@@ -44,9 +44,7 @@ const FileCard = ({cardId = "", fileName, lastUpdatedAt, isPublic, canCTAS = fal
     const dropdownRef = useOutsideClick(hideDropdown);
 
     useEffect(() => {
-        if (!isEditMode) {
-            console.log('changed')
-        }
+        if (!isEditMode) {}
     }, [isEditMode]);
 
     const handleDropdown = (event: any) => {
