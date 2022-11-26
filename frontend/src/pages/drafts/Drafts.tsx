@@ -7,6 +7,7 @@ import FileCard from "../../components/FileCard/FileCard";
 import moment from "moment/moment";
 
 const Drafts = () => {
+    const [loading, setLoading] = useState(true);
 
     const [drafts, setDrafts] = useState<{ _id: string, fileName: string, meta: { lastUpdatedAt: string } }[]>(C_Draft);
 
@@ -15,8 +16,17 @@ const Drafts = () => {
             .filter("meta.public", false)
             .build((data: any) => {
                 setDrafts(data);
+                setLoading(false);
             });
     }, []);
+
+    if (loading) {
+        return (
+            <div className="loader-wrapper">
+                <div className="loader"></div>
+            </div>
+        )
+    }
 
     return (
         <div className="">

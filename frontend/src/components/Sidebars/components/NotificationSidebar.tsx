@@ -4,8 +4,6 @@ import "./NotificationSidebar.scss";
 
 import moment from "moment/moment";
 
-import {Link} from "react-router-dom";
-
 import NotificationHandler from "../../../utils/NotificationHandler";
 
 const NotificationSidebar = () => {

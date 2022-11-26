@@ -8,14 +8,24 @@ import FileCard from "../../components/FileCard/FileCard";
 import moment from 'moment'
 
 const Resents = () => {
+    const [loading, setLoading] = useState(true);
     const [drafts, setDrafts] = useState<{ _id: string, fileName: string, meta: { lastUpdatedAt: string } }[]>(C_Draft);
 
     useEffect(() => {
         new DraftHandler("http://localhost:4000/drafts", "GET")
             .build((data: any) => {
                 setDrafts(data);
+                setLoading(false);
             });
     }, []);
+
+    if (loading) {
+        return (
+            <div className="loader-wrapper">
+                <div className="loader"></div>
+            </div>
+        )
+    }
 
     return (
         <React.Fragment>
