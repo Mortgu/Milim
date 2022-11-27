@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 
 import {BrowserRouter} from "react-router-dom";
-import {AuthContextProvider} from "./context/AuthContext";
+import {AuthContextProvider} from "./context/auth.context";
+import {SocketContextProvider} from "./context/socket.context";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -11,9 +12,11 @@ const root = ReactDOM.createRoot(
 
 root.render(
     <AuthContextProvider>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
+        <SocketContextProvider>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </SocketContextProvider>
     </AuthContextProvider>
 );
 

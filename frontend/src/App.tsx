@@ -12,18 +12,18 @@ import OrganisationDrafts from "./pages/organisation/subpages/Drafts";
 import OrganisationMembers from "./pages/organisation/subpages/Members";
 import {GlobalModal} from "./components/Models/GlobalModal";
 import FileEdit from "./pages/file/FileEdit";
-import {useAuthContext} from "./context/AuthContext";
+import {useAuthContext} from "./context/auth.context";
 import Resents from "./pages/resents/Resents";
 import File from "./pages/file/File";
 import Published from "./pages/published/Published";
 import Marketplace from "./pages/marketplace/Marketplace";
 import NavigationUnauthorized from "./components/Navigation/Navigation.unauthorized";
 import GlobalSidebar from "./components/Sidebars/GlobalSidebar";
-import {useSocketHook} from "./hooks/useSocketHook";
+import {useSocketContext} from "./context/socket.context";
 
 function App() {
     const {user} = useAuthContext();
-    useSocketHook();
+    const {socket} = useSocketContext();
 
     const routes = [
         {

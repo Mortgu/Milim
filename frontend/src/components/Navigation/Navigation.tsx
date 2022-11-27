@@ -12,7 +12,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import React, {useState} from "react";
 
 import {useClickHook} from "../../hooks/useClickHook";
-import {useAuthContext} from "../../context/AuthContext";
+import {useAuthContext} from "../../context/auth.context";
 import {SIDEBAR_TYPES, useGlobalSidebarContext} from "../Sidebars/GlobalSidebar";
 
 const Navigation = () => {

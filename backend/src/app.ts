@@ -22,7 +22,7 @@ app.use(cors({ credentials: true }));
 
 app.use('/', routes);
 
-const io = new Server(4001, {
+export const io = new Server(4001, {
     cors: {
         origin: "http://localhost:3000",
         methods: ["GET", "POST"],
@@ -46,8 +46,20 @@ io.use((socket: any, next: any) => {
     }
 });
 
+export let socketIo: any = null;
+
 io.on('connection', (socket) => {
+    socketIo = socket;
+
     console.log(`Client (${socket.id}) connected.`);
+
+    socket.on('disconnect', () => {
+        console.log(`Client (${socket.id}) disconnected.`);
+    });
+
+    socket.on('notification:new', (args) => {
+        console.log(args);
+    });
 });
 
 mongoose.connect(`mongodb://localhost/milim`).then(() => {

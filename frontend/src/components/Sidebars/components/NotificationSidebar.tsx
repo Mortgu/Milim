@@ -7,7 +7,7 @@ import moment from "moment/moment";
 import NotificationHandler from "../../../utils/NotificationHandler";
 import PageNavigation from "../../PageNavigation/PageNavigation";
 import {NavLink} from "react-router-dom";
-import {useAuthContext} from "../../../context/AuthContext";
+import {useAuthContext} from "../../../context/auth.context";
 
 const NotificationSidebar = () => {
     const [loading, setLoading] = useState(true);

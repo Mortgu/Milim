@@ -1,10 +1,13 @@
 import {Request, Response} from "express";
 import {I_Draft} from "./models/draft.interface";
 import {DraftModel} from "./models/draft.schema";
+import {io, socketIo} from "../app";
 
 export async function add_draft(request: Request, response: Response): Promise<void> {
     try {
         const draft: I_Draft = await new DraftModel(request.body).save();
+
+        socketIo.emit('drafts:added', {id: draft._id});
 
         response.status(201).json({message: 'Draft added', draft: draft});
     } catch (exception) {
@@ -48,7 +51,10 @@ export async function modify_draft(request: Request, response: Response): Promis
             if (error) throw error;
         });
 
-        response.status(201).json({ message: "Draft was successfully modified.", modification: request.body.modification });
+        response.status(201).json({
+            message: "Draft was successfully modified.",
+            modification: request.body.modification
+        });
     } catch (error) {
         response.status(400).json({
             message: 'Something went wrong, while trying to modify anime.'

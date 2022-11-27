@@ -8,6 +8,8 @@ const CreationTopBar = () => {
 
     const handleAddDraft = () => {
         showModal(MODAL_TYPES.ADD_DRAFT_MODAL, {});
+
+        //socket.emit('notification:new', "test")
     }
 
     return (

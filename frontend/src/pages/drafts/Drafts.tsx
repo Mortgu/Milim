@@ -18,6 +18,10 @@ const Drafts = () => {
                 setDrafts(data);
                 setLoading(false);
             });
+
+        /*socket.on('drafts:added', (args: any) => {
+
+        });**/
     }, []);
 
     if (loading) {
