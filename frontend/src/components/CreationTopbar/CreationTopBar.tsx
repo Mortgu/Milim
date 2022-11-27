@@ -2,14 +2,17 @@ import "./CreationTopBar.scss";
 
 import AddIcon from "@material-ui/icons/Add";
 import {MODAL_TYPES, useGlobalModalContext} from "../Models/GlobalModal";
+import {useSocketContext} from "../../context/socket.context";
 
 const CreationTopBar = () => {
+    const socket = useSocketContext();
+
     const {showModal} = useGlobalModalContext();
 
     const handleAddDraft = () => {
         showModal(MODAL_TYPES.ADD_DRAFT_MODAL, {});
 
-        //socket.emit('notification:new', "test")
+        socket.emit('notification:new', "test")
     }
 
     return (

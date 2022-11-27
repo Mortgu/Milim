@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import "./resources/App.scss";
 import {Route, Routes} from "react-router-dom";
@@ -20,10 +20,11 @@ import Marketplace from "./pages/marketplace/Marketplace";
 import NavigationUnauthorized from "./components/Navigation/Navigation.unauthorized";
 import GlobalSidebar from "./components/Sidebars/GlobalSidebar";
 import {useSocketContext} from "./context/socket.context";
+import {useSocketHook} from "./hooks/socket.hook";
 
 function App() {
     const {user} = useAuthContext();
-    const {socket} = useSocketContext();
+    const { connect } = useSocketHook();
 
     const routes = [
         {
@@ -35,86 +36,86 @@ function App() {
         },
         {
             path: "/",
-            main: () => <Marketplace />,
-            sidebar: () => <SideNavigation />,
-            navigation: () => <Navigation />,
+            main: () => <Marketplace/>,
+            sidebar: () => <SideNavigation/>,
+            navigation: () => <Navigation/>,
             authenticated: false
         },
         {
             path: "/resents",
-            main: () => <Resents />,
-            sidebar: () => <SideNavigation />,
-            navigation: () => <Navigation />,
+            main: () => <Resents/>,
+            sidebar: () => <SideNavigation/>,
+            navigation: () => <Navigation/>,
             authenticated: true
         },
         {
             path: "/drafts",
-            main: () => <Drafts />,
-            sidebar: () => <SideNavigation />,
-            navigation: () => <Navigation />,
+            main: () => <Drafts/>,
+            sidebar: () => <SideNavigation/>,
+            navigation: () => <Navigation/>,
             authenticated: true
         },
         {
             path: "/published",
-            main: () => <Published />,
-            sidebar: () => <SideNavigation />,
-            navigation: () => <Navigation />,
+            main: () => <Published/>,
+            sidebar: () => <SideNavigation/>,
+            navigation: () => <Navigation/>,
             authenticated: true
         },
         {
             path: "/drafts/deleted",
-            main: () => <DeletedDrafts />,
-            sidebar: () => <SideNavigation />,
-            navigation: () => <Navigation />,
+            main: () => <DeletedDrafts/>,
+            sidebar: () => <SideNavigation/>,
+            navigation: () => <Navigation/>,
             authenticated: true
         },
         {
             path: "/organisation",
-            main: () => <Organisation />,
-            sidebar: () => <SideNavigation />,
-            navigation: () => <Navigation />,
+            main: () => <Organisation/>,
+            sidebar: () => <SideNavigation/>,
+            navigation: () => <Navigation/>,
             authenticated: true
         },
         {
             path: "/organisation/drafts",
-            main: () => <OrganisationDrafts />,
-            sidebar: () => <SideNavigation />,
-            navigation: () => <Navigation />,
+            main: () => <OrganisationDrafts/>,
+            sidebar: () => <SideNavigation/>,
+            navigation: () => <Navigation/>,
             authenticated: true
         },
         {
             path: "/organisation/drafts/settings",
-            main: () => <OrganisationDrafts />,
-            sidebar: () => <SideNavigation />,
-            navigation: () => <Navigation />,
+            main: () => <OrganisationDrafts/>,
+            sidebar: () => <SideNavigation/>,
+            navigation: () => <Navigation/>,
             authenticated: true
         },
         {
             path: "/organisation/members",
-            main: () => <OrganisationMembers />,
-            sidebar: () => <SideNavigation />,
-            navigation: () => <Navigation />,
+            main: () => <OrganisationMembers/>,
+            sidebar: () => <SideNavigation/>,
+            navigation: () => <Navigation/>,
             authenticated: true
         },
         {
             path: "/organisation/members/settings",
-            main: () => <OrganisationMembers />,
-            sidebar: () => <SideNavigation />,
-            navigation: () => <Navigation />,
+            main: () => <OrganisationMembers/>,
+            sidebar: () => <SideNavigation/>,
+            navigation: () => <Navigation/>,
             authenticated: true
         },
         {
             path: "/file/:id",
-            main: () => <File />,
+            main: () => <File/>,
             sidebar: () => <></>,
-            navigation: () => <Navigation />,
+            navigation: () => <Navigation/>,
             authenticated: false
         },
         {
             path: "/file/:id/edit",
-            main: () => <FileEdit />,
+            main: () => <FileEdit/>,
             sidebar: () => <></>,
-            navigation: () => <Navigation />,
+            navigation: () => <Navigation/>,
             authenticated: true
         },
         {
@@ -126,22 +127,30 @@ function App() {
         },
     ];
 
+    useEffect(() => {connect()}, []);
+
     return (
         <GlobalModal>
             <GlobalSidebar>
                 <Routes>
-                    {routes.map(({ path, navigation, authenticated }) => (
-                        <Route key={path} path={path} element={authenticated ? user && navigation() : user ? navigation() : <NavigationUnauthorized />} />
+                    {routes.map(({path, navigation, authenticated}) => (
+                        <Route key={path} path={path}
+                               element={authenticated ? user && navigation() : user ? navigation() :
+                                   <NavigationUnauthorized/>}/>
                     ))}
                 </Routes>
                 <Routes>
-                    {routes.map(({ path, sidebar , authenticated}) => (
-                        <Route key={path} path={path} element={authenticated ? user && sidebar() : user ? sidebar() : <></>} />
+                    {routes.map(({path, sidebar, authenticated}) => (
+                        <Route key={path} path={path}
+                               element={authenticated ? user && sidebar() : user ? sidebar() : <></>}/>
                     ))}
                 </Routes>
                 <Routes>
-                    {routes.map(({ path, main, authenticated }) => (
-                        <Route key={path} path={path} element={authenticated ? user ? <div className="app">{main()}</div> : <Login /> : user ? <div className="app">{main()}</div> : <div className="app fullscreen">{main()}</div>} />
+                    {routes.map(({path, main, authenticated}) => (
+                        <Route key={path} path={path}
+                               element={authenticated ? user ? <div className="app">{main()}</div> : <Login/> : user ?
+                                   <div className="app">{main()}</div> :
+                                   <div className="app fullscreen">{main()}</div>}/>
                     ))}
                 </Routes>
             </GlobalSidebar>

@@ -6,24 +6,46 @@ import CreationTopBar from "../../components/CreationTopbar/CreationTopBar";
 import FileCard from "../../components/FileCard/FileCard";
 
 import moment from 'moment'
+import {useSocketHook} from "../../hooks/socket.hook";
 
 const Resents = () => {
+    const {socket} = useSocketHook();
+
     const [loading, setLoading] = useState(true);
     const [drafts, setDrafts] = useState<{ _id: string, fileName: string, meta: { lastUpdatedAt: string } }[]>(C_Draft);
 
-    useEffect(() => {
-        new DraftHandler("http://localhost:4000/drafts", "GET")
+    const fetchDrafts = async () => {
+        setLoading(true);
+
+        await new DraftHandler("http://localhost:4000/drafts", "GET")
             .build((data: any) => {
                 setDrafts(data);
                 setLoading(false);
             });
+    }
+
+    useEffect(() => {
+        fetchDrafts()
+
+        socket.on('drafts:added', (args: any) => {
+            console.log(args);
+            fetchDrafts();
+        });
     }, []);
 
     if (loading) {
         return (
-            <div className="loader-wrapper">
-                <div className="loader"></div>
+
+        <React.Fragment>
+            <PageNavigation>
+                <NavLink end to="/resents" className="page-navigation-item">Recently viewed</NavLink>
+            </PageNavigation>
+            <div className="page">
+                <div className="loader-wrapper">
+                    <div className="loader"></div>
+                </div>
             </div>
+        </React.Fragment>
         )
     }
 

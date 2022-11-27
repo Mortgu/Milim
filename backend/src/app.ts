@@ -51,10 +51,10 @@ export let socketIo: any = null;
 io.on('connection', (socket) => {
     socketIo = socket;
 
-    console.log(`Client (${socket.id}) connected.`);
+    //console.log(`Client (${socket.id}) connected.`);
 
     socket.on('disconnect', () => {
-        console.log(`Client (${socket.id}) disconnected.`);
+        //console.log(`Client (${socket.id}) disconnected.`);
     });
 
     socket.on('notification:new', (args) => {

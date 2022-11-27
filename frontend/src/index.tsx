@@ -4,7 +4,7 @@ import App from './App';
 
 import {BrowserRouter} from "react-router-dom";
 import {AuthContextProvider} from "./context/auth.context";
-import {SocketContextProvider} from "./context/socket.context";
+import {SocketContext, socket} from "./context/socket.context";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -12,11 +12,11 @@ const root = ReactDOM.createRoot(
 
 root.render(
     <AuthContextProvider>
-        <SocketContextProvider>
+        <SocketContext.Provider value={socket}>
             <BrowserRouter>
                 <App />
             </BrowserRouter>
-        </SocketContextProvider>
+        </SocketContext.Provider>
     </AuthContextProvider>
 );
 
