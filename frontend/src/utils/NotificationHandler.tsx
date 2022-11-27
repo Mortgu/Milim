@@ -5,12 +5,14 @@ const reactStringReplace = require('react-string-replace');
 
 export default class NotificationHandler {
     private readonly url: string;
-    private method: string;
+    private readonly method: string;
 
     private filterString: string = "";
     private filterValue: string = "";
 
-    constructor(url: string = "http://localhost:4000/notifications", method: string = "GET") {
+    private user: any;
+
+    constructor(url: string = "http://localhost:4000/notifications/get", method: string = "POST") {
         this.url = url;
         this.method = method;
     }
@@ -19,6 +21,11 @@ export default class NotificationHandler {
         const {hideSidebar} = useGlobalSidebarContext();
 
         hideSidebar();
+    }
+
+    authorize = (user: any) => {
+        this.user = user;
+        return this;
     }
 
     format = (data: any) => {
@@ -60,15 +67,21 @@ export default class NotificationHandler {
     build = async (callback: Function) => {
         const url = this.url + `?${this.filterString}=${this.filterValue}`;
 
-        return await fetch(url, {method: this.method})
-            .then((response: Response) => response.json())
-            .then((data: Response) => {
-                const formattedData = this.format(data)
-
-                console.log(formattedData)
-
-                return callback(data);
+        const response = await fetch(url, {
+            method: this.method,
+            mode: 'cors',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${this.user.token}`
+            },
+            body: JSON.stringify({
+                id: this.user.id
             })
-            .catch((error: Error) => callback(error));
+        });
+
+        const json = await response.json();
+
+        return callback(this.format(json));
     }
 }

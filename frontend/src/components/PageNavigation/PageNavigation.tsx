@@ -2,10 +2,10 @@ import React from "react";
 
 import "./PageNavigation.scss";
 
-const PageNavigation = ({children}: any) => {
+const PageNavigation = ({style, children}: any) => {
     return (
         <div className="page-navigation">
-            <div className="page-navigation-items">
+            <div style={style} className="page-navigation-items">
                 {children}
             </div>
         </div>
