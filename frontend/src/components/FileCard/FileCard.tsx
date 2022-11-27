@@ -32,9 +32,7 @@ const FileCard = ({cardId = "", fileName, lastUpdatedAt, isPublic, canCTAS = fal
         setIsEditMode(false);
     }
 
-    const handleInputChange = (event: any) => {
-        console.log(event.target.innerText)
-    }
+    const handleInputChange = (event: any) => {}
 
     const hideDropdown = () => {
         setDropdownIsOpen(false);

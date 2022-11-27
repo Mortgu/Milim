@@ -19,9 +19,11 @@ import Published from "./pages/published/Published";
 import Marketplace from "./pages/marketplace/Marketplace";
 import NavigationUnauthorized from "./components/Navigation/Navigation.unauthorized";
 import GlobalSidebar from "./components/Sidebars/GlobalSidebar";
+import {useSocketHook} from "./hooks/useSocketHook";
 
 function App() {
     const {user} = useAuthContext();
+    useSocketHook();
 
     const routes = [
         {

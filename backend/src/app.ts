@@ -1,11 +1,17 @@
 import express, { Express } from "express";
+import {createServer} from "http";
 
 import routes from "./routes";
-
 import mongoose from "mongoose";
-import cors from "cors"
+
+import jsonwebtoken from "jsonwebtoken";
+
+import cors from "cors";
+import {Server, Socket} from "socket.io";
+import {SECRET_KEY} from "./middlewares/requireAuth";
 
 const app: Express = express();
+const httpServer = createServer(app);
 
 const PORT: string | number = process.env.PORT || 4000;
 
@@ -16,8 +22,39 @@ app.use(cors({ credentials: true }));
 
 app.use('/', routes);
 
+const io = new Server(4001, {
+    cors: {
+        origin: "http://localhost:3000",
+        methods: ["GET", "POST"],
+        credentials: true
+    }
+});
+
+io.use((socket: any, next: any) => {
+    const authenticationToken = socket.handshake.query.token;
+
+    if (authenticationToken) {
+        jsonwebtoken.verify(authenticationToken.toString(), SECRET_KEY, (error: any, decoded: any) => {
+           if (error) return next(new Error('Authentication failed!'));
+
+           socket.decoded = decoded;
+
+           next();
+        });
+    } else {
+        next(new Error('Authentication failed!'));
+    }
+});
+
+io.on('connection', (socket) => {
+    console.log(`Client (${socket.id}) connected.`);
+});
+
 mongoose.connect(`mongodb://localhost/milim`).then(() => {
-   app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+   httpServer.listen(PORT, () => {
+       console.log(`Server running on http://localhost:${PORT}`)
+   });
+
 }).catch((error) => {
     console.error(error);
 })

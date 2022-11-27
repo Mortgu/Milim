@@ -53,7 +53,7 @@ const Login = () => {
                     <button className="button primary-button">Login with GitHub</button>
                     <button className="button primary-button">Login with Google</button>
 
-                    <p className="text-link create-account">Don't have an account? <a
+                    <p className="text-link create-account">Don't have an account? <a href="#"
                         className="button button-link">Create Account?</a></p>
                 </div>
             </div>
