@@ -58,7 +58,6 @@ io.on('connection', (socket) => {
     });
 
     socket.on('notification:new', (args) => {
-        console.log(args);
     });
 });
 

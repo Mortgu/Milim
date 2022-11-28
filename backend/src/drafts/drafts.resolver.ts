@@ -1,5 +1,5 @@
 import {Router} from "express";
-import {add_draft, get_draft, get_drafts, modify_draft} from "./drafts.controller";
+import {add_draft, delete_draft, get_draft, get_drafts, modify_draft} from "./drafts.controller";
 
 const router: Router = Router();
 
@@ -12,7 +12,11 @@ router.get('/', get_drafts);
 // GET DRAFT "(GET) http://localhost/drafts/:id"
 router.get('/:id', get_draft);
 
-// PATCH DRAFT "(GET) http://localhost/drafts/:id"
+// PATCH DRAFT "(PATCH) http://localhost/drafts/:id"
 router.patch('/:id', modify_draft);
+
+// PATCH DRAFT "(DELETE) http://localhost/drafts/:id"
+router.delete('/:id', delete_draft);
+
 
 export default router;

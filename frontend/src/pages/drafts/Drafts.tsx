@@ -29,7 +29,7 @@ const Drafts = () => {
     useEffect(() => {
         fetchDrafts();
 
-        socket.on('drafts:added', (args: any) => {
+        socket.on('drafts:update', (args: any) => {
             console.log(args);
             fetchDrafts();
         });

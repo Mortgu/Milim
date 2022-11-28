@@ -32,11 +32,6 @@ const UserSchema: Schema = new Schema<I_User>({
             default: Date.now()
         },
     },
-
-    notifications: [{
-        type: mongoose.Types.ObjectId,
-        ref: 'Notification'
-    }]
 });
 
 UserSchema.pre("save", async function (next: any) {

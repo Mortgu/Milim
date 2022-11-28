@@ -10,6 +10,4 @@ export interface I_User extends Document {
 
     meta?: Object,
     settings?: Object,
-
-    notifications?: Array<mongoose.Types.ObjectId>
 }

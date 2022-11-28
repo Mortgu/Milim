@@ -1,8 +1,9 @@
-import {model, Schema} from "mongoose";
+import mongoose, {model, Schema} from "mongoose";
 
 import {I_Notification} from "./notification.interface";
 
 const NotificationSchema: Schema = new Schema<I_Notification>({
+    user: mongoose.Types.ObjectId,
     meta: {
         date: {
             type: Date,
