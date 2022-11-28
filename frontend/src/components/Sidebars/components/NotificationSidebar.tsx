@@ -18,6 +18,8 @@ const NotificationSidebar = () => {
     const {socket} = useSocketHook();
 
     const fetchNotifications = () => {
+        setLoading(true);
+
         new NotificationHandler(user).fetchAll((data: any) => {
             setLoading(false);
             setData([...data]);
@@ -25,8 +27,11 @@ const NotificationSidebar = () => {
     }
 
     const fetchNotificationById = (id: string) => {
+        setLoading(true);
+
         new NotificationHandler(user).findById(id, (data: any) => {
             setData((current: any) => [...current, data[0]]);
+            setLoading(false);
         });
     }
 
