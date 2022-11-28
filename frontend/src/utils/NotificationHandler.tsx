@@ -7,25 +7,36 @@ export default class NotificationHandler {
     private readonly url: string;
     private readonly method: string;
 
-    private filterString: string = "";
-    private filterValue: string = "";
-
     private user: any;
 
-    constructor(url: string = "http://localhost:4000/notifications/get", method: string = "POST") {
+    private fetchOptions: Object;
+
+    constructor(user: any, url: string = "http://localhost:4000/notifications/get", method: string = "POST") {
         this.url = url;
         this.method = method;
+        this.user = user;
+
+        this.fetchOptions = {
+            method: this.method,
+            mode: 'cors',
+            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': `Bearer ${this.user.token}` },
+            body: JSON.stringify({ id: this.user.id })
+        }
     }
 
     closeSidebar = () => {
         const {hideSidebar} = useGlobalSidebarContext();
-
         hideSidebar();
     }
 
-    authorize = (user: any) => {
-        this.user = user;
-        return this;
+    findById = async (id: string, callback: Function) => {
+        const url = this.url + "/" + id;
+
+        const response = await fetch(url, this.fetchOptions);
+
+        const json = await response.json();
+
+        return callback(this.format(json));
     }
 
     format = (data: any) => {
@@ -57,28 +68,8 @@ export default class NotificationHandler {
         return data;
     }
 
-    filter = (key: string, value: any) => {
-        this.filterValue = value.toString();
-        this.filterString = key;
-
-        return this;
-    }
-
-    build = async (callback: Function) => {
-        const url = this.url + `?${this.filterString}=${this.filterValue}`;
-
-        const response = await fetch(url, {
-            method: this.method,
-            mode: 'cors',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${this.user.token}`
-            },
-            body: JSON.stringify({
-                id: this.user.id
-            })
-        });
+    fetchAll = async (callback: Function) => {
+        const response = await fetch(this.url, this.fetchOptions);
 
         const json = await response.json();
 

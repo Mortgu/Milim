@@ -67,11 +67,10 @@ export async function delete_draft(request: Request, response: Response): Promis
         const id = request.params.id;
 
         const draft = DraftModel.findByIdAndDelete(id, request.body, function (error: any, result: any) {
-            if (error) throw error;
+            if (error) return response.send(new Error(error));
         });
 
         socketIo.emit('drafts:update', {id});
-
 
         response.status(201).json(draft);
     } catch (error) {
