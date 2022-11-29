@@ -46,14 +46,15 @@ export async function get_notification(request: Request, response: Response): Pr
 export async function delete_notification(request: Request, response: Response): Promise<void> {
     try {
         const notificationId = request.params.id;
+        console.log(notificationId)
 
-        const notification = await NotificationModel.findByIdAndDelete(notificationId, request.body, function (error: any, result: any) {
-            if (error) return response.send(new Error(error));
+        const notification = NotificationModel.findByIdAndDelete(notificationId,  request.body,function (error: any, result: any) {
+            if (error) throw error;
         });
 
         socketIo.emit('notification:deleted', {notificationId});
 
-        response.status(201).json(notification);
+        response.status(201).send(notification);
     } catch (exception) {
         response.status(500).json({message: 'Something went wrong, please try again.'});
     }
