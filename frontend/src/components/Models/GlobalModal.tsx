@@ -67,7 +67,7 @@ export const GlobalModal = ({ children }: any) => {
                         </button>
                     </div>
                     <div className="modal-content">
-                        <ModalComponent id="global-modal" {...modalProps} />
+                        <ModalComponent {...modalProps} />
                     </div>
                 </div>
             </div>

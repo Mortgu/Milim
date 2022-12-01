@@ -10,7 +10,11 @@ const CreationTopBar = () => {
     const {showModal} = useGlobalModalContext();
 
     const handleAddDraft = () => {
-        showModal(MODAL_TYPES.ADD_DRAFT_MODAL, {});
+        showModal(MODAL_TYPES.ADD_DRAFT_MODAL, {
+            type: 'centered',
+            styles: { }
+        });
+
 
         socket.emit('notification:new', "test")
     }

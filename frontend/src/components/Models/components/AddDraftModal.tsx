@@ -2,8 +2,8 @@ import React, {useState} from "react";
 
 import "./AddDraftModal.scss";
 import SendIcon from "@material-ui/icons/Edit";
-import SelectInput from "../../SelectInput/SelectInput";
-import {SelectOption} from "../../SelectInput/SelectInput";
+import SelectInput, {SelectOption} from "../../SelectInput/SelectInput";
+import {useGlobalModalContext} from "../GlobalModal";
 
 const options = [
     { label: "Custom Tag", value: 1 },
@@ -14,12 +14,17 @@ const options = [
 ]
 
 const AddDraftModal = () => {
-    const [value1, setValue1] = useState<SelectOption[]>([options[0]])
-    const [value2, setValue2] = useState<SelectOption | undefined>(options[0])
+    const [value1, setValue1] = useState<SelectOption[]>([options[0]]);
+
+    const { store } = useGlobalModalContext();
+    const { modalProps } = store || {};
+    const { type, styles } = modalProps || { };
+
+    console.log(type, styles)
 
     // @ts-ignore
     return (
-        <div className="add-draft-modal">
+        <div className="add-draft-modal" style={styles}>
             <div className="head">
                 <div className="head-icon">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
