@@ -40,33 +40,36 @@ const SideNavigation = () => {
 
             <div className="SideNavigation-separator"></div>
 
-            <section className="SideNavigation-section">
-                <SideNavigationItem icon={<OrganisationIcon className="item-icon" />} text="Organisation" end link="/organisation" />
-                <SideNavigationItemDropdown icon={<NoteIcon className="item-icon" />} text="Drafts" end link="/organisation/drafts">
-                    <div className="dropdown-item">
-                        <NoteIcon className="item-icon" />
-                        <input className="input"  type="text" placeholder="Datei Name..." />
-                    </div>
-                </SideNavigationItemDropdown>
-                <SideNavigationItemDropdown icon={<PersonIcon className="item-icon" />} text="Members" end link="/organisation/members">
-                    <div className="dropdown-item">
-                        <MailIcon className="item-icon" />
-                        <input className="input" type="text" placeholder="E-Mail..." />
-                    </div>
-                </SideNavigationItemDropdown>
-            </section>
+            {/***
 
-            <div className="SideNavigation-separator"></div>
+             <section className="SideNavigation-section">
+             <SideNavigationItem icon={<OrganisationIcon className="item-icon" />} text="Organisation" end link="/organisation" />
+             <SideNavigationItemDropdown icon={<NoteIcon className="item-icon" />} text="Drafts" end link="/organisation/drafts">
+             <div className="dropdown-item">
+             <NoteIcon className="item-icon" />
+             <input className="input"  type="text" placeholder="Datei Name..." />
+             </div>
+             </SideNavigationItemDropdown>
+             <SideNavigationItemDropdown icon={<PersonIcon className="item-icon" />} text="Members" end link="/organisation/members">
+             <div className="dropdown-item">
+             <MailIcon className="item-icon" />
+             <input className="input" type="text" placeholder="E-Mail..." />
+             </div>
+             </SideNavigationItemDropdown>
+             </section>
 
-            <div className="SideNavigation-message-box">
-                <p className="message-box-text">
-                    Join or create a Organization to connect with your Team and manage your Drafts together.
-                </p>
-                <div className="message-box-ctas">
-                    <button className="button primary-button" onClick={showJoinOrganisationModal}>Join</button>
-                    <button className="button primary-button-125">Create</button>
-                </div>
-            </div>
+             <div className="SideNavigation-separator"></div>
+
+             <div className="SideNavigation-message-box">
+             <p className="message-box-text">
+             Join or create a Organization to connect with your Team and manage your Drafts together.
+             </p>
+             <div className="message-box-ctas">
+             <button className="button primary-button" onClick={showJoinOrganisationModal}>Join</button>
+             <button className="button primary-button-125">Create</button>
+             </div>
+             </div>
+             */}
         </div>
     )
 }

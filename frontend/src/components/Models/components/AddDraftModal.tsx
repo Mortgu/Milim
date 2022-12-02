@@ -20,8 +20,6 @@ const AddDraftModal = () => {
     const { modalProps } = store || {};
     const { type, styles } = modalProps || { };
 
-    console.log(type, styles)
-
     // @ts-ignore
     return (
         <div className="add-draft-modal" style={styles}>

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import PageNavigation from "../../components/PageNavigation/PageNavigation";
 import {NavLink} from "react-router-dom";
-import {DraftHandler} from "../resents/Resents.service";
+import {DraftHandler} from "../../utils/DraftHandler";
 import FileCard from "../../components/FileCard/FileCard";
 import moment from "moment";
 

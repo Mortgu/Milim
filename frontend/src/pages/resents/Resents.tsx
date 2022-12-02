@@ -1,4 +1,4 @@
-import {C_Draft, DraftHandler} from "./Resents.service";
+import {C_Draft, DraftHandler} from "../../utils/DraftHandler";
 import React, {useEffect, useState} from "react";
 import PageNavigation from "../../components/PageNavigation/PageNavigation";
 import {NavLink} from "react-router-dom";
@@ -28,7 +28,6 @@ const Resents = () => {
         fetchDrafts()
 
         socket.on('drafts:update', (args: any) => {
-            console.log(args);
             fetchDrafts();
         });
     }, []);

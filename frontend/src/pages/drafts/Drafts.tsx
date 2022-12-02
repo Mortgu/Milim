@@ -4,7 +4,7 @@ import moment from "moment/moment";
 import {NavLink} from "react-router-dom";
 
 import PageNavigation from "../../components/PageNavigation/PageNavigation";
-import {C_Draft, DraftHandler} from "../resents/Resents.service";
+import {C_Draft, DraftHandler} from "../../utils/DraftHandler";
 import FileCard from "../../components/FileCard/FileCard";
 import {useSocketHook} from "../../hooks/socket.hook";
 
@@ -26,13 +26,14 @@ const Drafts = () => {
             });
     }
 
+    const fetchDraftById = () => {
+
+    }
+
     useEffect(() => {
         fetchDrafts();
 
-        socket.on('drafts:update', (args: any) => {
-            console.log(args);
-            fetchDrafts();
-        });
+        socket.on('drafts:update', (args: any) => fetchDrafts());
     }, []);
 
     if (loading) {
