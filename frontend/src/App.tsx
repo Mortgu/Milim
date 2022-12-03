@@ -21,6 +21,7 @@ import NavigationUnauthorized from "./components/Navigation/Navigation.unauthori
 import GlobalSidebar from "./components/Sidebars/GlobalSidebar";
 import {useSocketContext} from "./context/socket.context";
 import {useSocketHook} from "./hooks/socket.hook";
+import Collections from "./pages/collections/Collections";
 
 function App() {
     const {user} = useAuthContext();
