@@ -5,6 +5,10 @@ import ClockIcon from "@material-ui/icons/Schedule";
 import FolderIcon from "@material-ui/icons/Folder";
 import SubdirectoryIcon from "@material-ui/icons/SubdirectoryArrowRight";
 import NoteIcon from "@material-ui/icons/NoteOutlined";
+import PersonIcon from "@material-ui/icons/PersonOutlined";
+import OrganisationIcon from "@material-ui/icons/HouseOutlined";
+import NoteIcon from "@material-ui/icons/NoteOutlined";
+import MailIcon from "@material-ui/icons/MailOutlined";
 import PublicIcon from "@material-ui/icons/Public";
 import MarketplaceIcon from "@material-ui/icons/Storefront";
 import {MODAL_TYPES, useGlobalModalContext} from "../Models/GlobalModal";
@@ -51,7 +55,6 @@ const SideNavigation = () => {
             </section>
 
             <div className="SideNavigation-separator"></div>
-
             {/***
 
              <section className="SideNavigation-section">
