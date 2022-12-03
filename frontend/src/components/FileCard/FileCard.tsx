@@ -58,7 +58,7 @@ const FileCard = ({cardId = "", fileName, lastUpdatedAt, isPublic, canCTAS = fal
             <div ref={ref} className="file-card-footer">
                 <div className="titleText">
                     <p contentEditable={isEditMode} suppressContentEditableWarning={true} onInput={handleInputChange} className="titleText-title">{fileName}</p>
-                    <p className="titleText-text">Updated: {lastUpdatedAt}</p>
+                    <p className="titleText-text">{lastUpdatedAt}</p>
                 </div>
                 {canCTAS && <div className="file-card-cta">
                     <div ref={dropdownRef} className="dropdown-wrapper" onClick={handleDropdown}>

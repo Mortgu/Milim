@@ -19,8 +19,8 @@ import Published from "./pages/published/Published";
 import Marketplace from "./pages/marketplace/Marketplace";
 import NavigationUnauthorized from "./components/Navigation/Navigation.unauthorized";
 import GlobalSidebar from "./components/Sidebars/GlobalSidebar";
-import {useSocketContext} from "./context/socket.context";
 import {useSocketHook} from "./hooks/socket.hook";
+import Collections from "./pages/collections/Collections";
 
 function App() {
     const {user} = useAuthContext();
@@ -115,6 +115,13 @@ function App() {
             path: "/file/:id/edit",
             main: () => <FileEdit/>,
             sidebar: () => <></>,
+            navigation: () => <Navigation/>,
+            authenticated: true
+        },
+        {
+            path: "/collections",
+            main: () => <Collections />,
+            sidebar: () => <SideNavigation/>,
             navigation: () => <Navigation/>,
             authenticated: true
         },

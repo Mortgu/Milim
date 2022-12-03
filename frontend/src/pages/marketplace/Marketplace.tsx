@@ -20,7 +20,6 @@ const Marketplace = () => {
         <React.Fragment>
             <PageNavigation>
                 <NavLink end to="/" className="page-navigation-item">Marketplace</NavLink>
-                <NavLink end to="/dwa" className="page-navigation-item">Most Popular</NavLink>
             </PageNavigation>
             <div className="page">
                 {drafts?.map((row: any, index: any) => {
