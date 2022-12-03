@@ -2,6 +2,9 @@ import "./SideNavigation.scss";
 import "./elements/items/SideNavigationItem.scss";
 
 import ClockIcon from "@material-ui/icons/Schedule";
+import FolderIcon from "@material-ui/icons/Folder";
+import SubdirectoryIcon from "@material-ui/icons/SubdirectoryArrowRight";
+import NoteIcon from "@material-ui/icons/NoteOutlined";
 import PersonIcon from "@material-ui/icons/PersonOutlined";
 import OrganisationIcon from "@material-ui/icons/HouseOutlined";
 import NoteIcon from "@material-ui/icons/NoteOutlined";
@@ -31,8 +34,9 @@ const SideNavigation = () => {
                 <SideNavigationItem icon={<ClockIcon className="item-icon" />} text="Resents" end link="/resents" />
                 <SideNavigationItemDropdown icon={<NoteIcon className="item-icon" />} text="Drafts" link="/drafts">
                     <div className="dropdown-item">
+                        <SubdirectoryIcon className="item-icon" />
                         <NoteIcon className="item-icon" />
-                        <input className="input" type="text" placeholder="Datei Name..." />
+                        <input className="input" type="text" placeholder="File Name..." />
                     </div>
                 </SideNavigationItemDropdown>
                 <SideNavigationItem icon={<PublicIcon className="item-icon" />} text="Published" link="/published" />
@@ -40,6 +44,17 @@ const SideNavigation = () => {
 
             <div className="SideNavigation-separator"></div>
 
+            <section className="SideNavigation-section">
+                <SideNavigationItemDropdown icon={<FolderIcon className="item-icon" />} text="Collections" link="/collections">
+                    <div className="dropdown-item">
+                        <SubdirectoryIcon className="item-icon" />
+                        <FolderIcon className="item-icon" />
+                        <input className="input" type="text" placeholder="Folder Name..." />
+                    </div>
+                </SideNavigationItemDropdown>
+            </section>
+
+            <div className="SideNavigation-separator"></div>
             {/***
 
              <section className="SideNavigation-section">

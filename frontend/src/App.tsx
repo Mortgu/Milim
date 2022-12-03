@@ -119,6 +119,13 @@ function App() {
             authenticated: true
         },
         {
+            path: "/collections",
+            main: () => <Collections />,
+            sidebar: () => <SideNavigation/>,
+            navigation: () => <Navigation/>,
+            authenticated: true
+        },
+        {
             path: "*",
             main: () => <></>,
             sidebar: () => <></>,
