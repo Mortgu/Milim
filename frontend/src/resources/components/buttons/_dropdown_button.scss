@@ -1,14 +1,34 @@
+@use '../../abstract/mixins';
+@use '../../abstract/colors';
+
 .dropdown-button {
   width: 100%;
   height: 32px;
   background: transparent;
 
-  padding: 0 .5rem;
+  padding: 0 .8rem;
 
   font-size: 12px;
+
+  min-width: 120px;
+  text-align: left;
+
+  &.focus-red {
+    background: #e74c3c;
+
+    color: white;
+
+    &:hover {
+      background: #c0392b;
+    }
+  }
 
   svg {
     width: 18px;
     height: 18px;
+  }
+
+  &:hover {
+    background: lighten(map-get(colors.$colors, 'background'), 8);
   }
 }

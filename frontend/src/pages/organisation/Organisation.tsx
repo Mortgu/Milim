@@ -1,6 +1,6 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
-import PageNavigation from "../../components/widgets/PageNavigation/PageNavigation";
+import PageNavigation from "../../components/PageNavigation/PageNavigation";
 
 const Organisation = () => {
     return (

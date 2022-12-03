@@ -31,7 +31,7 @@ const UserSchema: Schema = new Schema<I_User>({
             type: Date,
             default: Date.now()
         },
-    }
+    },
 });
 
 UserSchema.pre("save", async function (next: any) {

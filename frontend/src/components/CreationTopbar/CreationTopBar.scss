@@ -1,0 +1,51 @@
+@import "../../resources/abstract/variables";
+@import "../../resources/abstract/mixins";
+
+.creation-top-bar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+
+  .topBar-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    flex: 1 1 350px;
+
+    grid-gap: 20px;
+
+    border: 1px solid map-get($colors, 'border-color');
+    border-radius: 6px;
+
+    padding: 1.3rem 1.3rem;
+
+    transition: all 200ms;
+
+    user-select: none;
+
+    .content-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      grid-gap: 20px;
+    }
+
+    .add-icon {
+      fill: map-get($colors, 'text-color-secondary');
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      background: map-get($colors, 'hover-color');
+      transition: all 200ms;
+    }
+  }
+}
+

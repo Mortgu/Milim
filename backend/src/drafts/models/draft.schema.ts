@@ -19,10 +19,15 @@ const DraftSchema: Schema = new Schema<I_Draft>({
             type: String,
             default: "draft"
         },
-        publicStatus: {
-            type: String,
-            default: "private"
+        public: {
+            type: Boolean,
+            default: false
         },
+        creator: mongoose.Types.ObjectId
+    },
+    tags: {
+        type: Array,
+        default: [],
     },
     content: {
         type: Schema.Types.Mixed,

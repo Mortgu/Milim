@@ -28,9 +28,32 @@ body {
   @include mixins.media-down('sm') {
     margin: 48px 0 0 0;
   }
-}
 
+  &.fullscreen {
+    margin: 48px 0 0 0;
+  }
+}
 .page {
   margin: 30px 30px;
+}
+
+[contenteditable="true"] {
+  white-space: nowrap;
+  overflow: hidden;
+
+  * {
+    white-space: nowrap;
+    display: inline;
+  }
+
+  & > div, & > br {
+    display:none;
+  }
+}
+
+[contenteditable="false"] {
+  & > div, & > br {
+    display:none;
+  }
 }
 

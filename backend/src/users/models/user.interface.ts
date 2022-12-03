@@ -1,4 +1,5 @@
 import { Document } from "mongoose";
+import * as mongoose from "mongoose";
 
 export interface I_User extends Document {
     username: string,
