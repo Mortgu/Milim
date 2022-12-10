@@ -1,7 +1,7 @@
 import {useState} from "react";
 
 import "./Login.scss";
-import {useLogin} from "../../hooks/useLogin";
+import {useLoginHook} from "../../hooks/login.hook";
 
 import KeyIcon from "@material-ui/icons/Block";
 
@@ -9,7 +9,7 @@ const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const {login, error} = useLogin();
+    const {login, error} = useLoginHook();
 
     const handleSubmit = async (event: any) => {
         event.preventDefault();

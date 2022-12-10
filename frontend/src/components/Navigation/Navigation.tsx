@@ -11,20 +11,23 @@ import SearchIcon from '@material-ui/icons/Search';
 
 import React, {useState} from "react";
 
-import {useClickHook} from "../../hooks/useClickHook";
+import {clickHook} from "../../hooks/click.hook";
 import {useAuthContext} from "../../context/auth.context";
 import {SIDEBAR_TYPES, useGlobalSidebarContext} from "../Sidebars/GlobalSidebar";
+import {HIDDE_MENU_TYPES, useHiddenMenu} from "../HiddenMenus/HiddenMenu";
 
 const Navigation = () => {
     const { user } = useAuthContext();
-    const { useOutsideClick } = useClickHook();
+    const { useOutsideClick } = clickHook();
 
     const { showSidebar, hideSidebar } = useGlobalSidebarContext();
+    const { showHiddenMenu, hideHiddenMenu } = useHiddenMenu();
 
     const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
 
     const handleAddButton = (event: any) => {
-        setDropdownIsOpen(true);
+        //setDropdownIsOpen(true);
+        showHiddenMenu(HIDDE_MENU_TYPES.USER_ACTIONS_MENU);
     }
 
     const hideDropdown = () => {

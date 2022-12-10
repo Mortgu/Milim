@@ -1,0 +1,11 @@
+.hidden-menu {
+  max-height: 0;
+
+  overflow: hidden;
+  transition: all 200ms;
+
+  &.show {
+    max-height: fit-content;
+    transition: all 200ms;
+  }
+}

@@ -6,7 +6,7 @@ import PenIcon from "@material-ui/icons/Edit";
 import DotIcon from "@material-ui/icons/MoreVert";
 
 import "./FileCard.scss";
-import {useClickHook} from "../../hooks/useClickHook";
+import {clickHook} from "../../hooks/click.hook";
 import SettingsIcon from "@material-ui/icons/Settings";
 import TrashIcon from "@material-ui/icons/Delete";
 
@@ -19,7 +19,7 @@ interface FileCardProps {
 }
 
 const FileCard = ({cardId = "", fileName, lastUpdatedAt, isPublic, canCTAS = false}: FileCardProps) => {
-    const { useOutsideClick } = useClickHook();
+    const { useOutsideClick } = clickHook();
 
     const [isEditMode, setIsEditMode] = useState<boolean>(false);
     const [dropdownIsOpen, setDropdownIsOpen] = useState(false);

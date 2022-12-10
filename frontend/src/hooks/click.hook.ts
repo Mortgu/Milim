@@ -1,6 +1,6 @@
 import {useEffect, useRef} from "react";
 
-export const useClickHook = () => {
+export const clickHook = () => {
     const useOutsideClick = (callback: any) => {
         const ref = useRef<any>();
 

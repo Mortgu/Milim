@@ -1,7 +1,7 @@
-import { useState } from "react";
+import {useState} from "react";
 import {useAuthContext} from "../context/auth.context";
 
-export const useLogin = () => {
+export const useLoginHook = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 

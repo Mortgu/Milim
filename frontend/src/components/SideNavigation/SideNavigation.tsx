@@ -7,21 +7,26 @@ import SubdirectoryIcon from "@material-ui/icons/SubdirectoryArrowRight";
 import NoteIcon from "@material-ui/icons/NoteOutlined";
 import PublicIcon from "@material-ui/icons/Public";
 import MarketplaceIcon from "@material-ui/icons/Storefront";
+import ForumIcon from "@material-ui/icons/Forum";
 import {MODAL_TYPES, useGlobalModalContext} from "../Models/GlobalModal";
 import SideNavigationItemDropdown from "./elements/items/SideNavigationItemDropdown";
 import SideNavigationItem from "./elements/items/SideNavigationItem";
+import HiddenMenu from "../HiddenMenus/HiddenMenu";
+import UserActionsMenu from "../HiddenMenus/components/UserActionsMenu";
 
 const SideNavigation = () => {
     const {showModal} = useGlobalModalContext();
-
     const showJoinOrganisationModal = () => {
         showModal(MODAL_TYPES.JOIN_ORGANISATION_MODAL, {});
     }
 
     return (
         <div className="SideNavigation">
+            <UserActionsMenu />
+
             <section className="SideNavigation-section">
                 <SideNavigationItem icon={<MarketplaceIcon className="item-icon" />} text="Marketplace" end link="/" />
+                <SideNavigationItem data-disabled={true} icon={<ForumIcon className="item-icon" />} text="Forum" end link="/forum" />
             </section>
 
             <div className="SideNavigation-separator"></div>

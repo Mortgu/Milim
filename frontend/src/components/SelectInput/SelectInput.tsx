@@ -1,7 +1,7 @@
 import "./SelectInput.scss";
 
 import {useEffect, useRef, useState} from "react";
-import {useClickHook} from "../../hooks/useClickHook";
+import {clickHook} from "../../hooks/click.hook";
 
 import CloseIcon from "@material-ui/icons/Close";
 
@@ -28,7 +28,7 @@ type SelectProps = {
 
 
 const SelectInput = ({multiple, value, onChange, options}: SelectProps) => {
-    const { useOutsideClick } = useClickHook();
+    const { useOutsideClick } = clickHook();
 
     const [isOpen, setIsOpen] = useState(false);
     const [highlightedIndex, setHighlightedIndex] = useState(0);

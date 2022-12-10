@@ -22,10 +22,11 @@ import GlobalSidebar from "./components/Sidebars/GlobalSidebar";
 import {useSocketContext} from "./context/socket.context";
 import {useSocketHook} from "./hooks/socket.hook";
 import Collections from "./pages/collections/Collections";
+import HiddenMenu from "./components/HiddenMenus/HiddenMenu";
 
 function App() {
     const {user} = useAuthContext();
-    const { connect } = useSocketHook();
+    const {connect} = useSocketHook();
 
     const routes = [
         {
@@ -121,7 +122,7 @@ function App() {
         },
         {
             path: "/collections",
-            main: () => <Collections />,
+            main: () => <Collections/>,
             sidebar: () => <SideNavigation/>,
             navigation: () => <Navigation/>,
             authenticated: true
@@ -135,7 +136,9 @@ function App() {
         },
     ];
 
-    useEffect(() => {connect()}, []);
+    useEffect(() => {
+        connect()
+    }, []);
 
     return (
         <GlobalModal>

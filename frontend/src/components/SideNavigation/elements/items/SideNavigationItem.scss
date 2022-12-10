@@ -1,7 +1,7 @@
 @import "../../../../resources/abstract/mixins";
 @import "../../../../resources/abstract/variables";
 
-.sidebar-item-wrapper {
+.SideNavigation-section {
   .sidebar-item {
     .onHover {
       width: 32px;
@@ -36,7 +36,7 @@
         }
       }
     }
-
+    
     &:hover {
       .onHover {
         opacity: 1;
@@ -101,6 +101,25 @@
   color: map-get($colors, "text-color-secondary");
 
   transition: all 200ms;
+
+  &[data-disabled="true"] {
+    color: rgba(map-get($colors, "text-color-secondary"), .4);
+    pointer-events: none;
+
+    &:hover {
+      cursor: default;
+      background: transparent;
+      pointer-events: none;
+
+      .item-icon {
+        pointer-events: none;
+      }
+    }
+
+    .item-text {
+      color: rgba(map-get($colors, "text-color-secondary"), .4);
+    }
+  }
 
   .item-text {
     font-size: 12px;

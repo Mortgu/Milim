@@ -1,11 +1,11 @@
 import {useState} from "react";
 import AddIcon from "@material-ui/icons/Add";
 
-import {useClickHook} from "../../../../hooks/useClickHook";
+import {clickHook} from "../../../../hooks/click.hook";
 import SideNavigationItem from "./SideNavigationItem";
 
 const SideNavigationItemDropdown = ({ icon, text, link, children }: any) => {
-    const { useOutsideClick } = useClickHook();
+    const { useOutsideClick } = clickHook();
 
     const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
 
