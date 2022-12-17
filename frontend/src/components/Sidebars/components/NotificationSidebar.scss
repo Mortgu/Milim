@@ -1,23 +1,31 @@
-@use "../../../resources/abstract/colors";
-@use "../../../resources/abstract/mixins";
+@use "../../../resources/abstract/mixins" as *;
+@use "../../../resources/abstract/variables";
 
 .notification-sidebar {
   .head {
     padding: 0 0 1rem 0;
-    border-bottom: 1px solid lighten(map-get(colors.$colors, 'background'), 5);
-
     display: grid;
     grid-gap: 8px;
 
+    @include themify(variables.$themes) {
+      border-bottom: 1px solid themed('borderColor');
+    }
+
     &-title {
-      color: map-get(colors.$colors, 'textColor-primary');
       font-weight: 400;
+
+      @include themify(variables.$themes) {
+        color: themed('textColorPrimary');
+      }
     }
 
     &-text {
-      color: map-get(colors.$colors, 'textColor-secondary');
       font-weight: 300;
       font-size: 14px;
+
+      @include themify(variables.$themes) {
+        color: themed('textColorSecondary');
+      }
     }
   }
 

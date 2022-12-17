@@ -11,6 +11,7 @@ $breakpoints: (
 $themes: (
         light: (
                 background: white,
+                hightlightColor: darken(white, 5),
                 primary: #4A5878,
                 hoverColor: #f4f4f4,
                 borderColor: rgba(black, .1),
@@ -19,6 +20,7 @@ $themes: (
         ),
         dark: (
                 background: #2C2C2C,
+                hightlightColor: lighten(#2C2C2C, 10),
                 primary: #4A5878,
                 hoverColor: #383838,
                 borderColor: rgba(white, .1),

@@ -1,5 +1,6 @@
+@use "../../resources/abstract/mixins" as *;
 @use "../../resources/abstract/colors" as *;
-@use "../../resources/abstract/mixins";
+@use "../../resources/abstract/variables";
 
 .sidebar-wrapper {
   width: 100%;
@@ -48,16 +49,17 @@
 
     padding: 40px 40px 0;
 
-    background: map-get($colors, 'background');
-    border-left: 1px solid lighten(map-get($colors, 'background'), 10);
-
-    box-shadow: -2px 0 10px rgba(black, .2);
+    //box-shadow: -2px 0 10px rgba(black, .2);
 
     animation: slide-in 250ms ease-in-out forwards;
     transition: all 250ms;
 
     box-sizing: content-box;
 
+    @include themify(variables.$themes) {
+      background: themed('background');
+      border-left: 1px solid themed('borderColor');
+    }
 
     @keyframes slide-in {
       from {
@@ -82,8 +84,6 @@
 
           box-sizing: content-box;
 
-          background: map-get($colors, 'background');
-          border: 1px solid lighten(map-get($colors, 'background'), 10);
           transform: translate(-50%, -50%) rotate(45deg);
 
           cursor: pointer;
@@ -92,12 +92,19 @@
 
           padding: 0;
 
-          box-shadow: -5px 5px 10px rgba(black, .15);
+          //box-shadow: -5px 5px 10px rgba(black, .15);
 
           border-radius: 0;
 
+          @include themify(variables.$themes) {
+            background: themed('background');
+            border: 1px solid lighten(themed('borderColor'), 10);
+          }
+
           &:hover {
-            background: lighten(map-get($colors, 'background'), 2);
+            @include themify(variables.$themes) {
+              background: themed('hoverColor');
+            }
           }
         }
 

@@ -55,7 +55,7 @@
       border-radius: 5px;
 
       @include themify(variables.$themes) {
-        background: darken(themed('background'), 5);
+        background: darken(themed('hightlightColor'), 5);
         color: themed('textColorSecondary');
       }
     }
@@ -100,22 +100,18 @@
     justify-content: space-between;
 
     @include themify(variables.$themes) {
-      background: darken(themed('background'), 5);
+      background: darken(themed('hightlightColor'), 5);
     }
 
     .file-card-cta {
-      button {
-        padding: .4rem;
 
-        svg {
+      .dropdown-wrapper .icon-button {
+        padding: 0;
+        background: transparent;
 
-        }
-
-        &:hover {
-          svg {
-            @include themify(variables.$themes) {
-              fill: themed('textColorPrimary');
-            }
+        &:hover svg {
+          @include themify(variables.$themes) {
+            fill: themed('textColorPrimary');
           }
         }
       }

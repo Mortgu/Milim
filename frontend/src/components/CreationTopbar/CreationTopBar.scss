@@ -41,7 +41,9 @@
     }
 
     .add-icon {
-      fill: map-get($colors, 'text-color-secondary');
+      @include themify(variables.$themes) {
+        fill: themed('textColorSecondary');
+      }
     }
 
     &:hover {

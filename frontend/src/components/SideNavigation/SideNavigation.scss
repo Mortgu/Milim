@@ -37,7 +37,7 @@
     transform-origin: top;
 
     @include themify(variables.$themes) {
-      background: darken(themed('background'), 6);
+      background: darken(themed('hightlightColor'), 6);
     }
 
     .SideNavigation-section {
