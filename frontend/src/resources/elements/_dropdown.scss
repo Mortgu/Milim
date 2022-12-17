@@ -1,5 +1,5 @@
-@import '../abstract/mixins';
-@import '../abstract/variables';
+@use '../abstract/mixins' as *;
+@use '../abstract/colors' as *;
 
 .dropdown-wrapper {
     position: relative;

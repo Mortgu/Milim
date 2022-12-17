@@ -21,10 +21,38 @@
   font-size: $min-size;
 
   @include media-up(xs) {
-    font-size: calc( #{$min-size} + #{strip-unit($max-size - $min-size)} * (100vw - #{$width_min * 1rem}) / #{$width_max - $width_min});
+    font-size: calc(#{$min-size} + #{strip-unit($max-size - $min-size)} * (100vw - #{$width_min * 1rem}) / #{$width_max - $width_min});
   }
 
   @include media-up(ws) {
     font-size: $max-size;
   }
+}
+
+
+@mixin themify($themes) {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge(
+                        $theme-map,
+                        (
+                                $key: $value,
+                        )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+@function themedReverse($key) {
+  @return map-get($theme-map, 'dark', $key);
 }

@@ -1,15 +1,21 @@
-@use "../../abstract/colors";
-@use "../../abstract/mixins";
+@use "../../abstract/mixins" as *;
+@use "../../abstract/colors" as *;
+@use "../../abstract/variables";
 
 
 input[type="submit"] {
   padding: .9rem 0;
-
-  background: darken(map-get(colors.$colors, 'background'), 10);
-
   cursor: pointer;
 
+  color: white;
+
+  @include themify(variables.$themes) {
+    background: darken(themed('primary'), 10);
+  }
+
   &:hover {
-    background: darken(map-get(colors.$colors, 'background'), 8);
+    @include themify(variables.$themes) {
+      background: darken(themed('primary'), 12);
+    }
   }
 }

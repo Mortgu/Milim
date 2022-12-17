@@ -1,5 +1,6 @@
-@use "../../abstract/colors";
-@use "../../abstract/mixins";
+@use "../../abstract/mixins" as *;
+@use "../../abstract/colors" as *;
+@use "../../abstract/variables";
 
 .icon-button {
   display: flex;

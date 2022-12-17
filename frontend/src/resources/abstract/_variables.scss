@@ -8,12 +8,21 @@ $breakpoints: (
         xl: 192rem
 );
 
-$colors: (
-        "background": #2C2C2C,
-        "primary": #4A5878,
-        "hover-color": #383838,
-        "border-color": rgba(255, 255, 255, .1),
-        "text-color-primary": white,
-        "text-color-secondary": rgba(255, 255, 255, .6),
-        "text-hover": rgba(255, 255, 255, .8),
-)
+$themes: (
+        light: (
+                background: white,
+                primary: #4A5878,
+                hoverColor: #f4f4f4,
+                borderColor: rgba(black, .1),
+                textColorPrimary: black,
+                textColorSecondary: rgba(black, .6),
+        ),
+        dark: (
+                background: #2C2C2C,
+                primary: #4A5878,
+                hoverColor: #383838,
+                borderColor: rgba(white, .1),
+                textColorPrimary: white,
+                textColorSecondary: rgba(white, .6),
+        )
+);

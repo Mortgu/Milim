@@ -1,4 +1,6 @@
-@import '../abstract/variables';
+@use '../abstract/colors' as *;
+@use '../abstract/mixins' as *;
+@use '../abstract/variables';
 
 .separator {
   width: 100%;
@@ -11,14 +13,17 @@
   position: relative;
 
   span {
-    background: map-get($colors, "background");
     padding: 0 .5rem;
 
     font-size: 13px;
     font-weight: 600;
-    color: rgba(255, 255, 255, .7);
 
     z-index: 2;
+
+    @include themify(variables.$themes) {
+      background: themed("background");
+      color: themed('textColorSecondary');
+    }
   }
 
   &:after {
@@ -27,8 +32,11 @@
     position: absolute;
 
     height: 1px;
-    background: rgba(255, 255, 255, .1);
 
     z-index: 1;
+
+    @include themify(variables.$themes) {
+      background: themed('borderColor');
+    }
   }
 }

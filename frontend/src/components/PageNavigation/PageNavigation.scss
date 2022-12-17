@@ -1,13 +1,10 @@
+@use "../../resources/abstract/mixins" as *;
 @use "../../resources/abstract/colors" as *;
-
-@import "../../resources/abstract/variables";
-@import "../../resources/abstract/mixins";
+@use "../../resources/abstract/variables";
 
 .page-navigation {
   position: sticky;
   top: 48px;
-
-  //background: map-get($colors, "background");
 
   backdrop-filter: blur(2px);
 
@@ -19,10 +16,12 @@
     grid-gap: 30px;
 
     padding: 0 30px;
-    border-bottom: 1px solid map-get($colors, "border-color");
+
+    @include themify(variables.$themes) {
+      border-bottom: 1px solid themed("borderColor");
+    }
 
     .page-navigation-item {
-      color: map-get($colors, "text-color-secondary");
       font-size: 14px;
 
       height: 100%;
@@ -38,6 +37,10 @@
 
       position: relative;
 
+      @include themify(variables.$themes) {
+        color: themed("textColorSecondary");
+      }
+
       &:only-child {
         &:after {
           display: none;
@@ -45,13 +48,17 @@
       }
 
       &:hover {
-        color: map-get($colors, "text-color-primary");
         transition: all 200ms;
+
+        @include themify(variables.$themes) {
+          color: themed("textColorPrimary");
+        }
       }
 
-
       &.active {
-        color: map-get($colors, "text-color-primary");
+        @include themify(variables.$themes) {
+          color: themed("textColorPrimary");
+        }
       }
     }
   }

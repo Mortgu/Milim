@@ -1,5 +1,7 @@
-@use "../../abstract/colors";
-@use "../../abstract/mixins";
+@use "../../abstract/mixins" as *;
+
+@use "../../abstract/colors" as *;
+@use "../../abstract/variables";
 
 // IMPORT OTHER INPUTS
 @use "./input_with_label";
@@ -12,17 +14,19 @@ input {
   border: none;
   outline: none;
 
-  background: lighten(map-get(colors.$colors, 'background'), 5);
-  color: map-get(colors.$colors, 'textColor-primary');
-
   border-radius: 5px;
 
   font-family: 'Roboto', sans-serif;
 
   transition: all 200ms;
 
+  @include themify(variables.$themes) {
+    background: darken(themed('background'), 5);
+    color: themed('textColorPrimary');
+  }
+
   &:focus {
-    background: lighten(map-get(colors.$colors, 'background'), 10);
+    background: lighten(map-get($colors, 'background'), 10);
     transition: background 200ms;
   }
 
@@ -32,9 +36,6 @@ input {
 }
 
 .input-icon {
-  background: lighten(map-get(colors.$colors, 'background'), 5);
-  color: map-get(colors.$colors, 'textColor-primary');
-
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -42,6 +43,11 @@ input {
   border-radius: 5px;
 
   position: relative;
+
+  @include themify(variables.$themes) {
+    background: darken(themed('background'), 5);
+    color: themed('textColorPrimary');
+  }
 
   input {
     order: 2;
@@ -55,23 +61,26 @@ input {
   svg {
     width: 15px;
     height: 15px;
-
     margin: .5rem;
-
     pointer-events: none;
-    color: map-get(colors.$colors, 'textColor-secondary');
 
     position: absolute;
-
     top: 50%;
     left: 0;
 
     transform: translate(0, -100%);
     transition: all 200ms;
+
+    @include themify(variables.$themes) {
+      color: themed('textColorSecondary');
+    }
   }
 
   &:focus-within {
-    box-shadow: 0 0 0 .2rem map-get(colors.$colors, 'primary');
     transition: all 200ms;
+
+    @include themify(variables.$themes) {
+      box-shadow: 0 0 0 .2rem themed('primary');
+    }
   }
 }

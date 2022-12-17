@@ -1,5 +1,6 @@
-@use "../../abstract/colors";
-@use "../../abstract/mixins";
+@use "../../abstract/mixins" as *;
+@use "../../abstract/colors" as *;
+@use "../../abstract/variables";
 
 // IMPORT OTHER BUTTON TYPES
 @use 'button_primary';
@@ -14,10 +15,6 @@ button {
 
   outline: none;
   border: none;
-
-  background: lighten(map-get(colors.$colors, 'background'), 5);
-  color: map-get(colors.$colors, "textColor-secondary");
-
   border-radius: 3px;
 
   font-weight: 400;
@@ -29,11 +26,16 @@ button {
 
   transition: background 200ms;
 
+  @include themify(variables.$themes) {
+    background: darken(themed('background'), 5);
+    color: themed('textColorSecondary');
+  }
+
   &.button-transparent {
     background: transparent;
 
     &:hover {
-      background: lighten(map-get(colors.$colors, 'background'), 5);
+      background: lighten(map-get($colors, 'background'), 5);
       transition: background 200ms;
     }
   }
@@ -54,7 +56,7 @@ button {
   }
 
   &:hover {
-    background: map-get(colors.$colors, 'border-color');
+    background: map-get($colors, 'border-color');
     transition: background 200ms;
   }
 }

@@ -1,11 +1,10 @@
-@import "../../resources/abstract/mixins";
-@import "../../resources/abstract/variables";
+@use "../../resources/abstract/mixins" as *;
+@use "../../resources/abstract/colors" as *;
+@use "../../resources/abstract/variables";
 
 .SideNavigation-wrapper {
   width: 240px;
   height: 100%;
-
-  border-right: 1px solid map-get($colors, "border-color");
 
   position: fixed;
   left: 0;
@@ -15,6 +14,10 @@
 
   transition: all 200ms;
 
+  @include themify(variables.$themes) {
+    border-right: 1px solid themed('borderColor');
+  }
+
   @include media-down('sm') {
     display: none;
   }
@@ -23,7 +26,6 @@
     width: 100%;
     height: fit-content;
 
-    background: darken(map-get($colors, 'background'), 4);
     border-bottom: 1px solid rgba(white, .1);
 
     padding: .5rem 0;
@@ -33,6 +35,10 @@
     z-index: 99;
     transition: all 200ms;
     transform-origin: top;
+
+    @include themify(variables.$themes) {
+      background: darken(themed('background'), 6);
+    }
 
     .SideNavigation-section {
       margin: 0;
@@ -54,63 +60,21 @@
     width: 240px;
     height: 100%;
 
-    border-right: 1px solid map-get($colors, "border-color");
-    background: map-get($colors, 'background');
-
     z-index: 100;
 
     transition: all 200ms;
 
+    @include themify(variables.$themes) {
+      background: themed('background');
+      border-right: 1px solid themed("borderColor");
+    }
+
     .SideNavigation-separator {
       height: 1px;
-
-      background: map-get($colors, 'border-color');
-
       margin: 15px 12px;
-    }
 
-    .SideNavigation-message-box {
-      background: rgba(map-get($colors, 'primary'), .5);
-
-      height: auto;
-
-      padding: 1rem;
-      margin: 0 15px;
-
-      border-radius: 5px;
-
-      display: flex;
-      flex-direction: column;
-      grid-gap: 20px;
-      justify-content: space-between;
-
-      .message-box-text {
-        line-height: 22px;
-
-        font-size: 14px;
-
-        color: map-get($colors, "text-color-secondary");
-      }
-
-      .message-box-ctas {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        grid-gap: 10px;
-
-        .button {
-          width: 100%;
-        }
-      }
-    }
-
-    .SideNavigation-cta-wrapper {
-      .SideNavigation-cta {
-
-      }
-
-      .cta-action-form {
-        background: darken(map-get($colors, 'background'), 10);
+      @include themify(variables.$themes) {
+        background: themed('borderColor');
       }
     }
 

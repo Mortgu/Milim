@@ -1,5 +1,6 @@
-@import "../../resources/abstract/variables";
-@import "../../resources/abstract/mixins";
+@use "../../resources/abstract/mixins" as *;
+@use "../../resources/abstract/colors" as *;
+@use "../../resources/abstract/variables";
 
 .creation-top-bar {
   display: flex;
@@ -20,7 +21,6 @@
 
     grid-gap: 20px;
 
-    border: 1px solid map-get($colors, 'border-color');
     border-radius: 6px;
 
     padding: 1.3rem 1.3rem;
@@ -28,6 +28,10 @@
     transition: all 200ms;
 
     user-select: none;
+
+    @include themify(variables.$themes) {
+      border: 1px solid themed('borderColor');
+    }
 
     .content-wrapper {
       display: flex;
@@ -42,9 +46,11 @@
 
     &:hover {
       cursor: pointer;
-
-      background: map-get($colors, 'hover-color');
       transition: all 200ms;
+
+      @include themify(variables.$themes) {
+        background: themed('hoverColor');
+      }
     }
   }
 }

@@ -1,5 +1,6 @@
-@use "../abstract/colors";
-@use "../abstract/mixins";
+@use "../abstract/colors" as *;
+@use "../abstract/mixins" as *;
+@use "../abstract/variables";
 
 @use "./typographie";
 
@@ -11,11 +12,22 @@ html, body {
 }
 
 body {
-  background: map-get(colors.$colors, "background");
-
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+.background {
+  height: 100vh;
+  width: 100vw;
+}
+
+.theme-dark {
+  background: map-get(variables.$themes, 'dark', background);
+}
+
+.theme-light {
+  background: map-get(variables.$themes, 'light', background);
 }
 
 * {
@@ -25,7 +37,7 @@ body {
 .app {
   margin: 48px 0 0 240px;
 
-  @include mixins.media-down('sm') {
+  @include media-down('sm') {
     margin: 48px 0 0 0;
   }
 

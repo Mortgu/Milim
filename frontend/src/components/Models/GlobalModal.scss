@@ -1,5 +1,6 @@
-@import "../../resources/abstract/variables";
-@import "../../resources/abstract/mixins";
+@use "../../resources/abstract/mixins" as *;
+@use "../../resources/abstract/colors" as *;
+@use "../../resources/abstract/variables";
 
 .modal-wrapper {
   position: fixed;
@@ -59,17 +60,18 @@
     width: 700px;
     height: auto;
 
-    background: map-get($colors, 'background');
     box-shadow: 0 0 10px rgba(0, 0, 0, .3);
 
     border-radius: 5px;
 
     margin: auto;
 
-    // overflow: hidden;
-
     animation: zoom-in .15s ease-in-out forwards;
     transition: all 200ms;
+
+    @include themify(variables.$themes) {
+      background: themed('background');
+    }
 
     @include media-down('xs') {
       height: 100%;
@@ -112,7 +114,9 @@
         padding: .5rem;
         margin: 0;
 
-        background-color: lighten(map-get($colors, 'background'), 3);
+        @include themify(variables.$themes) {
+          background: darken(themed('background'), 5);
+        }
 
         @include media-down('xs') {
           position: relative;
@@ -123,8 +127,11 @@
           height: 19px;
 
           user-select: none;
-          color: map-get($colors, "text-color-secondary");
           transition: all 200ms;
+
+          @include themify(variables.$themes) {
+            color: themed("textColorSecondary");
+          }
 
           @include media-down('xs') {
             color: rgba(0, 0, 0, .8);
@@ -132,20 +139,21 @@
         }
 
         &:hover {
-          background-color: lighten(map-get($colors, 'background'), 7);
           transition: all 200ms;
 
+          @include themify(variables.$themes) {
+            color: darken(themed("background"), 7);
+          }
+
           .close-icon {
-            color: map-get($colors, "text-color-primary");
             transition: all 200ms;
+
+            @include themify(variables.$themes) {
+              color: themed("textColorPrimary");
+            }
           }
         }
       }
-    }
-
-    &-content {
-      //padding: 1.5rem;
-
     }
   }
 }

@@ -1,5 +1,5 @@
-@import "../../resources/abstract/mixins";
-@import "../../resources/abstract/variables";
+@use "../../resources/abstract/mixins" as *;
+@use "../../resources/abstract/colors" as *;
 
 #editorjs {
   margin: 78px calc(380px + 50px) 0 calc(270px + 50px);

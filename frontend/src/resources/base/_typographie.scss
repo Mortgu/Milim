@@ -1,9 +1,13 @@
-@use "../abstract/colors";
-@use "../abstract/mixins";
+@use "../abstract/colors" as *;
+@use "../abstract/mixins" as * ;
+@use "../abstract/variables";
 
 h1, h2, h3, h4, h5, h6, p, a {
-    color: map-get(colors.$colors, "text-color-primary");
     margin: 0;
+
+    @include themify(variables.$themes) {
+        color: themed('textColorPrimary');
+    }
 }
 
 * {

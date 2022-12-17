@@ -1,5 +1,6 @@
-@import "../../../../resources/abstract/mixins";
-@import "../../../../resources/abstract/variables";
+@use "../../../../resources/abstract/mixins" as *;
+@use "../../../../resources/abstract/colors" as *;
+@use "../../../../resources/abstract/variables";
 
 .SideNavigation-section {
   .sidebar-item {
@@ -49,9 +50,11 @@
     max-height: 0;
     overflow: hidden;
 
-    background: darken(map-get($colors, 'background'), 5);
-
     transition: all 200ms;
+
+    @include themify(variables.$themes) {
+      background: darken(themed('background'), 5);
+    }
 
     &[data-open="true"] {
       max-height: 32px;
@@ -98,9 +101,12 @@
   cursor: pointer;
 
   text-decoration: none;
-  color: map-get($colors, "text-color-secondary");
 
   transition: all 200ms;
+
+  @include themify(variables.$themes) {
+    color: themed('textColorSecondary');
+  }
 
   &[data-disabled="true"] {
     display: none;
@@ -126,15 +132,22 @@
     background: map-get($colors, "border-color");
     color: map-get($colors, "text-hover");
     transition: background 200ms, color 200ms;
+
+    @include themify(variables.$themes) {
+      background: themed('hoverColor');
+    }
   }
 
   &.active {
-    background: map-get($colors, "primary");
-    color: map-get($colors, "text-color-primary");
+    color: white;
     transition: all 200ms;
 
+    @include themify(variables.$themes) {
+      background: themed("primary");
+    }
+
     .item-text {
-      color: map-get($colors, "text-color-primary");
+      color: white;
       transition: all 200ms;
     }
 
