@@ -11,81 +11,63 @@ import ForumIcon from "@material-ui/icons/Forum";
 import {MODAL_TYPES, useGlobalModalContext} from "../Models/GlobalModal";
 import SideNavigationItemDropdown from "./elements/items/SideNavigationItemDropdown";
 import SideNavigationItem from "./elements/items/SideNavigationItem";
-import HiddenMenu from "../HiddenMenus/HiddenMenu";
-import UserActionsMenu from "../HiddenMenus/components/UserActionsMenu";
+import {useNavigationContext} from "../../context/navigations.context";
+import {clickHook} from "../../hooks/click.hook";
 
 const SideNavigation = () => {
+    const { hiddenMenuOpen } = useNavigationContext();
+    const { useOutsideClick } = clickHook();
+
     const {showModal} = useGlobalModalContext();
     const showJoinOrganisationModal = () => {
         showModal(MODAL_TYPES.JOIN_ORGANISATION_MODAL, {});
     }
 
+    const hiddenMenuRef = useOutsideClick(() => hiddenMenuOpen);
+
     return (
-        <div className="SideNavigation">
-            <UserActionsMenu />
+        <div className="SideNavigation-wrapper">
+            <div className={`SideNavigation-hiddenMenu ${hiddenMenuOpen ? '' : 'hide'}`}>
+                <section className="SideNavigation-section">
+                    <SideNavigationItem icon={<ClockIcon className="item-icon" />} text="Profile" end link="/profile" />
+                    <SideNavigationItem icon={<PublicIcon className="item-icon" />} text="Settings" link="/logout" />
+                    <SideNavigationItem icon={<PublicIcon className="item-icon" />} text="Logout" link="/logout" />
+                </section>
+            </div>
+            <div className="SideNavigation">
+                <section className="SideNavigation-section">
+                    <SideNavigationItem icon={<MarketplaceIcon className="item-icon" />} text="Marketplace" end link="/" />
+                    <SideNavigationItem data-disabled={true} icon={<ForumIcon className="item-icon" />} text="Forum" end link="/forum" />
+                </section>
 
-            <section className="SideNavigation-section">
-                <SideNavigationItem icon={<MarketplaceIcon className="item-icon" />} text="Marketplace" end link="/" />
-                <SideNavigationItem data-disabled={true} icon={<ForumIcon className="item-icon" />} text="Forum" end link="/forum" />
-            </section>
+                <div className="SideNavigation-separator"></div>
 
-            <div className="SideNavigation-separator"></div>
+                <section className="SideNavigation-section">
+                    <SideNavigationItem icon={<ClockIcon className="item-icon" />} text="Resents" end link="/resents" />
+                    <SideNavigationItemDropdown icon={<NoteIcon className="item-icon" />} text="Drafts" link="/drafts">
+                        <div className="dropdown-item">
+                            <SubdirectoryIcon className="item-icon" />
+                            <NoteIcon className="item-icon" />
+                            <input className="input" type="text" placeholder="File Name..." />
+                        </div>
+                    </SideNavigationItemDropdown>
+                    <SideNavigationItem icon={<PublicIcon className="item-icon" />} text="Published" link="/published" />
+                </section>
 
-            <section className="SideNavigation-section">
-                <SideNavigationItem icon={<ClockIcon className="item-icon" />} text="Resents" end link="/resents" />
-                <SideNavigationItemDropdown icon={<NoteIcon className="item-icon" />} text="Drafts" link="/drafts">
-                    <div className="dropdown-item">
-                        <SubdirectoryIcon className="item-icon" />
-                        <NoteIcon className="item-icon" />
-                        <input className="input" type="text" placeholder="File Name..." />
-                    </div>
-                </SideNavigationItemDropdown>
-                <SideNavigationItem icon={<PublicIcon className="item-icon" />} text="Published" link="/published" />
-            </section>
+                <div className="SideNavigation-separator"></div>
 
-            <div className="SideNavigation-separator"></div>
+                <section className="SideNavigation-section">
+                    <SideNavigationItemDropdown icon={<FolderIcon className="item-icon" />} text="Collections" link="/collections">
+                        <div className="dropdown-item">
+                            <SubdirectoryIcon className="item-icon" />
+                            <FolderIcon className="item-icon" />
+                            <input className="input" type="text" placeholder="Folder Name..." />
+                        </div>
+                    </SideNavigationItemDropdown>
+                </section>
 
-            <section className="SideNavigation-section">
-                <SideNavigationItemDropdown icon={<FolderIcon className="item-icon" />} text="Collections" link="/collections">
-                    <div className="dropdown-item">
-                        <SubdirectoryIcon className="item-icon" />
-                        <FolderIcon className="item-icon" />
-                        <input className="input" type="text" placeholder="Folder Name..." />
-                    </div>
-                </SideNavigationItemDropdown>
-            </section>
-
-            <div className="SideNavigation-separator"></div>
-            {/***
-
-             <section className="SideNavigation-section">
-             <SideNavigationItem icon={<OrganisationIcon className="item-icon" />} text="Organisation" end link="/organisation" />
-             <SideNavigationItemDropdown icon={<NoteIcon className="item-icon" />} text="Drafts" end link="/organisation/drafts">
-             <div className="dropdown-item">
-             <NoteIcon className="item-icon" />
-             <input className="input"  type="text" placeholder="Datei Name..." />
-             </div>
-             </SideNavigationItemDropdown>
-             <SideNavigationItemDropdown icon={<PersonIcon className="item-icon" />} text="Members" end link="/organisation/members">
-             <div className="dropdown-item">
-             <MailIcon className="item-icon" />
-             <input className="input" type="text" placeholder="E-Mail..." />
-             </div>
-             </SideNavigationItemDropdown>
-             </section>
-
-             <div className="SideNavigation-separator"></div>
-
-             <div className="SideNavigation-message-box">
-             <p className="message-box-text">
-             Join or create a Organization to connect with your Team and manage your Drafts together.
-             </p>
-             <div className="message-box-ctas">
-             <button className="button primary-button" onClick={showJoinOrganisationModal}>Join</button>
-             <button className="button primary-button-125">Create</button>
-             </div>
-             </div>
-             */}
+                <div className="SideNavigation-separator"></div>
+            </div>
         </div>
     )
 }

@@ -103,22 +103,8 @@
   transition: all 200ms;
 
   &[data-disabled="true"] {
-    color: rgba(map-get($colors, "text-color-secondary"), .4);
+    display: none;
     pointer-events: none;
-
-    &:hover {
-      cursor: default;
-      background: transparent;
-      pointer-events: none;
-
-      .item-icon {
-        pointer-events: none;
-      }
-    }
-
-    .item-text {
-      color: rgba(map-get($colors, "text-color-secondary"), .4);
-    }
   }
 
   .item-text {

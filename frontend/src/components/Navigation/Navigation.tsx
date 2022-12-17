@@ -14,21 +14,16 @@ import React, {useState} from "react";
 import {clickHook} from "../../hooks/click.hook";
 import {useAuthContext} from "../../context/auth.context";
 import {SIDEBAR_TYPES, useGlobalSidebarContext} from "../Sidebars/GlobalSidebar";
-import {HIDDE_MENU_TYPES, useHiddenMenu} from "../HiddenMenus/HiddenMenu";
+import {useNavigationContext} from "../../context/navigations.context";
 
 const Navigation = () => {
     const { user } = useAuthContext();
     const { useOutsideClick } = clickHook();
 
     const { showSidebar, hideSidebar } = useGlobalSidebarContext();
-    const { showHiddenMenu, hideHiddenMenu } = useHiddenMenu();
+    const { showHiddenMenu, hiddenMenuOpen } = useNavigationContext();
 
     const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
-
-    const handleAddButton = (event: any) => {
-        //setDropdownIsOpen(true);
-        showHiddenMenu(HIDDE_MENU_TYPES.USER_ACTIONS_MENU);
-    }
 
     const hideDropdown = () => {
         setDropdownIsOpen(false);
@@ -49,13 +44,13 @@ const Navigation = () => {
             </div>
             <div className="navigation-left">
                 <div ref={ref}  className="dropdown-wrapper">
-                    <div className="navigation-user" onClick={handleAddButton}>
+                    <div className="navigation-user" onClick={showHiddenMenu}>
                         <LogoIcon className="logo-icon" />
                         <div className="content">
                             <p className="content-username">{user?.username || "Username"}</p>
                             <p className="content-email">{user?.email || "E-Mail"}</p>
                         </div>
-                        <ArrowDownIcon className="arrow-down" />
+                        <ArrowDownIcon style={{transform: `rotate(${hiddenMenuOpen ? '180deg' : '0deg'})`}} className="arrow-down" />
                     </div>
                     <div className="dropdown" data-open={dropdownIsOpen}>
                         <button className="dropdown-button icon-button"><PersonIcon /> Profile</button>

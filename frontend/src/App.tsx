@@ -19,10 +19,9 @@ import Published from "./pages/published/Published";
 import Marketplace from "./pages/marketplace/Marketplace";
 import NavigationUnauthorized from "./components/Navigation/Navigation.unauthorized";
 import GlobalSidebar from "./components/Sidebars/GlobalSidebar";
-import {useSocketContext} from "./context/socket.context";
 import {useSocketHook} from "./hooks/socket.hook";
 import Collections from "./pages/collections/Collections";
-import HiddenMenu from "./components/HiddenMenus/HiddenMenu";
+import {Navigations} from "./context/navigations.context";
 
 function App() {
     const {user} = useAuthContext();
@@ -143,19 +142,21 @@ function App() {
     return (
         <GlobalModal>
             <GlobalSidebar>
-                <Routes>
-                    {routes.map(({path, navigation, authenticated}) => (
-                        <Route key={path} path={path}
-                               element={authenticated ? user && navigation() : user ? navigation() :
-                                   <NavigationUnauthorized/>}/>
-                    ))}
-                </Routes>
-                <Routes>
-                    {routes.map(({path, sidebar, authenticated}) => (
-                        <Route key={path} path={path}
-                               element={authenticated ? user && sidebar() : user ? sidebar() : <></>}/>
-                    ))}
-                </Routes>
+                <Navigations>
+                    <Routes>
+                        {routes.map(({path, navigation, authenticated}) => (
+                            <Route key={path} path={path}
+                                   element={authenticated ? user && navigation() : user ? navigation() :
+                                       <NavigationUnauthorized/>}/>
+                        ))}
+                    </Routes>
+                    <Routes>
+                        {routes.map(({path, sidebar, authenticated}) => (
+                            <Route key={path} path={path}
+                                   element={authenticated ? user && sidebar() : user ? sidebar() : <></>}/>
+                        ))}
+                    </Routes>
+                </Navigations>
                 <Routes>
                     {routes.map(({path, main, authenticated}) => (
                         <Route key={path} path={path}

@@ -4,6 +4,7 @@ import MobileMenuIcon from '@material-ui/icons/Menu';
 import GlobalIcon from '@material-ui/icons/ExploreOutlined';
 
 import React from "react";
+import {NavLink} from "react-router-dom";
 
 const NavigationUnauthorized = () => {
     return (
@@ -12,7 +13,7 @@ const NavigationUnauthorized = () => {
                 <MobileMenuIcon />
             </div>
             <div className="navigation-center"></div>
-            <button className="button-transparent icon-button full-height"><GlobalIcon /> Get Started.</button>
+            <button className="button-transparent icon-button full-height"><GlobalIcon /> <NavLink to="/resents">Get Started.</NavLink></button>
             <div className="navigation-right">
                 <button className="button-transparent icon-button full-height cube-48">
                     <LogoIcon className="logo-icon" />
