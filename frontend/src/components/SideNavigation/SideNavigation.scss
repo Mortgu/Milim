@@ -12,7 +12,6 @@
 
   z-index: 250;
 
-  transition: all 200ms;
 
   @include themify(variables.$themes) {
     border-right: 1px solid themed('borderColor');
@@ -42,7 +41,6 @@
 
     .SideNavigation-section {
       margin: 0;
-      transition: all 200ms;
     }
 
     &.hide {
@@ -52,7 +50,6 @@
       pointer-events: none;
 
       transform-origin: top;
-      transition: all 200ms;
     }
   }
 
@@ -62,7 +59,6 @@
 
     z-index: 100;
 
-    transition: all 200ms;
 
     @include themify(variables.$themes) {
       background: themed('background');
