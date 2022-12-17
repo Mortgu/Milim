@@ -15,7 +15,7 @@ export const useThemeContext = () => useContext(ThemeContext);
 
 export const ThemeManager = ({ children }: any) => {
     const isBrowserDefaultDark = () =>
-        window.matchMedia('(prefers-color-schema: dark)').matches;
+        window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
 
     const getDefaultTheme = (): string => {
         const localStorageTheme = localStorage.getItem("theme");

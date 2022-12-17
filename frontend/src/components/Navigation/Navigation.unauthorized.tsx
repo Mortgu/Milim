@@ -5,8 +5,18 @@ import GlobalIcon from '@material-ui/icons/ExploreOutlined';
 
 import React from "react";
 import {NavLink} from "react-router-dom";
+import ThemeSwitcherIcon from "@material-ui/icons/Brightness6";
+import {useThemeContext} from "../../context/theme.context";
 
 const NavigationUnauthorized = () => {
+    const { theme, setTheme } = useThemeContext();
+
+    const switchTheme = () => {
+        const isCurrentDark = theme === 'dark';
+        setTheme(isCurrentDark ? 'light' : 'dark');
+        localStorage.setItem('theme', isCurrentDark ? 'light' : 'dark');
+    }
+
     return (
         <div className="navigation">
             <div className="mobile-menu">
@@ -15,7 +25,10 @@ const NavigationUnauthorized = () => {
             <div className="navigation-center"></div>
             <button className="button-transparent icon-button full-height"><GlobalIcon /> <NavLink to="/resents">Get Started.</NavLink></button>
             <div className="navigation-right">
-                <button className="button-transparent icon-button full-height cube-48">
+                <div className="navigation-icon theme-switcher" onClick={switchTheme}>
+                    <ThemeSwitcherIcon />
+                </div>
+                <button className="navigation-icon button-transparent icon-button full-height ">
                     <LogoIcon className="logo-icon" />
                 </button>
             </div>
