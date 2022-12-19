@@ -1,26 +1,34 @@
-@use "../../abstract/colors";
-@use "../../abstract/mixins";
+@use "../../abstract/colors" as *;
+@use "../../abstract/mixins" as *;
+@use "../../abstract/variables";
 
 .primary-button {
-  background: map-get(colors.$colors, 'primary');
-  color: map-get(colors.$colors, 'textColor-primary');
-
   transition: background 200ms, color 200ms;
 
-  &:hover {
-    background: lighten(map-get(colors.$colors, 'primary'), 5);
-    color: map-get(colors.$colors, 'textColor-primary');
+  @include themify(variables.$themes) {
+    color: themed('textColorPrimary');
+    background: themed('primary');
+  }
 
+  &:hover {
     transition: background 200ms, color 200ms;
+
+    @include themify(variables.$themes) {
+      color: themed('textColorPrimary');
+      background: lighten(themed('primary'), 5);
+    }
   }
 
   &-125 {
-    background: rgba(map-get(colors.$colors, 'primary'), 0.5);
-
+    @include themify(variables.$themes) {
+      background: rgba(themed('primary'), .5);
+    }
 
     &:hover {
-      background: map-get(colors.$colors, 'primary');
-      color: map-get(colors.$colors, 'textColor-primary');
+      @include themify(variables.$themes) {
+        color: themed('textColorPrimary');
+        background: themed('primary');
+      }
     }
   }
 }

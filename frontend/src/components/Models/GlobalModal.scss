@@ -133,9 +133,7 @@
             color: themed("textColorSecondary");
           }
 
-          @include media-down('xs') {
-            color: rgba(0, 0, 0, .8);
-          }
+          @include media-down('xs') {}
         }
 
         &:hover {

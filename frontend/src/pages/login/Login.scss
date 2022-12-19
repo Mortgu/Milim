@@ -1,5 +1,6 @@
 @use "../../resources/abstract/mixins" as *;
 @use "../../resources/abstract/colors" as *;
+@use "../../resources/abstract/variables";
 
 .login-wrapper {
   display: flex;
@@ -73,12 +74,17 @@
         grid-gap: 10px;
 
         h1 {
-          color: map-get($colors, 'text-color-primary');
+          @include themify(variables.$themes) {
+            color: themed('textColorPrimary');
+          }
         }
 
         p {
-          color: map-get($colors, 'text-color-secondary');
           font-weight: 400;
+
+          @include themify(variables.$themes) {
+            color: themed('textColorSecondary');
+          }
         }
       }
     }

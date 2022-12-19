@@ -1,13 +1,17 @@
-@use "../../resources/abstract/colors";
-@use "../../resources/abstract/mixins";
+@use "../../resources/abstract/colors" as *;
+@use "../../resources/abstract/mixins" as *;
+@use "../../resources/abstract/variables";
 
 .select-input {
-  background: lighten(map-get(colors.$colors, 'background'), 5);
   border-radius: 5px;
 
   margin: 1rem 0 0 0;
 
   padding: .4rem;
+
+  @include themify(variables.$themes) {
+    background: darken(themed('background'), 5);
+  }
 
   .viewport {
     display: flex;
@@ -19,9 +23,6 @@
       grid-gap: 5px;
 
       .option-badge {
-        color: map-get(colors.$colors, 'textColor-secondary');
-
-        background: darken(map-get(colors.$colors, 'background'), 2);
         transition: all 200ms;
 
         display: flex;
@@ -32,12 +33,19 @@
 
         padding: .5rem;
 
+        @include themify(variables.$themes) {
+          color: themed('textColorSecondary');
+          background: darken(themed('background'), 15);
+        }
+
         &:hover {
           cursor: pointer;
-          background: darken(map-get(colors.$colors, 'background'), 5);
           transition: all 200ms;
 
-          color: map-get(colors.$colors, 'textColor-primary');
+          @include themify(variables.$themes) {
+            color: themed('textColorPrimary');
+            background: darken(themed('background'), 10);
+          }
         }
       }
     }
@@ -51,13 +59,18 @@
       transition: all 200ms;
 
       padding: .45rem;
-      color: map-get(colors.$colors, 'textColor-secondary');
+
+      @include themify(variables.$themes) {
+        color: themed('textColorSecondary');
+      }
 
       &:hover {
-        color: map-get(colors.$colors, 'textColor-primary');
-
-        background: darken(map-get(colors.$colors, 'background'), 5);
         transition: all 200ms;
+
+        @include themify(variables.$themes) {
+          color: themed('textColorPrimary');
+          background: darken(themed('background'), 5);
+        }
       }
 
       svg {
@@ -68,7 +81,6 @@
   }
 
   .options {
-    .option {
-    }
+    .option {}
   }
 }

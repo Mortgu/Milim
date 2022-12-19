@@ -1,12 +1,21 @@
-@use "../../abstract/colors";
-@use "../../abstract/mixins";
+@use "../../abstract/colors" as *;
+@use "../../abstract/mixins" as *;
+@use "../../abstract/variables";
 
 .secondary-button {
-  background: rgba(map-get(colors.$colors, 'component-hover'), .8);
-  color: map-get(colors.$colors, 'textColor-secondary');
+  transition: background 200ms, color 200ms;
+
+  @include themify(variables.$themes) {
+    color: themed('textColorSecondary');
+    background: rgba(themed('hoverColor'), .8);
+  }
 
   &:hover {
-    background: rgba(map-get(colors.$colors, 'component-hover'), 1);
-    color: map-get(colors.$colors, 'textColor-primary');
+    transition: background 200ms, color 200ms;
+
+    @include themify(variables.$themes) {
+      color: themed('textColorPrimary');
+      background: rgba(themed('hoverColor'), 1);
+    }
   }
 }
