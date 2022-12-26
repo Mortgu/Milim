@@ -95,7 +95,14 @@
 
       .form-submit {
         width: 100%;
-        background: darken(map-get($colors, 'background'), 5);
+
+        @include themify(variables.$themes) {
+          background: darken(themed('background'), 5);
+        }
+      }
+
+      input[type="submit"] {
+        color: white;
       }
     }
 

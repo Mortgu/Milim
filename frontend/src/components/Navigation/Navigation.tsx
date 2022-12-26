@@ -66,10 +66,12 @@ const Navigation = () => {
                 <div className="navigation-icon theme-switcher" onClick={switchTheme}>
                     <ThemeSwitcherIcon />
                 </div>
-                <div className="user-icon">
+                {/*
+                 <div className="user-icon">
                     <LogoIcon className="logo-icon" />
                     <ArrowDownIcon className="arrow-down" />
                 </div>
+                */}
             </div>
         </div>
     )

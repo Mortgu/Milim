@@ -64,9 +64,9 @@ const FileCard = ({cardId = "", fileName, lastUpdatedAt, isPublic, canCTAS = fal
                     <div ref={dropdownRef} className="dropdown-wrapper" onClick={handleDropdown}>
                         <button className="icon-button"><DotIcon /></button>
                         <div className="dropdown" data-open={dropdownIsOpen}>
-                            <button className="dropdown-button icon-button" onClick={enableEditMode}><PenIcon /> Rename</button>
-                            <button className="dropdown-button icon-button"><SettingsIcon /> Settings</button>
-                            <button className="dropdown-button icon-button focus-red"><TrashIcon /> Delete</button>
+                            <button className="dropdown-button" onClick={enableEditMode}>Rename</button>
+                            <button className="dropdown-button">Settings</button>
+                            <button className="dropdown-button">Delete</button>
                         </div>
                     </div>
                 </div>}

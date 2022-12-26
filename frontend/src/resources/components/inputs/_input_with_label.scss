@@ -1,5 +1,6 @@
-@use "../../abstract/colors";
-@use "../../abstract/mixins";
+@use "../../abstract/mixins" as *;
+@use "../../abstract/colors" as *;
+@use "../../abstract/variables";
 
 .input-label {
   display: grid;
@@ -8,7 +9,10 @@
   label {
     font-size: 13px;
     letter-spacing: .2px;
-    color: map-get(colors.$colors, 'textColor-secondary');
+
+    @include themify(variables.$themes) {
+      color: themed('textColorSecondary');
+    }
   }
 
   input {

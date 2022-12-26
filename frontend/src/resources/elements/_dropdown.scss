@@ -1,5 +1,6 @@
 @use '../abstract/mixins' as *;
 @use '../abstract/colors' as *;
+@use '../abstract/variables';
 
 .dropdown-wrapper {
     position: relative;
@@ -22,18 +23,19 @@
     right: 0;
     top: calc(100% + 15px);
 
-    background: lighten(map-get($colors, 'background'), 2);
-    border-radius: 6px;
-    border: 1px solid map-get($colors, 'border-color');
+    border-radius: 3px;
 
-    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
 
     margin: 0;
 
-    padding: 5px;
+    padding: 5px 0;
 
     display: grid;
-    grid-gap: 4px;
+
+    @include themify(variables.$themes) {
+        border: 1px solid themed('borderColor');
+        background: lighten(themed('background'), 2);
+    }
 
     .list-divider {
         width: 100%;
