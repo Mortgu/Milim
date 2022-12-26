@@ -130,7 +130,7 @@ function App() {
             path: "*",
             main: () => <></>,
             sidebar: () => <></>,
-            navigation: () => <></>,
+            navigation: () => <NavigationUnauthorized />,
             authenticated: true
         },
     ];
