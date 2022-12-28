@@ -25,7 +25,6 @@
     width: 100%;
     height: fit-content;
 
-    border-bottom: 1px solid rgba(white, .1);
 
     padding: .5rem 0;
 
@@ -36,7 +35,8 @@
     transform-origin: top;
 
     @include themify(variables.$themes) {
-      background: darken(themed('hightlightColor'), 6);
+      background: themed('background');
+      border-bottom: 1px solid themed('borderColor');
     }
 
     .SideNavigation-section {

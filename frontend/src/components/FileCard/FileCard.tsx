@@ -9,6 +9,7 @@ import "./FileCard.scss";
 import {clickHook} from "../../hooks/click.hook";
 import SettingsIcon from "@material-ui/icons/Settings";
 import TrashIcon from "@material-ui/icons/Delete";
+import { MODAL_TYPES, useGlobalModalContext } from "../Models/GlobalModal";
 
 interface FileCardProps {
     cardId?: String,
@@ -23,6 +24,7 @@ const FileCard = ({cardId = "", fileName, lastUpdatedAt, isPublic, canCTAS = fal
 
     const [isEditMode, setIsEditMode] = useState<boolean>(false);
     const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
+    const {showModal} = useGlobalModalContext();
 
     const enableEditMode = (event: any) => {
         setIsEditMode(true);
@@ -36,6 +38,13 @@ const FileCard = ({cardId = "", fileName, lastUpdatedAt, isPublic, canCTAS = fal
 
     const hideDropdown = () => {
         setDropdownIsOpen(false);
+    }
+
+    const handleAddDraft = () => {
+        showModal(MODAL_TYPES.DRAFT_SETTINGS_MODAL, {
+            type: 'centered',
+            styles: { }
+        });
     }
 
     const ref = useOutsideClick(disableEditMode);
@@ -65,7 +74,8 @@ const FileCard = ({cardId = "", fileName, lastUpdatedAt, isPublic, canCTAS = fal
                         <button className="icon-button"><DotIcon /></button>
                         <div className="dropdown" data-open={dropdownIsOpen}>
                             <button className="dropdown-button" onClick={enableEditMode}>Rename</button>
-                            <button className="dropdown-button">Settings</button>
+                            <button className="dropdown-button" onClick={handleAddDraft}>Settings</button>
+                            <button className="dropdown-button">Publish</button>
                             <button className="dropdown-button">Delete</button>
                         </div>
                     </div>

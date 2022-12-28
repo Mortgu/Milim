@@ -15,7 +15,6 @@ const CreationTopBar = () => {
             styles: { }
         });
 
-
         socket.emit('notification:new', "test")
     }
 

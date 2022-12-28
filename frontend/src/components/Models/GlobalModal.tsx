@@ -6,15 +6,18 @@ import CloseIcon from "@material-ui/icons/Close";
 
 import JoinOrganisationModal from "./components/JoinOrganisationModal";
 import AddDraftModal from "./components/AddDraftModal";
+import DraftSettingsModal from "./components/DraftSettingsModal";
 
 export const MODAL_TYPES = {
     JOIN_ORGANISATION_MODAL: "JOIN_ORGANISATION_MODAL",
     ADD_DRAFT_MODAL: "ADD_DRAFT_MODAL",
+    DRAFT_SETTINGS_MODAL: "DRAFT_SETTINGS_MODAL",
 }
 
 const MODAL_COMPONENTS: any = {
     [MODAL_TYPES.JOIN_ORGANISATION_MODAL]: JoinOrganisationModal,
     [MODAL_TYPES.ADD_DRAFT_MODAL]: AddDraftModal,
+    [MODAL_TYPES.DRAFT_SETTINGS_MODAL]: DraftSettingsModal,
 }
 
 type T_GlobalModalContext = {
