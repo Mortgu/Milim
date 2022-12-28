@@ -1,0 +1,46 @@
+@use "../../../resources/abstract/mixins" as *;
+@use "../../../resources/abstract/colors" as *;
+@use "../../../resources/abstract/variables";
+
+.modal-navigation {
+  display: grid;
+  grid-gap: 10px;
+
+  padding: 0 .5rem;
+
+  @include themify(variables.$themes) {
+    border-right: 1px solid themed("borderColor");
+  }
+
+  .modal-navigation-cta {
+    width: 100%;
+    text-align: left;
+
+    border-radius: 5px;
+
+    min-width: 120px;
+
+    font-weight: 600;
+    font-size: 14px;
+    padding: .7rem 1rem;
+
+    line-height: normal;
+
+    @include themify(variables.$themes) {
+      background: themed("hightlightColor");
+    }
+
+    &:hover {
+      @include themify(variables.$themes) {
+        background: darken(themed("hightlightColor"), 5);
+      }
+    }
+
+    &.active {
+      @include themify(variables.$themes) {
+        background: themed("primary");
+        color: white;
+      }
+    }
+  }
+}

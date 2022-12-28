@@ -1,0 +1,23 @@
+@use "../../../resources/abstract/mixins" as *;
+@use "../../../resources/abstract/colors" as *;
+@use "../../../resources/abstract/variables";
+
+.DraftSettingsModal {
+  display: flex;
+  grid-gap: 20px;
+
+  padding: 20px;
+
+  .DraftSettingsModal-content {
+    width: 100%;
+    padding: 0 25px 0 0;
+
+    section {
+      display: none;
+
+      &.active {
+        display: unset;
+      }
+    }
+  }
+}
