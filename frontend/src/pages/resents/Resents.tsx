@@ -61,6 +61,9 @@ const Resents = () => {
                                          lastUpdatedAt={moment(row.meta.lastUpdatedAt).format('DD.MM.YYYY HH:MM')}/>
                     })}
                 </div>
+                <div className="file-card-wrapper highlighted">
+                    
+                </div>
             </div>
         </React.Fragment>
     )
