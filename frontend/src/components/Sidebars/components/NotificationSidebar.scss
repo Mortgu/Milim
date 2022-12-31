@@ -2,38 +2,78 @@
 @use "../../../resources/abstract/variables";
 
 .notification-sidebar {
+  width: 100%;
+  height: 100%;
+
   .head {
-    padding: 0 0 1rem 0;
-    display: grid;
-    grid-gap: 8px;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    padding: 1rem 20px;
+
+    z-index: 1;
 
     @include themify(variables.$themes) {
+      background: rgba(themed('background'), 1);
       border-bottom: 1px solid themed('borderColor');
     }
 
-    &-title {
-      font-weight: 400;
+    .sidebar-close {
+      order: 2;
+      width: fit-content;
+      height: fit-content;
+
+      margin: auto 0 ;
+      padding: .4rem;
+
+      display: flex;
+      align-content: center;
+      justify-content: center;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
 
       @include themify(variables.$themes) {
-        color: themed('textColorPrimary');
+        background: themed('hightlightColor');
       }
     }
 
-    &-text {
-      font-weight: 300;
-      font-size: 14px;
+    .sidebar-head-content {
+      display: grid;
+      grid-gap: 8px;
 
-      @include themify(variables.$themes) {
-        color: themed('textColorSecondary');
+      margin: auto 0;
+
+      order: 1;
+
+      .head-title {
+        font-weight: 400;
+
+        @include themify(variables.$themes) {
+          color: themed('textColorPrimary');
+        }
+      }
+
+      .head-text {
+        font-weight: 300;
+        font-size: 14px;
+
+        @include themify(variables.$themes) {
+          color: themed('textColorSecondary');
+        }
       }
     }
   }
 
-  .notifications {
-    display: grid;
-    grid-gap: 0;
-
-    margin-top: 20px;
+  .body {
+    padding: 20px;
   }
 }
 

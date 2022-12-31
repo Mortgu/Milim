@@ -4,10 +4,13 @@
 .notification-card {
   width: 100%;
   position: relative;
-  padding: 1rem 0;
+  padding: 1rem;
   transition: all 200ms;
 
+  border-radius: 5px;
+
   @include themify(variables.$themes) {
+    background: rgba(themed('textColorPrimary'), .03);
     color: themed('textColorPrimary');
   }
 

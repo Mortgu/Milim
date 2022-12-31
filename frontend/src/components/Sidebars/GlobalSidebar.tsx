@@ -6,6 +6,7 @@ import {Close} from "@material-ui/icons";
 
 // SIDEBAR COMPONENTS
 import NotificationSidebar from "./components/NotificationSidebar";
+import CloseIcon from "@material-ui/icons/Close";
 
 export const SIDEBAR_TYPES = {
     NOTIFICATION_SIDEBAR: "NOTIFICATION_SIDEBAR"
@@ -59,15 +60,7 @@ const GlobalSidebar = ({ children }: any) => {
             <div className={`sidebar-wrapper${isClosing ? ' fadeOut': ''}`}>
                 <div onClick={hideSidebar} className="sidebar-background"></div>
                 <div className="sidebar">
-                    <div className="sidebar-head">
-                        <div className="sidebar-close" onClick={hideSidebar}>
-                            <button className="sidebar-close-button"></button>
-                            <figure className="button-icon"></figure>
-                        </div>
-                    </div>
-                    <div className="sidebar-content">
-                        <SidebarComponent {...sidebarProps} />
-                    </div>
+                    <SidebarComponent {...sidebarProps} />
                 </div>
             </div>
         )

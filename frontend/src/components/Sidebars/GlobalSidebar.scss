@@ -45,18 +45,24 @@
     right: 0;
     top: 0;
 
-    width: 320px;
+    width: 400px;
     height: 100%;
     max-height: 100%;
 
-    padding: 40px 40px 0;
+    //padding: 25px;
 
-    //box-shadow: -2px 0 10px rgba(black, .2);
+    box-shadow: -4px 0 12px rgba(black, .1);
 
     animation: slide-in 250ms ease-in-out forwards;
     transition: all 250ms;
 
     box-sizing: content-box;
+
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     @include themify(variables.$themes) {
       background: themed('background');
@@ -66,79 +72,10 @@
     @keyframes slide-in {
       from {
         transform: translateX(500px);
-        //opacity: 0;
       }
 
       to {
         transform: translateX(0);
-        //opacity: 1;
-      }
-    }
-
-    .sidebar-head {
-      .sidebar-close {
-        position: absolute;
-        left: 0;
-        top: 72px;
-
-        .sidebar-close-button {
-          position: absolute;
-
-          box-sizing: content-box;
-
-          transform: translate(-50%, -50%) rotate(45deg);
-
-          cursor: pointer;
-          width: 26px;
-          height: 26px;
-
-          padding: 0;
-
-          //box-shadow: -5px 5px 10px rgba(black, .15);
-
-          border-radius: 0;
-
-          @include themify(variables.$themes) {
-            background: themed('background');
-            border: 1px solid lighten(themed('borderColor'), 10);
-          }
-
-          &:hover {
-            @include themify(variables.$themes) {
-              background: themed('hoverColor');
-            }
-          }
-        }
-
-        .button-icon {
-          left: 50%;
-          margin: 0;
-          position: absolute;
-          top: 50%;
-          pointer-events: none;
-
-          &:before {
-            transform: translate(1px, -1px) rotate(135deg);
-            height: 6px;
-            transform-origin: 1px 1px;
-            width: 2px;
-            background-color: #cdbe91;
-            content: "";
-            position: absolute;
-            transition: transform 0.2s, transform-origin 0.2s, background-color 0.2s, width 0.2s, height 0.2s;
-          }
-
-          &:after {
-            transform: translate(1px, -1px) rotate(45deg);
-            height: 6px;
-            transform-origin: 1px 1px;
-            width: 2px;
-            background-color: #cdbe91;
-            content: "";
-            position: absolute;
-            transition: transform 0.2s, transform-origin 0.2s, background-color 0.2s, width 0.2s, height 0.2s;
-          }
-        }
       }
     }
   }
