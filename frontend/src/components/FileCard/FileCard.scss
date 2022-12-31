@@ -13,6 +13,15 @@
   grid-gap: 20px;
 
   margin: 20px 0;
+
+  &.highlighted {
+    padding: 2rem;
+    border-radius: 6px;
+
+    @include themify(variables.$themes) {
+      background: themed("hightlightColor");
+    }
+  }
 }
 
 .file-card {
