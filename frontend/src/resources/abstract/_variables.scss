@@ -5,26 +5,47 @@ $breakpoints: (
         lg: 1025px,
         ws: 120rem,
         hd: 138rem,
-        xl: 192rem
+        xl: 192rem,
 );
 
 $themes: (
         light: (
                 background: white,
                 hightlightColor: darken(white, 5),
-                primary: #4A5878,
+                primary: #4a5878,
                 hoverColor: #f4f4f4,
-                borderColor: rgba(black, .1),
+                borderColor: rgba(black, 0.1),
                 textColorPrimary: black,
-                textColorSecondary: rgba(black, .6),
+                textColorSecondary: rgba(black, 0.6),
         ),
         dark: (
-                background: #2C2C2C,
-                hightlightColor: lighten(#2C2C2C, 10),
-                primary: #4A5878,
+                background: #2c2c2c,
+                hightlightColor: lighten(#2c2c2c, 10),
+                primary: #4a5878,
                 hoverColor: #383838,
-                borderColor: rgba(white, .1),
+                borderColor: rgba(white, 0.1),
                 textColorPrimary: white,
-                textColorSecondary: rgba(white, .6),
-        )
+                textColorSecondary: rgba(white, 0.6),
+        ),
+);
+
+$themes2: (
+        light: (
+                background: #ffffff,
+                on-background: darken(white, 5),
+
+                primary: black,
+
+                surface: #4a5878,
+                on-surface: lighten(#4a5878, 10),
+        ),
+        dark: (
+                background: #2c2c2c,
+                on-background: lighten(#2c2c2c, 10),
+
+                primary: white,
+
+                surface: #4a5878,
+                on-surface: darken(#4a5878, 10),
+        ),
 );

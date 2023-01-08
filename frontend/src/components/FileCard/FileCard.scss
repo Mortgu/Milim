@@ -34,7 +34,7 @@
   width: 100%;
   height: 220px;
 
-  border-radius: 6px;
+  border-radius: 10px;
   text-decoration: none;
 
   position: relative;
@@ -96,17 +96,18 @@
   }
 
   .file-card-footer {
-    padding: 1rem 1.3rem;
+    padding: 1rem 1.2rem;
+    margin: auto .5rem .5rem .5rem;
 
-    width: calc(100% - 2px);
+    width: auto;
 
-    position: absolute;
-    bottom: 1px;
-    left: 1px;
+    position: relative;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    border-radius: 6px;
 
     @include themify(variables.$themes) {
       background: darken(themed('hightlightColor'), 5);

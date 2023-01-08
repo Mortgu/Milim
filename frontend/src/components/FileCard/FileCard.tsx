@@ -75,7 +75,7 @@ const FileCard = ({cardId = "", fileName, lastUpdatedAt, isPublic, canCTAS = fal
                         <div className="dropdown" data-open={dropdownIsOpen}>
                             <button className="dropdown-button" onClick={enableEditMode}>Rename</button>
                             <button className="dropdown-button" onClick={handleAddDraft}>Settings</button>
-                            <button className="dropdown-button">Publish</button>
+                            <button className="dropdown-button">Visibility</button>
                             <button className="dropdown-button">Delete</button>
                         </div>
                     </div>
