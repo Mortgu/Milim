@@ -31,4 +31,10 @@ button {
   @include themify(variables.$themes) {
     color: themed('textColorSecondary');
   }
+
+  &.primary {
+    background: map-get(variables.$themes, 'primary');
+  }
+
+
 }

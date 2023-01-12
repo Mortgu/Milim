@@ -1,0 +1,45 @@
+@use "../../abstract/mixins" as *;
+@use "../../abstract/colors" as *;
+@use "../../abstract/variables";
+
+button {
+  width: 100%;
+  border: none;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: normal;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+  padding: 0.8rem 1.2rem;
+
+  @include themify(variables.$themes) {
+    background: themed('hightlightColor');
+    color: themed('textColorSecondary');
+  }
+
+  &:focus-within {
+    transition: all 200ms;
+
+    @include themify(variables.$themes) {
+      box-shadow: 0 0 0 .2rem themed('primary');
+      color: themed('textColorPrimary');
+    }
+  }
+
+  &.no-focus {
+    &:focus-within {
+      box-shadow: none;
+    }
+  }
+
+  &.transparent {
+    background: transparent;
+  }
+
+  &.no-padding {
+    padding: 0;
+  }
+}

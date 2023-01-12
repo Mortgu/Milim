@@ -30,7 +30,7 @@
     overflow: hidden;
 
     z-index: 99;
-    transition: all 200ms;
+    //transition: all 200ms;
     transform-origin: top;
 
     @include themify(variables.$themes2) {

@@ -58,6 +58,8 @@
       background: transparent;
       transition: all 200ms;
 
+      width: fit-content;
+
       padding: .45rem;
 
       @include themify(variables.$themes) {

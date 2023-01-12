@@ -49,7 +49,8 @@ const AddDraftModal = () => {
                 <SelectInput multiple options={options} value={value1} onChange={(o: any) => setValue1(o)} />
             </div>
             <div className="modal-footer">
-                
+                <button>Cancel</button>
+                <button className="primary">Create Draft</button>
             </div>
         </div>
     )

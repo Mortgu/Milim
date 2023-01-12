@@ -115,15 +115,9 @@
 
     .file-card-cta {
 
-      .dropdown-wrapper .icon-button {
-        padding: 0;
-        background: transparent;
-
-        &:hover svg {
-          @include themify(variables.$themes) {
-            fill: themed('textColorPrimary');
-          }
-        }
+      .dropdown-wrapper .icon-button svg {
+        width: 21px;
+        height: 21px;
       }
     }
   }

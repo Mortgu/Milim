@@ -4,39 +4,85 @@
 .notification-card {
   width: 100%;
   position: relative;
-  padding: 1rem;
+  padding: 1.4rem 20px;
   transition: all 200ms;
 
-  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 10px;
 
   @include themify(variables.$themes) {
-    background: rgba(themed('textColorPrimary'), .03);
+    // background: rgba(themed('textColorPrimary'), .03);
     color: themed('textColorPrimary');
+    border-bottom: 1px solid themed('borderColor');
   }
 
-  &:last-child {
-    border: none;
+  &-head {
+    display: flex;
+    grid-gap: 10px;
+    justify-content: space-between;
+
+    .block {
+      width: 100%;
+
+      .card-title {
+        font-weight: 400;
+        font-size: 16px;
+
+        display: flex;
+        flex-direction: column;
+
+        grid-gap: 5px;
+      }
+
+      .timestamp {
+        font-weight: 300;
+        line-height: 1.4;
+        font-size: 12px;
+        white-space: nowrap;
+
+        @include themify(variables.$themes) {
+          color: themed('textColorSecondary');
+        }
+      }
+    }
+
+    .notification-card-icon {
+      min-width: 40px;
+      height: 40px;
+
+      border-radius: 50px;
+
+      @include themify(variables.$themes) {
+        background: rgba(themed('textColorPrimary'), .03);
+      }
+    }
+
+    .close-notification {
+      @include themify(variables.$themes) {
+        color: rgba(themed('textColorSecondary'), 0.2);
+        transition: color 200ms;
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        @include themify(variables.$themes) {
+          color: rgba(themed('textColorSecondary'), 1);
+          transition: color 200ms;
+        }
+      }
+    }
   }
 
-  .content {
+  &-body {
     display: grid;
     grid-gap: 8px;
-
-    .card-title {
-      font-weight: 400;
-      font-size: 16px;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      grid-gap: 10px;
-    }
 
     .card-text {
       font-weight: 300;
       line-height: 1.4;
-      font-size: 13px;
+      font-size: 15px;
 
       @include themify(variables.$themes) {
         color: themed('textColorSecondary');
@@ -51,15 +97,5 @@
       }
     }
 
-    .timestamp {
-      font-weight: 400;
-      line-height: 1.4;
-      font-size: 12px;
-      white-space: nowrap;
-
-      @include themify(variables.$themes) {
-        color: themed('textColorSecondary');
-      }
-    }
   }
 }
